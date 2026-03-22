@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { useRef, useEffect, useState } from "react";
+import { motion, useInView, useMotionValue, useTransform, animate } from "motion/react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { TiltCard } from "@/components/ui/tilt-card";
 
 const phases = [
   {
@@ -11,6 +12,7 @@ const phases = [
     title: "Discovery & Planning",
     description: "Interactive interview, project docs generation, architecture plan",
     dotColor: "bg-cyan",
+    pingColor: "bg-cyan/40",
     borderColor: "border-cyan/20",
     beamFrom: "#00B4FF",
     beamTo: "#00B4FF",
@@ -20,6 +22,7 @@ const phases = [
     title: "Foundation",
     description: "Next.js setup, database schema, shared utilities, validation gates",
     dotColor: "bg-cyan",
+    pingColor: "bg-cyan/40",
     borderColor: "border-cyan/20",
     beamFrom: "#00B4FF",
     beamTo: "#00B4FF",
@@ -29,6 +32,7 @@ const phases = [
     title: "Auth & Onboarding",
     description: "Login, signup, email verification, multi-step onboarding flow",
     dotColor: "bg-yellow",
+    pingColor: "bg-yellow/40",
     borderColor: "border-yellow/20",
     beamFrom: "#FFE500",
     beamTo: "#FFE500",
@@ -38,6 +42,7 @@ const phases = [
     title: "App Shell & Dashboard",
     description: "Responsive layout, navigation, dashboard with real metrics",
     dotColor: "bg-yellow",
+    pingColor: "bg-yellow/40",
     borderColor: "border-yellow/20",
     beamFrom: "#FFE500",
     beamTo: "#FFE500",
@@ -47,6 +52,7 @@ const phases = [
     title: "Features & Settings",
     description: "Core CRUD, settings, Stripe billing, admin panel",
     dotColor: "bg-magenta",
+    pingColor: "bg-magenta/40",
     borderColor: "border-magenta/20",
     beamFrom: "#E91E8C",
     beamTo: "#E91E8C",
@@ -56,6 +62,7 @@ const phases = [
     title: "Email, Marketing & Polish",
     description: "Email templates, marketing site, edge cases, QA checklist",
     dotColor: "bg-magenta",
+    pingColor: "bg-magenta/40",
     borderColor: "border-magenta/20",
     beamFrom: "#E91E8C",
     beamTo: "#E91E8C",
@@ -65,26 +72,28 @@ const phases = [
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
+  const motionVal = useMotionValue(0);
+  const rounded = useTransform(motionVal, (v) => Math.round(v));
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(motionVal, target, {
+      duration: 1.6,
+      ease: "easeOut",
+    });
+    const unsub = rounded.on("change", (v) => setDisplay(v));
+    return () => {
+      controls.stop();
+      unsub();
+    };
+  }, [isInView, target, motionVal, rounded]);
 
   return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : {}}
-    >
-      {isInView ? (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          {target}
-          {suffix}
-        </motion.span>
-      ) : (
-        "0"
-      )}
-    </motion.span>
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
   );
 }
 
@@ -95,7 +104,50 @@ const stats = [
   { value: 60, suffix: "+", label: "Framework files", beamColor: "#00B4FF" },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: "easeOut" as const },
+  },
+};
+
+function PhaseDot({ dotColor, pingColor, index }: { dotColor: string; pingColor: string; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-20% 0px" });
+
+  return (
+    <div ref={ref} className="relative w-2.5 h-2.5">
+      <div className={`w-2.5 h-2.5 rounded-full ${dotColor}`} />
+      {isInView && (
+        <motion.div
+          className={`absolute inset-0 rounded-full ${pingColor}`}
+          initial={{ scale: 1, opacity: 0.7 }}
+          animate={{ scale: 3.5, opacity: 0 }}
+          transition={{
+            duration: 1,
+            delay: index * 0.15,
+            ease: "easeOut",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 export function HowItWorksSection() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-15% 0px" });
+
   return (
     <section id="how-it-works" className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden">
       <div className="mx-auto max-w-5xl w-full">
@@ -138,35 +190,43 @@ export function HowItWorksSection() {
         </div>
 
         {/* Phase cards grid */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          ref={gridRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={gridInView ? "visible" : "hidden"}
+          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {phases.map((phase, i) => (
-            <ScrollReveal key={phase.phase} delay={i * 0.08}>
-              <div className={`relative overflow-hidden rounded-2xl border ${phase.borderColor} bg-white/[0.02] p-5 sm:p-6 h-full hover:bg-white/[0.04] transition-colors duration-300`}>
-                {/* Phase dot + label */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-2.5 h-2.5 rounded-full ${phase.dotColor}`} />
-                  <span className="text-xs font-mono font-bold text-white/40">
-                    {phase.phase}
-                  </span>
+            <motion.div key={phase.phase} variants={cardVariants}>
+              <TiltCard className="h-full">
+                <div className={`relative overflow-hidden rounded-2xl border ${phase.borderColor} bg-white/[0.02] p-5 sm:p-6 h-full hover:bg-white/[0.04] transition-colors duration-300`}>
+                  {/* Phase dot + label */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <PhaseDot dotColor={phase.dotColor} pingColor={phase.pingColor} index={i} />
+                    <span className="text-xs font-mono font-bold text-white/40">
+                      {phase.phase}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-1.5">
+                    {phase.title}
+                  </h3>
+                  <p className="text-sm text-white/40 leading-relaxed">
+                    {phase.description}
+                  </p>
+                  <BorderBeam
+                    size={80}
+                    duration={14}
+                    delay={i * 1.5}
+                    colorFrom={phase.beamFrom}
+                    colorTo={phase.beamTo}
+                    borderWidth={1}
+                  />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-1.5">
-                  {phase.title}
-                </h3>
-                <p className="text-sm text-white/40 leading-relaxed">
-                  {phase.description}
-                </p>
-                <BorderBeam
-                  size={80}
-                  duration={14}
-                  delay={i * 1.5}
-                  colorFrom={phase.beamFrom}
-                  colorTo={phase.beamTo}
-                  borderWidth={1}
-                />
-              </div>
-            </ScrollReveal>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

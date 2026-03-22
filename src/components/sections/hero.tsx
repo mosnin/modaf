@@ -6,6 +6,7 @@ import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { CopyCommand } from "@/components/ui/copy-command";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 import ShapeGrid from "@/components/ShapeGrid";
 import { LanyardCard } from "@/components/ui/lanyard-card";
 
@@ -96,20 +97,20 @@ export function HeroSection() {
         transition={{ duration: 0.4, delay: 0.55, ease: "easeOut" }}
         className="relative z-10 mt-5 flex flex-row gap-3"
       >
-        <a
+        <MagneticButton
           href="#get-started"
           className="glow-button inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
         >
           <span className="relative z-10">Get Started</span>
-        </a>
-        <a
+        </MagneticButton>
+        <MagneticButton
           href="https://github.com/mosnin/LoxSammy"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
         >
           View on GitHub
-        </a>
+        </MagneticButton>
       </motion.div>
 
       {/* Scroll indicator */}

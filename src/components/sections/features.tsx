@@ -1,7 +1,10 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { TiltCard } from "@/components/ui/tilt-card";
 
 const features = [
   {
@@ -80,6 +83,42 @@ const colorMap = {
   },
 };
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.95, rotateX: 4 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotateX: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+function StaggeredGrid({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-15% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="mt-16 grid gap-4 sm:grid-cols-2"
+      style={{ perspective: 800 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function FeaturesSection() {
   return (
     <section
@@ -104,38 +143,43 @@ export function FeaturesSection() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2">
+        <StaggeredGrid>
           {features.map((feature, i) => {
             const c = colorMap[feature.color];
             return (
-              <ScrollReveal key={feature.title} delay={i * 0.06}>
-                <div
-                  className={`relative overflow-hidden rounded-2xl border ${c.border} bg-white/[0.02] p-5 sm:p-6 h-full hover:bg-white/[0.04] transition-colors duration-300`}
-                >
-                  <span
-                    className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border mb-3 ${c.tag}`}
+              <motion.div
+                key={feature.title}
+                variants={cardVariants}
+              >
+                <TiltCard className="h-full">
+                  <div
+                    className={`relative overflow-hidden rounded-2xl border ${c.border} bg-white/[0.02] p-5 sm:p-6 h-full hover:bg-white/[0.04] transition-colors duration-300`}
                   >
-                    {feature.tag}
-                  </span>
-                  <h3 className="text-lg font-semibold text-white mb-1.5">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-white/40 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <BorderBeam
-                    size={80}
-                    duration={14}
-                    delay={i * 1.5}
-                    colorFrom={c.beam}
-                    colorTo={c.beam}
-                    borderWidth={1}
-                  />
-                </div>
-              </ScrollReveal>
+                    <span
+                      className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border mb-3 ${c.tag}`}
+                    >
+                      {feature.tag}
+                    </span>
+                    <h3 className="text-lg font-semibold text-white mb-1.5">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-white/40 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <BorderBeam
+                      size={80}
+                      duration={14}
+                      delay={i * 1.5}
+                      colorFrom={c.beam}
+                      colorTo={c.beam}
+                      borderWidth={1}
+                    />
+                  </div>
+                </TiltCard>
+              </motion.div>
             );
           })}
-        </div>
+        </StaggeredGrid>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { CopyCommand } from "@/components/ui/copy-command";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function CTASection() {
   return (
@@ -25,14 +26,14 @@ export function CTASection() {
 
         <ScrollReveal delay={0.2}>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
+            <MagneticButton
               href="https://github.com/mosnin/LoxSammy"
               target="_blank"
               rel="noopener noreferrer"
               className="glow-button inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
             >
               <span className="relative z-10">View on GitHub</span>
-            </a>
+            </MagneticButton>
           </div>
           <p className="mt-4 text-sm text-white/30">
             Free and open source. No account required.
