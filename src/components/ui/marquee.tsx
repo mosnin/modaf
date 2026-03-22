@@ -9,12 +9,7 @@ interface MarqueeProps {
 
 export function Marquee({ children, reverse, className }: MarqueeProps) {
   return (
-    <div className={cn("relative overflow-hidden", className)}>
-      {/* Left fade — small on mobile, 35% on desktop */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-[35%] z-10 bg-gradient-to-r from-black to-transparent" />
-      {/* Right fade */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-[35%] z-10 bg-gradient-to-l from-black to-transparent" />
-
+    <div className={cn("relative overflow-hidden marquee-container", className)}>
       <div
         className={cn(
           "flex w-max gap-4",

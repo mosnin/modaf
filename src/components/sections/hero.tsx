@@ -56,9 +56,9 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
-        className="relative z-10 mt-8 w-full max-w-md"
+        className="relative z-10 mt-8 w-full max-w-lg"
       >
-        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy" />
+        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
       </motion.div>
 
       <motion.div

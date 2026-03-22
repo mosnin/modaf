@@ -176,6 +176,19 @@ html, body {
   display: none;
 }
 
+/* Marquee edge fade — mobile: subtle, desktop: only ~35% center visible */
+.marquee-container {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (min-width: 768px) {
+  .marquee-container {
+    mask-image: linear-gradient(to right, transparent 0%, black 33%, black 67%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 33%, black 67%, transparent 100%);
+  }
+}
+
 /* Marquee animation — 4 copies, translate by 25% for seamless loop */
 @keyframes marquee {
   from {
