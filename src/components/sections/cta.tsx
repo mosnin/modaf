@@ -3,19 +3,12 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { CopyCommand } from "@/components/ui/copy-command";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { ParticleConstellation } from "@/components/ui/particle-constellation";
 import { GlitchText } from "@/components/ui/glitch-text";
 
 export function CTASection() {
   return (
-    <section className="relative py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden">
-      {/* Particle constellation background */}
-      <div className="absolute inset-0 pointer-events-auto">
-        <ParticleConstellation />
-      </div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_black_80%)] pointer-events-none" />
-
-      <div className="relative z-10 mx-auto max-w-3xl w-full text-center">
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden">
+      <div className="mx-auto max-w-3xl w-full text-center">
         <ScrollReveal>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
             <GlitchText>Ready to build?</GlitchText>
@@ -28,7 +21,7 @@ export function CTASection() {
 
         <ScrollReveal delay={0.1}>
           <div className="mt-8 flex justify-center">
-            <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" typewriter />
+            <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
           </div>
         </ScrollReveal>
 
