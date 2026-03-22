@@ -108,12 +108,12 @@ export function GetStartedSection() {
                   </div>
                 </div>
                 <BorderBeam
-                  size={120}
-                  duration={5}
-                  delay={i * 1.5}
+                  size={100}
+                  duration={14}
+                  delay={i * 2}
                   colorFrom={step.beamFrom}
                   colorTo={step.beamTo}
-                  borderWidth={1.5}
+                  borderWidth={1}
                 />
               </div>
             </ScrollReveal>

@@ -10,49 +10,55 @@ const phases = [
     phase: "Phase 0-2",
     title: "Discovery & Planning",
     description: "Interactive interview, project docs generation, architecture plan",
-    color: "bg-cyan",
+    dotColor: "bg-cyan",
+    borderColor: "border-cyan/20",
     beamFrom: "#00B4FF",
-    beamTo: "#FFE500",
+    beamTo: "#00B4FF",
   },
   {
     phase: "Phase 3-4",
     title: "Foundation",
     description: "Next.js setup, database schema, shared utilities, validation gates",
-    color: "bg-cyan",
+    dotColor: "bg-cyan",
+    borderColor: "border-cyan/20",
     beamFrom: "#00B4FF",
-    beamTo: "#E91E8C",
+    beamTo: "#00B4FF",
   },
   {
     phase: "Phase 5-6",
     title: "Auth & Onboarding",
     description: "Login, signup, email verification, multi-step onboarding flow",
-    color: "bg-yellow",
+    dotColor: "bg-yellow",
+    borderColor: "border-yellow/20",
     beamFrom: "#FFE500",
-    beamTo: "#00B4FF",
+    beamTo: "#FFE500",
   },
   {
     phase: "Phase 7-8",
     title: "App Shell & Dashboard",
     description: "Responsive layout, navigation, dashboard with real metrics",
-    color: "bg-yellow",
+    dotColor: "bg-yellow",
+    borderColor: "border-yellow/20",
     beamFrom: "#FFE500",
-    beamTo: "#E91E8C",
+    beamTo: "#FFE500",
   },
   {
     phase: "Phase 9-11",
     title: "Features & Settings",
     description: "Core CRUD, settings, Stripe billing, admin panel",
-    color: "bg-magenta",
+    dotColor: "bg-magenta",
+    borderColor: "border-magenta/20",
     beamFrom: "#E91E8C",
-    beamTo: "#FFE500",
+    beamTo: "#E91E8C",
   },
   {
     phase: "Phase 12-14",
     title: "Email, Marketing & Polish",
     description: "Email templates, marketing site, edge cases, QA checklist",
-    color: "bg-magenta",
+    dotColor: "bg-magenta",
+    borderColor: "border-magenta/20",
     beamFrom: "#E91E8C",
-    beamTo: "#00B4FF",
+    beamTo: "#E91E8C",
   },
 ];
 
@@ -83,10 +89,10 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 }
 
 const stats = [
-  { value: 15, suffix: "", label: "Build phases" },
-  { value: 46, suffix: "+", label: "Validation gates" },
-  { value: 9, suffix: "", label: "Project docs generated" },
-  { value: 22, suffix: "", label: "Framework files" },
+  { value: 15, suffix: "", label: "Build phases", beamColor: "#00B4FF" },
+  { value: 46, suffix: "+", label: "Validation gates", beamColor: "#E91E8C" },
+  { value: 9, suffix: "", label: "Project docs generated", beamColor: "#FFE500" },
+  { value: 22, suffix: "", label: "Framework files", beamColor: "#00B4FF" },
 ];
 
 export function HowItWorksSection() {
@@ -119,11 +125,11 @@ export function HowItWorksSection() {
                 </div>
                 <div className="text-sm text-white/40 mt-1">{stat.label}</div>
                 <BorderBeam
-                  size={80}
-                  duration={4}
-                  delay={i * 0.8}
-                  colorFrom="#00B4FF"
-                  colorTo="#E91E8C"
+                  size={60}
+                  duration={12}
+                  delay={i * 2}
+                  colorFrom={stat.beamColor}
+                  colorTo={stat.beamColor}
                   borderWidth={1}
                 />
               </div>
@@ -135,10 +141,10 @@ export function HowItWorksSection() {
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {phases.map((phase, i) => (
             <ScrollReveal key={phase.phase} delay={i * 0.08}>
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 h-full group hover:bg-white/[0.04] transition-colors duration-300">
+              <div className={`relative overflow-hidden rounded-2xl border ${phase.borderColor} bg-white/[0.02] p-5 sm:p-6 h-full hover:bg-white/[0.04] transition-colors duration-300`}>
                 {/* Phase dot + label */}
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-2.5 h-2.5 rounded-full ${phase.color} shadow-[0_0_8px] shadow-current`} />
+                  <div className={`w-2.5 h-2.5 rounded-full ${phase.dotColor}`} />
                   <span className="text-xs font-mono font-bold text-white/40">
                     {phase.phase}
                   </span>
@@ -150,9 +156,9 @@ export function HowItWorksSection() {
                   {phase.description}
                 </p>
                 <BorderBeam
-                  size={100}
-                  duration={6}
-                  delay={i * 0.5}
+                  size={80}
+                  duration={14}
+                  delay={i * 1.5}
                   colorFrom={phase.beamFrom}
                   colorTo={phase.beamTo}
                   borderWidth={1}

@@ -1,13 +1,24 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useState, useCallback, Suspense, lazy } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { CopyCommand } from "@/components/ui/copy-command";
 import ShapeGrid from "@/components/ShapeGrid";
 
+const LanyardScene = lazy(() => import("@/components/ui/lanyard-scene"));
+
 export function HeroSection() {
+  const [showLanyard, setShowLanyard] = useState(false);
+
+  const handleLogoTap = useCallback(() => {
+    if (showLanyard) return;
+    setShowLanyard(true);
+    setTimeout(() => setShowLanyard(false), 7000);
+  }, [showLanyard]);
+
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-12 sm:pb-16 overflow-hidden">
       {/* ShapeGrid background */}
@@ -29,11 +40,29 @@ export function HeroSection() {
       {/* Subtle magenta tint */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />
 
+      {/* Lanyard easter egg overlay */}
+      <AnimatePresence>
+        {showLanyard && (
+          <motion.div
+            className="fixed inset-0 z-50"
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -60 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Suspense fallback={null}>
+              <LanyardScene position={[0, 0, 24]} gravity={[0, -40, 0]} />
+            </Suspense>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative z-10 mb-8"
+        className="relative z-10 mb-8 cursor-pointer"
+        onClick={handleLogoTap}
       >
         <Image
           src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKGZUcil50cL3l4ddD6f3aw0ebnvLr_dTXSl5LUgaMbZLIAs19H9u5TQEozHOH2M2SaRlz6GcynqLy3uF2O8pEWC5K8VDj0k19kZPGAxQ3qI0KEjRO_ql_XHAXoly_Tw7dYvja-tnddTIYtDUOkNDO7WSNBldJad3v3zEIDdt8ENoRMf1FSs63kGcjZAjr/w604-h202/Untitled%20design%20(52).png"

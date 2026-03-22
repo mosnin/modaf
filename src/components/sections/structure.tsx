@@ -114,11 +114,11 @@ export function StructureSection() {
               sort="none"
             />
             <BorderBeam
-              size={150}
-              duration={8}
+              size={100}
+              duration={16}
               colorFrom="#FFE500"
-              colorTo="#E91E8C"
-              borderWidth={1.5}
+              colorTo="#FFE500"
+              borderWidth={1}
             />
           </div>
         </ScrollReveal>
