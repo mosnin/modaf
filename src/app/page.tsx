@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero";
+import { ToolsMarquee } from "@/components/sections/tools-marquee";
 import { GetStartedSection } from "@/components/sections/get-started";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { StructureSection } from "@/components/sections/structure";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <ToolsMarquee />
         <GetStartedSection />
         <HowItWorksSection />
         <StructureSection />
