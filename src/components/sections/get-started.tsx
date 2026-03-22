@@ -3,6 +3,7 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TypingCycle } from "@/components/ui/typing-cycle";
+import { CharReveal } from "@/components/ui/char-reveal";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Idea01Icon,
@@ -62,7 +63,7 @@ export function GetStartedSection() {
             Get Started
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
-            Three steps to your
+            <CharReveal text="Three steps to your" />
             <br />
             <span className="text-gradient-modaf">
               next <TypingCycle words={cycleWords} />

@@ -5,6 +5,8 @@ import { motion, useInView } from "motion/react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TiltCard } from "@/components/ui/tilt-card";
+import { MorphingBlob } from "@/components/ui/morphing-blob";
+import { CharReveal } from "@/components/ui/char-reveal";
 
 const features = [
   {
@@ -123,17 +125,22 @@ export function FeaturesSection() {
   return (
     <section
       id="features"
-      className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden"
+      className="relative py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl w-full">
+      {/* Morphing blob background */}
+      <MorphingBlob className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-40 pointer-events-none" />
+
+      <div className="relative z-10 mx-auto max-w-5xl w-full">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-magenta mb-2">
             v1.11 Features
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
-            Built to be
+            <CharReveal text="Built to be" />
             <br />
-            <span className="text-magenta">resilient</span>
+            <span className="text-magenta">
+              <CharReveal text="resilient" delay={0.35} />
+            </span>
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
             Self-healing diagnostics, technology escape hatches, drift

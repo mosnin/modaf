@@ -260,6 +260,33 @@ html {
   scrollbar-width: none;
 }
 
+/* Glitch text effect */
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -1px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, -2px); }
+  40% { transform: translate(-3px, 1px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(-2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s ease-in-out infinite;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s ease-in-out infinite reverse;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
@@ -270,5 +297,10 @@ html {
   .text-shadow-retro,
   .text-shadow-retro-sm {
     text-shadow: none;
+  }
+
+  .animate-glitch-1,
+  .animate-glitch-2 {
+    animation: none;
   }
 }

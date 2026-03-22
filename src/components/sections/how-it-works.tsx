@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useMotionValue, useTransform, animate } from "motion/react";
+import { motion, useInView, useMotionValue, useTransform, useScroll, animate } from "motion/react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TiltCard } from "@/components/ui/tilt-card";
+import { CharReveal } from "@/components/ui/char-reveal";
 
 const phases = [
   {
@@ -144,6 +145,37 @@ function PhaseDot({ dotColor, pingColor, index }: { dotColor: string; pingColor:
   );
 }
 
+function ScrollTimeline() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 20%"],
+  });
+
+  const gradientColors = ["#00B4FF", "#00B4FF", "#FFE500", "#FFE500", "#E91E8C", "#E91E8C"];
+
+  return (
+    <div
+      ref={timelineRef}
+      className="absolute left-4 sm:left-6 top-0 bottom-0 w-px hidden lg:block"
+      style={{ zIndex: 1 }}
+    >
+      {/* Track */}
+      <div className="absolute inset-0 bg-white/5 rounded-full" />
+      {/* Animated fill */}
+      <motion.div
+        className="absolute top-0 left-0 w-full rounded-full origin-top"
+        style={{
+          scaleY: scrollYProgress,
+          background: `linear-gradient(to bottom, ${gradientColors.join(", ")})`,
+          height: "100%",
+          boxShadow: "0 0 8px rgba(0, 180, 255, 0.4)",
+        }}
+      />
+    </div>
+  );
+}
+
 export function HowItWorksSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-15% 0px" });
@@ -156,9 +188,11 @@ export function HowItWorksSection() {
             How It Works
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
-            14 phases from idea
+            <CharReveal text="14 phases from idea" />
             <br />
-            <span className="text-cyan">to production</span>
+            <span className="text-cyan">
+              <CharReveal text="to production" delay={0.5} />
+            </span>
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
             MODAF guides your AI agent through a structured, phased build
@@ -190,13 +224,15 @@ export function HowItWorksSection() {
         </div>
 
         {/* Phase cards grid */}
-        <motion.div
-          ref={gridRef}
-          variants={containerVariants}
-          initial="hidden"
-          animate={gridInView ? "visible" : "hidden"}
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="relative">
+          <ScrollTimeline />
+          <motion.div
+            ref={gridRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={gridInView ? "visible" : "hidden"}
+            className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:pl-10"
+          >
           {phases.map((phase, i) => (
             <motion.div key={phase.phase} variants={cardVariants}>
               <TiltCard className="h-full">
@@ -226,7 +262,8 @@ export function HowItWorksSection() {
               </TiltCard>
             </motion.div>
           ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
