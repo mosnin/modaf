@@ -24,7 +24,6 @@ export function HeroSection() {
           height={134}
           className="h-24 sm:h-32 md:h-40 w-auto"
           priority
-          unoptimized
         />
       </motion.div>
 

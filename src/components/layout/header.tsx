@@ -28,7 +28,6 @@ export function Header() {
               width={100}
               height={33}
               className="h-8 w-auto"
-              unoptimized
             />
           </a>
 
@@ -83,8 +82,7 @@ export function Header() {
                 width={100}
                 height={33}
                 className="h-8 w-auto"
-                unoptimized
-              />
+                />
               <button
                 onClick={() => setMobileOpen(false)}
                 className="p-2 text-white/60 hover:text-white"

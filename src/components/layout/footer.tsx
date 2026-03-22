@@ -30,7 +30,6 @@ export function Footer() {
               width={120}
               height={40}
               className="h-8 w-auto mb-4"
-              unoptimized
             />
             <p className="text-sm text-white/40 max-w-[280px]">
               A reusable framework pack that helps coding agents build SaaS
