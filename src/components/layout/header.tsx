@@ -9,8 +9,8 @@ import { Menu01Icon, Cancel01Icon, Github01Icon } from "@hugeicons/core-free-ico
 const navItems = [
   { label: "Get Started", href: "#get-started" },
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Features", href: "#features" },
   { label: "Structure", href: "#structure" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
 ];
 

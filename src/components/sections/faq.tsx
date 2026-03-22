@@ -47,7 +47,12 @@ const faqs = [
   {
     question: "What happens if something goes wrong?",
     answer:
-      "MODAF includes 46+ validation gates that check structural integrity after every build phase. It also generates a pattern snapshot to prevent code drift across sessions. That said, this is experimental software. Always use version control and back up your work before letting any AI agent modify your codebase.",
+      "MODAF has multiple safety nets. 46+ validation gates check structural integrity after every phase. Doctor Mode is a built-in structural linter that scans for broken references and doc drift. Error Recovery provides a phase re-run protocol so you never have to start over. The pattern snapshot system prevents code style drift across sessions and agents. That said, this is experimental software — always use version control and back up your work.",
+  },
+  {
+    question: "Am I locked into the default tech stack?",
+    answer:
+      "No. MODAF includes documented escape hatches for swapping any default technology. Want Clerk instead of Auth.js? Lemon Squeezy instead of Stripe? MySQL instead of PostgreSQL? Each swap guide tells the agent exactly which files to read and what to change, so you're never locked in.",
   },
 ];
 

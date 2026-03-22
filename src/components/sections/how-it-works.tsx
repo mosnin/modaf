@@ -92,7 +92,7 @@ const stats = [
   { value: 15, suffix: "", label: "Build phases", beamColor: "#00B4FF" },
   { value: 46, suffix: "+", label: "Validation gates", beamColor: "#E91E8C" },
   { value: 9, suffix: "", label: "Project docs generated", beamColor: "#FFE500" },
-  { value: 22, suffix: "", label: "Framework files", beamColor: "#00B4FF" },
+  { value: 60, suffix: "+", label: "Framework files", beamColor: "#00B4FF" },
 ];
 
 export function HowItWorksSection() {

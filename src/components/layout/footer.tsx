@@ -12,6 +12,7 @@ const footerLinks = [
   {
     heading: "Resources",
     links: [
+      { label: "Features", href: "#features" },
       { label: "Structure", href: "#structure" },
       { label: "FAQ", href: "#faq" },
     ],
