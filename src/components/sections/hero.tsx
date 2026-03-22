@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useCallback, Suspense, lazy } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { CopyCommand } from "@/components/ui/copy-command";
 import ShapeGrid from "@/components/ShapeGrid";
-
-const LanyardScene = lazy(() => import("@/components/ui/lanyard-scene"));
+import { LanyardCard } from "@/components/ui/lanyard-card";
 
 export function HeroSection() {
   const [showLanyard, setShowLanyard] = useState(false);
@@ -40,21 +39,9 @@ export function HeroSection() {
       {/* Subtle magenta tint */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />
 
-      {/* Lanyard easter egg overlay */}
+      {/* Lanyard easter egg */}
       <AnimatePresence>
-        {showLanyard && (
-          <motion.div
-            className="fixed inset-0 z-50"
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -60 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Suspense fallback={null}>
-              <LanyardScene position={[0, 0, 24]} gravity={[0, -40, 0]} />
-            </Suspense>
-          </motion.div>
-        )}
+        {showLanyard && <LanyardCard />}
       </AnimatePresence>
 
       <motion.div
