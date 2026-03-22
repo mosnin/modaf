@@ -45,7 +45,7 @@ const steps = [
 
 export function GetStartedSection() {
   return (
-    <section id="get-started" className="py-20 md:py-32 px-6">
+    <section id="get-started" className="py-20 md:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-magenta mb-2">

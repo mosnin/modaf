@@ -5,7 +5,7 @@ import { CopyCommand } from "@/components/ui/copy-command";
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-white/[0.02]">
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02]">
       <div className="mx-auto max-w-3xl text-center">
         <ScrollReveal>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
@@ -29,7 +29,7 @@ export function CTASection() {
               href="https://github.com/mosnin/LoxSammy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-[52px] px-8 text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
+              className="inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
             >
               View on GitHub
             </a>

@@ -53,7 +53,7 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-20 md:py-32 px-6">
+    <section id="faq" className="py-20 md:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-cyan mb-2 text-center">

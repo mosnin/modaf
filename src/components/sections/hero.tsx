@@ -7,7 +7,7 @@ import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-16 overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />
 
@@ -55,7 +55,7 @@ export function HeroSection() {
       >
         <a
           href="#get-started"
-          className="inline-flex items-center justify-center gap-2 h-[52px] px-8 text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
+          className="inline-flex items-center justify-center gap-2 h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
         >
           Get Started
         </a>
@@ -63,7 +63,7 @@ export function HeroSection() {
           href="https://github.com/mosnin/LoxSammy"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 h-[52px] px-8 text-base font-semibold rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
+          className="inline-flex items-center justify-center gap-2 h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
         >
           View on GitHub
         </a>

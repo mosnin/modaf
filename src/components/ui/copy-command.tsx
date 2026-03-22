@@ -18,8 +18,8 @@ export function CopyCommand({ command }: CopyCommandProps) {
   };
 
   return (
-    <div className="flex items-center gap-0 rounded-xl border border-white/10 bg-white/5 overflow-hidden max-w-xl w-full">
-      <code className="flex-1 px-4 py-3 text-sm sm:text-base font-mono text-cyan overflow-x-auto whitespace-nowrap">
+    <div className="flex items-center gap-0 rounded-xl border border-white/10 bg-white/5 overflow-hidden max-w-xl w-full min-w-0">
+      <code className="flex-1 px-3 sm:px-4 py-3 text-xs sm:text-sm md:text-base font-mono text-cyan overflow-x-auto whitespace-nowrap min-w-0">
         {command}
       </code>
       <button

@@ -61,7 +61,7 @@ const structure = [
 
 export function StructureSection() {
   return (
-    <section id="structure" className="py-20 md:py-32 px-6">
+    <section id="structure" className="py-20 md:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-yellow mb-2">
@@ -94,11 +94,11 @@ export function StructureSection() {
                   </h3>
                 </div>
                 <p className="text-sm text-white/50 mb-4">{dir.description}</p>
-                <div className="space-y-1">
+                <div className="space-y-1 overflow-hidden">
                   {dir.files.map((file) => (
                     <div
                       key={file}
-                      className="text-xs font-mono text-white/30 pl-4 border-l border-white/10"
+                      className="text-xs font-mono text-white/30 pl-4 border-l border-white/10 truncate"
                     >
                       {file}
                     </div>

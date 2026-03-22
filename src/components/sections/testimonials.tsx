@@ -52,7 +52,7 @@ function TestimonialCard({
   role: string;
 }) {
   return (
-    <div className="w-[320px] sm:w-[360px] flex-shrink-0 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+    <div className="w-[280px] sm:w-[320px] md:w-[360px] flex-shrink-0 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
       <p className="text-sm text-white/70 leading-relaxed">&ldquo;{quote}&rdquo;</p>
       <div className="mt-4 flex items-center gap-3">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-magenta to-cyan flex items-center justify-center text-xs font-bold text-white">
