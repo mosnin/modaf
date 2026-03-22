@@ -6,7 +6,7 @@ import { Marquee } from "@/components/ui/marquee";
 const testimonials = [
   {
     quote:
-      "I went from a vague idea to a fully structured SaaS codebase in a single afternoon. MODAF handled the architecture decisions I usually agonize over for weeks.",
+      "I went from a vague idea to a fully structured codebase in a single afternoon. MODAF handled the architecture decisions I usually agonize over for weeks.",
     name: "Alex Rivera",
     role: "Solo Founder",
   },

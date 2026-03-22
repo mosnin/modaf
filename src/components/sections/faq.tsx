@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "What is MODAF exactly?",
     answer:
-      "MODAF is a structured documentation framework — it contains no code. When cloned into your project, it provides your AI coding agent (like Claude Code) with detailed specs, design tokens, component rules, and a phased build process that guides it from idea to production-ready SaaS.",
+      "MODAF is a structured documentation framework — it contains no code. When cloned into your project, it provides your AI coding agent (like Claude Code) with detailed specs, design tokens, component rules, and a phased build process that guides it from idea to production-ready web application.",
   },
   {
     question: "Which AI coding agents does MODAF work with?",
@@ -30,14 +30,14 @@ const faqs = [
       "The default stack includes Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, Prisma, PostgreSQL, Auth.js, Stripe, Resend, and Vercel. You can override any of these in the discovery phase — the framework adapts to your stack preferences.",
   },
   {
-    question: "How long does it take to build a SaaS with MODAF?",
+    question: "How long does it take to build a web application with MODAF?",
     answer:
       "A typical v1 with auth, dashboard, core features, billing, and marketing site can be built across multiple Claude Code sessions — often in a day or two of active work. The phased approach means you can stop and resume at any phase boundary without losing context.",
   },
   {
-    question: "Can I use MODAF for non-SaaS projects?",
+    question: "What types of projects does MODAF support?",
     answer:
-      "MODAF is optimized for SaaS products with auth, billing, and multi-tenant features. For simpler projects like static sites, landing pages, or tools without user accounts, you can still use the website and foundation phases — but many internal phases won't apply.",
+      "MODAF is optimized for web applications with auth, billing, and multi-tenant features. For simpler projects like static sites, landing pages, or tools without user accounts, you can still use the website and foundation phases — but many internal phases won't apply.",
   },
   {
     question: "Is MODAF free and open source?",

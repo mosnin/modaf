@@ -2,14 +2,30 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MODAF — Build SaaS faster with AI agents",
+  title: "MODAF — Build web applications faster with AI agents",
   description:
-    "A reusable framework that helps coding agents like Claude Code architect and build SaaS products with precision. Clone, describe your idea, and let MODAF handle the rest.",
+    "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision. Clone, describe your idea, and let MODAF handle the rest.",
   openGraph: {
-    title: "MODAF — Build SaaS faster with AI agents",
+    title: "MODAF — Build web applications faster with AI agents",
     description:
-      "A reusable framework that helps coding agents like Claude Code architect and build SaaS products with precision.",
+      "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision.",
     type: "website",
+    images: [
+      {
+        url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnSJii3lYmYktc-pUCxwKm09ilng6VRSsQdQTpOzuljzlsYE2cVyzhhQUO_KfyDvHS21IOX1EGgqdeFDceSOVaHQnC3-G69vDAQwDJZe1mnGNC0YNs9hjsv94xqY7eRqhxBtEVLdn6KaAXqhenqJJece2xjmuEfaxYvJXm7sK3aNZlyr1m0m9uXDvZjx0K/w606-h318/YOU%20GOT%20THAT%20MODAF.png",
+        width: 606,
+        height: 318,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MODAF — Build web applications faster with AI agents",
+    description:
+      "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision.",
+    images: [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnSJii3lYmYktc-pUCxwKm09ilng6VRSsQdQTpOzuljzlsYE2cVyzhhQUO_KfyDvHS21IOX1EGgqdeFDceSOVaHQnC3-G69vDAQwDJZe1mnGNC0YNs9hjsv94xqY7eRqhxBtEVLdn6KaAXqhenqJJece2xjmuEfaxYvJXm7sK3aNZlyr1m0m9uXDvZjx0K/w606-h318/YOU%20GOT%20THAT%20MODAF.png",
+    ],
   },
 };
 

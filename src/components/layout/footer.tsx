@@ -32,8 +32,8 @@ export function Footer() {
               className="h-8 w-auto mb-4"
             />
             <p className="text-sm text-white/40 max-w-[280px]">
-              A reusable framework pack that helps coding agents build SaaS
-              products with precision and speed.
+              A reusable framework pack that helps coding agents build web
+              applications with precision and speed.
             </p>
           </div>
 

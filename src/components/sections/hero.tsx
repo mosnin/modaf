@@ -34,7 +34,7 @@ export function HeroSection() {
         className="relative z-10 text-lg sm:text-xl md:text-2xl text-white/60 text-center max-w-2xl font-light"
       >
         A reusable framework that helps coding agents architect and build{" "}
-        <span className="text-magenta font-medium">SaaS products</span> with
+        <span className="text-magenta font-medium">web applications</span> with
         precision and speed.
       </motion.p>
 

@@ -12,8 +12,8 @@ type ShineBorderProps = {
 export function ShineBorder({
   children,
   className,
-  borderWidth = 1.5,
-  duration = 4,
+  borderWidth = 1,
+  duration = 6,
   color = "#E91E8C",
 }: ShineBorderProps) {
   return (
@@ -21,13 +21,18 @@ export function ShineBorder({
       className={cn("relative rounded-xl sm:rounded-2xl", className)}
       style={{ padding: borderWidth }}
     >
-      {/* Animated gradient border layer */}
+      {/* Solid base border */}
+      <div
+        className="absolute inset-0 rounded-[inherit]"
+        style={{ background: `${color}25` }}
+      />
+      {/* Animated shine sweep */}
       <div className="absolute inset-0 rounded-[inherit] overflow-hidden">
         <div
           className="absolute -inset-full animate-spin"
           style={{
             animationDuration: `${duration}s`,
-            background: `conic-gradient(from 0deg, transparent, ${color}, transparent, transparent)`,
+            background: `conic-gradient(from 0deg, transparent 60%, ${color} 78%, ${color} 82%, transparent 100%)`,
           }}
         />
       </div>
