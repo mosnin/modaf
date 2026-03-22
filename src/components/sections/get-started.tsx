@@ -51,51 +51,51 @@ export function GetStartedSection() {
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-magenta mb-2">
             Get Started
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight">
             Three steps to your
             <br />
             <span className="text-gradient-modaf">next SaaS product</span>
           </h2>
-          <p className="mt-4 text-lg text-white/50 max-w-xl">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/50 max-w-xl">
             MODAF turns your AI coding agent into a senior architect. No
             boilerplate. No guesswork. Just structured, phased execution.
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-8 md:gap-6">
+        <div className="mt-10 sm:mt-16 grid gap-4 sm:gap-8 md:gap-6">
           {steps.map((step, i) => (
             <ScrollReveal key={step.number} delay={i * 0.1}>
               <div
-                className={`relative rounded-2xl border ${step.borderColor} ${step.bgColor} p-6 md:p-8`}
+                className={`relative rounded-xl sm:rounded-2xl border ${step.borderColor} ${step.bgColor} p-4 sm:p-6 md:p-8`}
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                <div className="flex flex-col md:flex-row md:items-start gap-3 sm:gap-4 md:gap-6">
                   <div
-                    className={`flex items-center justify-center w-12 h-12 rounded-xl border ${step.borderColor} bg-black/50 flex-shrink-0`}
+                    className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl border ${step.borderColor} bg-black/50 flex-shrink-0`}
                   >
                     <HugeiconsIcon
                       icon={step.icon}
-                      size={24}
+                      size={20}
                       className={step.color}
                     />
                   </div>
 
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
                       <span
                         className={`text-xs font-mono font-bold ${step.color}`}
                       >
                         {step.number}
                       </span>
-                      <h3 className="text-xl font-semibold text-white">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white">
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-base text-white/50 leading-relaxed max-w-2xl">
+                    <p className="text-sm sm:text-base text-white/50 leading-relaxed max-w-2xl">
                       {step.description}
                     </p>
 
                     {step.hasCommand && (
-                      <div className="mt-4">
+                      <div className="mt-3 sm:mt-4">
                         <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
                       </div>
                     )}
