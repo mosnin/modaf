@@ -188,68 +188,6 @@ html {
   scrollbar-width: none;
 }
 
-/* Animated border cards */
-@keyframes border-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-@keyframes border-rotate {
-  from { --border-angle: 0deg; }
-  to { --border-angle: 360deg; }
-}
-
-@property --border-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.animated-border-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.02);
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.animated-border-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  animation: border-rotate 4s linear infinite;
-  pointer-events: none;
-}
-
-.animated-border-yellow::before {
-  background: conic-gradient(from var(--border-angle), transparent 40%, #FFE500 50%, transparent 60%);
-}
-
-.animated-border-yellow {
-  box-shadow: 0 0 20px #FFE50010, inset 0 0 20px #FFE50005;
-}
-
-.animated-border-cyan::before {
-  background: conic-gradient(from var(--border-angle), transparent 40%, #00B4FF 50%, transparent 60%);
-}
-
-.animated-border-cyan {
-  box-shadow: 0 0 20px #00B4FF10, inset 0 0 20px #00B4FF05;
-}
-
-.animated-border-magenta::before {
-  background: conic-gradient(from var(--border-angle), transparent 40%, #E91E8C 50%, transparent 60%);
-}
-
-.animated-border-magenta {
-  box-shadow: 0 0 20px #E91E8C10, inset 0 0 20px #E91E8C05;
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
