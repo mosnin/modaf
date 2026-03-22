@@ -178,6 +178,33 @@ html, body {
   box-shadow: 0 0 40px #00B4FF30, 0 0 80px #00B4FF15;
 }
 
+/* Color-changing scrollbar */
+@keyframes scrollbar-color {
+  0% { background-color: #E91E8C; }
+  33% { background-color: #FFE500; }
+  66% { background-color: #00B4FF; }
+  100% { background-color: #E91E8C; }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  animation: scrollbar-color 6s linear infinite;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #E91E8C transparent;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
