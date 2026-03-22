@@ -110,10 +110,12 @@ export function Header() {
                 href="https://github.com/mosnin/LoxSammy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full h-12 text-base font-semibold rounded-xl bg-magenta text-white"
+                className="glow-button flex items-center justify-center gap-2 w-full h-12 text-base font-semibold rounded-xl text-white"
               >
-                <HugeiconsIcon icon={Github01Icon} size={18} />
-                View on GitHub
+                <span className="relative z-10 flex items-center gap-2">
+                  <HugeiconsIcon icon={Github01Icon} size={18} />
+                  View on GitHub
+                </span>
               </a>
             </div>
           </motion.div>
