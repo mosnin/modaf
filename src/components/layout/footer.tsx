@@ -20,8 +20,8 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black">
-      <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 py-12 sm:py-16">
+    <footer className="bg-black px-4 sm:px-6 pb-6 pt-12 sm:pt-16">
+      <div className="mx-auto max-w-5xl w-full rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 sm:px-10 py-10 sm:py-12 backdrop-blur-sm">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>
             <Image
@@ -62,8 +62,8 @@ export function Footer() {
         </div>
 
         {/* Disclaimer + copyright */}
-        <div className="mt-12 pt-6 border-t border-white/10">
-          <div className="rounded-xl border border-yellow/20 bg-yellow/5 px-4 py-3 mb-6">
+        <div className="mt-10 pt-6 border-t border-white/10">
+          <div className="rounded-2xl border border-yellow/20 bg-yellow/5 px-4 py-3 mb-6">
             <p className="text-xs text-yellow font-medium">
               ⚠ Experimental Software Disclaimer
             </p>
