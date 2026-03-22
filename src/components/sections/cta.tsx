@@ -5,8 +5,8 @@ import { CopyCommand } from "@/components/ui/copy-command";
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02]">
-      <div className="mx-auto max-w-3xl text-center">
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden">
+      <div className="mx-auto max-w-3xl w-full text-center">
         <ScrollReveal>
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
             Ready to build?

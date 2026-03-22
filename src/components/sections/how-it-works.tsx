@@ -78,8 +78,8 @@ const stats = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02]">
-      <div className="mx-auto max-w-5xl">
+    <section id="how-it-works" className="py-20 md:py-32 px-4 sm:px-6 bg-white/[0.02] overflow-hidden">
+      <div className="mx-auto max-w-5xl w-full">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-cyan mb-2">
             How It Works

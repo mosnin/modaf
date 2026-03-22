@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -26,7 +27,7 @@ export function ScrollReveal({
       initial={{ opacity: 0, y }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
-      className={className}
+      className={cn("overflow-hidden", className)}
     >
       {children}
     </motion.div>

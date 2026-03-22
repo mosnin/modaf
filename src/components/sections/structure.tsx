@@ -61,8 +61,8 @@ const structure = [
 
 export function StructureSection() {
   return (
-    <section id="structure" className="py-20 md:py-32 px-4 sm:px-6">
-      <div className="mx-auto max-w-5xl">
+    <section id="structure" className="py-20 md:py-32 px-4 sm:px-6 overflow-hidden">
+      <div className="mx-auto max-w-5xl w-full">
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-yellow mb-2">
             Repository Structure
