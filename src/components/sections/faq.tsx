@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "What is MODAF exactly?",
     answer:
-      "MODAF is a structured documentation framework — it contains no code. When cloned into your project, it provides your AI coding agent (like Claude Code) with detailed specs, design tokens, component rules, and a phased build process that guides it from idea to production-ready web application.",
+      "MODAF is a structured documentation framework. It contains no code. When cloned into your project, it provides your AI coding agent (like Claude Code) with detailed specs, design tokens, component rules, and a phased build process that guides it from idea to production-ready web application.",
   },
   {
     question: "Which AI coding agents does MODAF work with?",
@@ -22,22 +22,22 @@ const faqs = [
   {
     question: "Do I need to know how to code?",
     answer:
-      "Some technical literacy helps — you'll need to run commands in a terminal, review generated code, and understand basic concepts like databases and APIs. But MODAF's phased approach means you don't need to write code yourself. Your agent handles the implementation while you guide the product decisions.",
+      "Some technical literacy helps. You'll need to run commands in a terminal, review generated code, and understand basic concepts like databases and APIs. But MODAF's phased approach means you don't need to write code yourself. Your agent handles the implementation while you guide the product decisions.",
   },
   {
     question: "What tech stack does MODAF use?",
     answer:
-      "The default stack includes Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, Prisma, PostgreSQL, Auth.js, Stripe, Resend, and Vercel. You can override any of these in the discovery phase — the framework adapts to your stack preferences.",
+      "The default stack includes Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, Prisma, PostgreSQL, Auth.js, Stripe, Resend, and Vercel. You can override any of these in the discovery phase. The framework adapts to your stack preferences.",
   },
   {
     question: "How long does it take to build a web application with MODAF?",
     answer:
-      "A typical v1 with auth, dashboard, core features, billing, and marketing site can be built across multiple Claude Code sessions — often in a day or two of active work. The phased approach means you can stop and resume at any phase boundary without losing context.",
+      "A typical v1 with auth, dashboard, core features, billing, and marketing site can be built across multiple Claude Code sessions, often in a day or two of active work. The phased approach means you can stop and resume at any phase boundary without losing context.",
   },
   {
     question: "What types of projects does MODAF support?",
     answer:
-      "MODAF is optimized for web applications with auth, billing, and multi-tenant features. For simpler projects like static sites, landing pages, or tools without user accounts, you can still use the website and foundation phases — but many internal phases won't apply.",
+      "MODAF is optimized for web applications with auth, billing, and multi-tenant features. For simpler projects like static sites, landing pages, or tools without user accounts, you can still use the website and foundation phases, but many internal phases won't apply.",
   },
   {
     question: "Is MODAF free and open source?",
@@ -47,7 +47,7 @@ const faqs = [
   {
     question: "What happens if something goes wrong?",
     answer:
-      "MODAF includes 46+ validation gates that check structural integrity after every build phase. It also generates a pattern snapshot to prevent code drift across sessions. That said, this is experimental software — always use version control and back up your work before letting any AI agent modify your codebase.",
+      "MODAF includes 46+ validation gates that check structural integrity after every build phase. It also generates a pattern snapshot to prevent code drift across sessions. That said, this is experimental software. Always use version control and back up your work before letting any AI agent modify your codebase.",
   },
 ];
 

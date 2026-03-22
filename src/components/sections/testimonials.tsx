@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     quote:
-      "The phased approach is what makes this different. My agent didn't just dump code — it asked the right questions, generated docs, and built methodically.",
+      "The phased approach is what makes this different. My agent didn't just dump code. It asked the right questions, generated docs, and built methodically.",
     name: "Sarah Kim",
     role: "Full-Stack Developer",
     avatar: avatars[1],
@@ -40,14 +40,14 @@ const testimonials = [
   },
   {
     quote:
-      "The generated project docs — feature spec, user flows, edge cases — were better than what most junior PMs produce. And the agent wrote them in minutes.",
+      "The generated project docs (feature spec, user flows, edge cases) were better than what most junior PMs produce. And the agent wrote them in minutes.",
     name: "Jordan Lee",
     role: "Product Manager",
     avatar: avatars[0],
   },
   {
     quote:
-      "From Prisma schema to Stripe billing to marketing site — MODAF covers the full stack. I just had to describe what I wanted and approve each phase.",
+      "From Prisma schema to Stripe billing to marketing site, MODAF covers the full stack. I just had to describe what I wanted and approve each phase.",
     name: "Lena Kowalski",
     role: "Startup CTO",
     avatar: avatars[1],

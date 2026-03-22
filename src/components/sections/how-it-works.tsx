@@ -3,43 +3,56 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const phases = [
   {
-    phase: "Phase 0–2",
+    phase: "Phase 0-2",
     title: "Discovery & Planning",
     description: "Interactive interview, project docs generation, architecture plan",
     color: "bg-cyan",
+    beamFrom: "#00B4FF",
+    beamTo: "#FFE500",
   },
   {
-    phase: "Phase 3–4",
+    phase: "Phase 3-4",
     title: "Foundation",
     description: "Next.js setup, database schema, shared utilities, validation gates",
     color: "bg-cyan",
+    beamFrom: "#00B4FF",
+    beamTo: "#E91E8C",
   },
   {
-    phase: "Phase 5–6",
+    phase: "Phase 5-6",
     title: "Auth & Onboarding",
     description: "Login, signup, email verification, multi-step onboarding flow",
     color: "bg-yellow",
+    beamFrom: "#FFE500",
+    beamTo: "#00B4FF",
   },
   {
-    phase: "Phase 7–8",
+    phase: "Phase 7-8",
     title: "App Shell & Dashboard",
     description: "Responsive layout, navigation, dashboard with real metrics",
     color: "bg-yellow",
+    beamFrom: "#FFE500",
+    beamTo: "#E91E8C",
   },
   {
-    phase: "Phase 9–11",
+    phase: "Phase 9-11",
     title: "Features & Settings",
     description: "Core CRUD, settings, Stripe billing, admin panel",
     color: "bg-magenta",
+    beamFrom: "#E91E8C",
+    beamTo: "#FFE500",
   },
   {
-    phase: "Phase 12–14",
+    phase: "Phase 12-14",
     title: "Email, Marketing & Polish",
     description: "Email templates, marketing site, edge cases, QA checklist",
     color: "bg-magenta",
+    beamFrom: "#E91E8C",
+    beamTo: "#00B4FF",
   },
 ];
 
@@ -100,45 +113,53 @@ export function HowItWorksSection() {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <ScrollReveal key={stat.label} delay={i * 0.08}>
-              <div className="text-center py-6 px-4 rounded-xl border border-white/10 bg-white/[0.02]">
+              <div className="relative overflow-hidden text-center py-6 px-4 rounded-xl border border-white/10 bg-white/[0.02]">
                 <div className="text-3xl md:text-4xl font-bold text-white">
                   <CountUp target={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-sm text-white/40 mt-1">{stat.label}</div>
+                <BorderBeam
+                  size={80}
+                  duration={4}
+                  delay={i * 0.8}
+                  colorFrom="#00B4FF"
+                  colorTo="#E91E8C"
+                  borderWidth={1}
+                />
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* Phase timeline */}
-        <div className="mt-16 relative">
-          {/* Vertical line */}
-          <div className="absolute left-[15px] md:left-[19px] top-0 bottom-0 w-px bg-white/10" />
-
-          <div className="space-y-6">
-            {phases.map((phase, i) => (
-              <ScrollReveal key={phase.phase} delay={i * 0.08}>
-                <div className="flex gap-4 md:gap-6 items-start relative">
-                  <div
-                    className={`w-[10px] h-[10px] rounded-full ${phase.color} mt-2 flex-shrink-0 relative z-10 ring-4 ring-black`}
-                  />
-                  <div className="flex-1 pb-2">
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-mono font-bold text-white/40">
-                        {phase.phase}
-                      </span>
-                      <h3 className="text-lg font-semibold text-white">
-                        {phase.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-white/40 mt-1">
-                      {phase.description}
-                    </p>
-                  </div>
+        {/* Phase cards grid */}
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {phases.map((phase, i) => (
+            <ScrollReveal key={phase.phase} delay={i * 0.08}>
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 h-full group hover:bg-white/[0.04] transition-colors duration-300">
+                {/* Phase dot + label */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-2.5 h-2.5 rounded-full ${phase.color} shadow-[0_0_8px] shadow-current`} />
+                  <span className="text-xs font-mono font-bold text-white/40">
+                    {phase.phase}
+                  </span>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+                <h3 className="text-lg font-semibold text-white mb-1.5">
+                  {phase.title}
+                </h3>
+                <p className="text-sm text-white/40 leading-relaxed">
+                  {phase.description}
+                </p>
+                <BorderBeam
+                  size={100}
+                  duration={6}
+                  delay={i * 0.5}
+                  colorFrom={phase.beamFrom}
+                  colorTo={phase.beamTo}
+                  borderWidth={1}
+                />
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

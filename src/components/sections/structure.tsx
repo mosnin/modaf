@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { Tree, type TreeViewElement } from "@/components/ui/file-tree";
 
 const treeElements: TreeViewElement[] = [
@@ -69,6 +70,21 @@ const treeElements: TreeViewElement[] = [
   },
 ];
 
+const techStack = [
+  { name: "Next.js", color: "border-white/20 text-white/70" },
+  { name: "TypeScript", color: "border-cyan/30 text-cyan" },
+  { name: "Tailwind CSS", color: "border-cyan/30 text-cyan" },
+  { name: "shadcn/ui", color: "border-white/20 text-white/70" },
+  { name: "Prisma", color: "border-magenta/30 text-magenta" },
+  { name: "PostgreSQL", color: "border-cyan/30 text-cyan" },
+  { name: "Auth.js", color: "border-yellow/30 text-yellow" },
+  { name: "Stripe", color: "border-magenta/30 text-magenta" },
+  { name: "Resend", color: "border-white/20 text-white/70" },
+  { name: "Motion", color: "border-yellow/30 text-yellow" },
+  { name: "Vercel", color: "border-white/20 text-white/70" },
+  { name: "Vitest", color: "border-yellow/30 text-yellow" },
+];
+
 export function StructureSection() {
   return (
     <section id="structure" className="py-20 md:py-32 px-4 sm:px-6 overflow-hidden">
@@ -83,49 +99,43 @@ export function StructureSection() {
             <span className="text-yellow">builds software</span>
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
-            MODAF contains no code — only structured documentation that guides
+            MODAF contains no code, only structured documentation that guides
             your AI agent through every decision. Four directories, each with a
             clear purpose.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
+          <div className="mt-12 relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
             <Tree
               elements={treeElements}
               initialExpandedItems={["docs", "website", "internal", "templates", "phases"]}
               className="text-white/70 [&_button]:text-white/70 [&_svg]:text-white/40 [&_button:hover]:text-white [&_.bg-muted]:bg-white/10"
               sort="none"
             />
+            <BorderBeam
+              size={150}
+              duration={8}
+              colorFrom="#FFE500"
+              colorTo="#E91E8C"
+              borderWidth={1.5}
+            />
           </div>
         </ScrollReveal>
 
-        {/* Tech stack marquee */}
+        {/* Tech stack */}
         <ScrollReveal delay={0.2}>
           <div className="mt-16">
             <p className="text-xs font-semibold uppercase tracking-[0.08em] text-white/30 text-center mb-6">
               Default tech stack
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "Next.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "shadcn/ui",
-                "Prisma",
-                "PostgreSQL",
-                "Auth.js",
-                "Stripe",
-                "Resend",
-                "Motion",
-                "Vercel",
-                "Vitest",
-              ].map((tech) => (
+              {techStack.map((tech) => (
                 <span
-                  key={tech}
-                  className="px-3 py-1.5 text-xs font-medium text-white/50 rounded-full border border-white/10 bg-white/[0.03]"
+                  key={tech.name}
+                  className={`px-4 py-2 text-xs font-semibold rounded-full border bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] transition-colors duration-200 ${tech.color}`}
                 >
-                  {tech}
+                  {tech.name}
                 </span>
               ))}
             </div>

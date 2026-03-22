@@ -7,6 +7,7 @@ export function FloatingPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [autoStarted, setAutoStarted] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const startAudio = useCallback(() => {
     const audio = audioRef.current;
@@ -14,8 +15,7 @@ export function FloatingPlayer() {
     setAutoStarted(true);
     audio.volume = 0.3;
     audio.play().then(() => setIsPlaying(true)).catch(() => {
-      // Browser blocked autoplay — user will need to click the button
-      setAutoStarted(true); // prevent retrying
+      // Browser blocked autoplay, user will need to tap the button
     });
   }, [autoStarted]);
 
@@ -23,20 +23,21 @@ export function FloatingPlayer() {
   useEffect(() => {
     if (autoStarted) return;
 
-    const handler = () => startAudio();
+    const handler = (e: Event) => {
+      // Skip if the click/touch was on the player button itself
+      if (buttonRef.current?.contains(e.target as Node)) return;
+      startAudio();
+    };
     window.addEventListener("click", handler, { once: true });
-    window.addEventListener("touchstart", handler, { once: true });
-    window.addEventListener("keydown", handler, { once: true });
+    window.addEventListener("touchend", handler, { once: true });
 
     return () => {
       window.removeEventListener("click", handler);
-      window.removeEventListener("touchstart", handler);
-      window.removeEventListener("keydown", handler);
+      window.removeEventListener("touchend", handler);
     };
   }, [autoStarted, startAudio]);
 
-  const togglePlay = (e: React.MouseEvent) => {
-    e.stopPropagation(); // prevent the global listener from also firing
+  const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -63,9 +64,10 @@ export function FloatingPlayer() {
         ref={audioRef}
         src="https://intense-coral-pn3mnmtzlu.edgeone.app/Bedrock%20Labyrinth.mp3"
         loop
-        preload="auto"
+        preload="metadata"
       />
       <motion.button
+        ref={buttonRef}
         onClick={togglePlay}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

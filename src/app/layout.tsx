@@ -3,11 +3,11 @@ import { FloatingPlayer } from "@/components/ui/floating-player";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MODAF — Build web applications faster with AI agents",
+  title: "MODAF | Build web applications faster with AI agents",
   description:
     "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision. Clone, describe your idea, and let MODAF handle the rest.",
   openGraph: {
-    title: "MODAF — Build web applications faster with AI agents",
+    title: "MODAF | Build web applications faster with AI agents",
     description:
       "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision.",
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MODAF — Build web applications faster with AI agents",
+    title: "MODAF | Build web applications faster with AI agents",
     description:
       "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision.",
     images: [

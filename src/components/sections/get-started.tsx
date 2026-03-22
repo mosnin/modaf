@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { ShineBorder } from "@/components/ui/shine-border";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TypingCycle } from "@/components/ui/typing-cycle";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -21,7 +20,7 @@ const steps = [
     beamTo: "#E91E8C",
     title: "Describe your idea",
     description:
-      "Tell your AI coding agent what you want to build. MODAF's phased discovery process will ask targeted questions to understand your users, core features, and v1 scope — then generate complete project documentation automatically.",
+      "Tell your AI coding agent what you want to build. MODAF's phased discovery process will ask targeted questions to understand your users, core features, and v1 scope, then generate complete project documentation automatically.",
   },
   {
     number: "02",
@@ -32,7 +31,7 @@ const steps = [
     beamTo: "#FFE500",
     title: "Clone the framework",
     description:
-      "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo — no runtime dependencies, no lock-in.",
+      "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo. No runtime dependencies, no lock-in.",
   },
   {
     number: "03",
@@ -43,7 +42,7 @@ const steps = [
     beamTo: "#00B4FF",
     title: "MODAF goes to work",
     description:
-      "Your AI agent reads the framework docs and begins building — phase by phase. From database schema to auth flows, dashboard to marketing site, MODAF guides every decision with battle-tested patterns and validation gates.",
+      "Your AI agent reads the framework docs and begins building phase by phase. From database schema to auth flows, dashboard to marketing site, MODAF guides every decision with battle-tested patterns and validation gates.",
   },
 ];
 
