@@ -5,28 +5,13 @@ import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { CopyCommand } from "@/components/ui/copy-command";
+import { AnimatedGridBackground } from "@/components/ui/animated-grid";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-12 sm:pb-16 overflow-hidden">
       {/* Animated grid background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(233,30,140,0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(233,30,140,0.04) 1px, transparent 1px),
-              linear-gradient(rgba(0,180,255,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,180,255,0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px, 60px 60px, 20px 20px, 20px 20px',
-            maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)',
-            animation: 'grid-fade 8s ease-in-out infinite',
-          }}
-        />
-      </div>
+      <AnimatedGridBackground />
 
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />

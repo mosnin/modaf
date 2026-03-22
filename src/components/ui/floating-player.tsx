@@ -1,37 +1,42 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function FloatingPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [autoStarted, setAutoStarted] = useState(false);
 
+  const startAudio = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || autoStarted) return;
+    setAutoStarted(true);
+    audio.volume = 0.3;
+    audio.play().then(() => setIsPlaying(true)).catch(() => {
+      // Browser blocked autoplay — user will need to click the button
+      setAutoStarted(true); // prevent retrying
+    });
+  }, [autoStarted]);
+
+  // Auto-play on first user interaction anywhere on the page
   useEffect(() => {
-    const handleInteraction = () => {
-      if (!hasInteracted) {
-        setHasInteracted(true);
-        const audio = audioRef.current;
-        if (audio) {
-          audio.volume = 0.3;
-          audio.play().then(() => setIsPlaying(true)).catch(() => {});
-        }
-      }
-    };
+    if (autoStarted) return;
 
-    window.addEventListener("click", handleInteraction, { once: true });
-    window.addEventListener("touchstart", handleInteraction, { once: true });
-    window.addEventListener("keydown", handleInteraction, { once: true });
+    const handler = () => startAudio();
+    window.addEventListener("click", handler, { once: true });
+    window.addEventListener("touchstart", handler, { once: true });
+    window.addEventListener("keydown", handler, { once: true });
 
     return () => {
-      window.removeEventListener("click", handleInteraction);
-      window.removeEventListener("touchstart", handleInteraction);
-      window.removeEventListener("keydown", handleInteraction);
+      window.removeEventListener("click", handler);
+      window.removeEventListener("touchstart", handler);
+      window.removeEventListener("keydown", handler);
     };
-  }, [hasInteracted]);
+  }, [autoStarted, startAudio]);
 
-  const togglePlay = () => {
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation(); // prevent the global listener from also firing
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -40,7 +45,10 @@ export function FloatingPlayer() {
       setIsPlaying(false);
     } else {
       audio.volume = 0.3;
-      audio.play().then(() => setIsPlaying(true)).catch(() => {});
+      audio.play().then(() => {
+        setIsPlaying(true);
+        setAutoStarted(true);
+      }).catch(() => {});
     }
   };
 
@@ -55,7 +63,7 @@ export function FloatingPlayer() {
         ref={audioRef}
         src="https://intense-coral-pn3mnmtzlu.edgeone.app/Bedrock%20Labyrinth.mp3"
         loop
-        preload="none"
+        preload="auto"
       />
       <motion.button
         onClick={togglePlay}
