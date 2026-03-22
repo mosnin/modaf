@@ -48,7 +48,7 @@ function ToolLogo({ name, src }: { name: string; src: string }) {
 
 export function ToolsMarquee() {
   return (
-    <section className="py-12 sm:py-16 overflow-hidden">
+    <section className="py-8 sm:py-16 overflow-hidden">
       <p className="text-xs font-semibold uppercase tracking-[0.08em] text-white/30 text-center mb-8">
         Use with your favorite coding tools
       </p>

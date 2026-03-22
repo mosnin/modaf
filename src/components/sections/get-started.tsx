@@ -14,8 +14,7 @@ const steps = [
     number: "01",
     icon: Idea01Icon,
     color: "text-yellow",
-    borderColor: "border-yellow/20",
-    bgColor: "bg-yellow/5",
+    glowColor: "yellow",
     title: "Describe your idea",
     description:
       "Tell your AI coding agent what you want to build. MODAF's phased discovery process will ask targeted questions to understand your users, core features, and v1 scope — then generate complete project documentation automatically.",
@@ -24,8 +23,7 @@ const steps = [
     number: "02",
     icon: CommandLineIcon,
     color: "text-cyan",
-    borderColor: "border-cyan/20",
-    bgColor: "bg-cyan/5",
+    glowColor: "cyan",
     title: "Clone the framework",
     description:
       "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo — no runtime dependencies, no lock-in.",
@@ -35,8 +33,7 @@ const steps = [
     number: "03",
     icon: AiBrain01Icon,
     color: "text-magenta",
-    borderColor: "border-magenta/20",
-    bgColor: "bg-magenta/5",
+    glowColor: "magenta",
     title: "MODAF goes to work",
     description:
       "Your AI agent reads the framework docs and begins building — phase by phase. From database schema to auth flows, dashboard to marketing site, MODAF guides every decision with battle-tested patterns and validation gates.",
@@ -65,12 +62,10 @@ export function GetStartedSection() {
         <div className="mt-10 sm:mt-16 grid gap-4 sm:gap-8 md:gap-6">
           {steps.map((step, i) => (
             <ScrollReveal key={step.number} delay={i * 0.1}>
-              <div
-                className={`relative rounded-xl sm:rounded-2xl border ${step.borderColor} ${step.bgColor} p-4 sm:p-6 md:p-8`}
-              >
+              <div className={`animated-border-card animated-border-${step.glowColor} relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8`}>
                 <div className="flex flex-col md:flex-row md:items-start gap-3 sm:gap-4 md:gap-6">
                   <div
-                    className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl border ${step.borderColor} bg-black/50 flex-shrink-0`}
+                    className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl border border-white/10 bg-black/50 flex-shrink-0`}
                   >
                     <HugeiconsIcon
                       icon={step.icon}

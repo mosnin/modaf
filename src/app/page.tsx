@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Preloader } from "@/components/ui/preloader";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { HeroSection } from "@/components/sections/hero";
 import { ToolsMarquee } from "@/components/sections/tools-marquee";
 import { GetStartedSection } from "@/components/sections/get-started";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Preloader />
+      <ScrollProgress />
       <Header />
       <main>
         <HeroSection />
