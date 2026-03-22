@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { CopyCommand } from "@/components/ui/copy-command";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export function CTASection() {
   return (
@@ -29,9 +30,10 @@ export function CTASection() {
               href="https://github.com/mosnin/LoxSammy"
               target="_blank"
               rel="noopener noreferrer"
-              className="glow-button inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
+              className="relative overflow-hidden inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full bg-magenta text-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20"
             >
-              <span className="relative z-10">View on GitHub</span>
+              View on GitHub
+              <BorderBeam size={60} duration={3} colorFrom="#FFE500" colorTo="#00B4FF" borderWidth={2} />
             </a>
           </div>
           <p className="mt-4 text-sm text-white/30">

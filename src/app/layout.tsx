@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FloatingPlayer } from "@/components/ui/floating-player";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-black text-white font-sans">
         {children}
+        <FloatingPlayer />
       </body>
     </html>
   );

@@ -1,60 +1,70 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { FolderCodeIcon, Folder01Icon } from "@hugeicons/core-free-icons";
+import { Tree, type TreeViewElement } from "@/components/ui/file-tree";
 
-const structure = [
+const treeElements: TreeViewElement[] = [
   {
-    name: "website/",
-    color: "text-magenta",
-    description: "Public site — home page system, design tokens, component specs, copy rules, sitemap",
-    files: [
-      "saas_home_page_system.md",
-      "design_system_tokens.md",
-      "public_component_specs.md",
-      "public_copy_conversion_rules.md",
-      "public_screen_archetypes.md",
-      "component_library_spec.md",
-      "nextjs_folder_structure.md",
-      "sitemap_diagram.md",
-    ],
-  },
-  {
-    name: "internal/",
-    color: "text-cyan",
-    description: "Product app — shell, auth, dashboard, features, billing, admin, data models, UI system",
-    files: [
-      "01_app_shell.md",
-      "02_auth_and_onboarding.md",
-      "07_data_models.md",
-      "09_build_rules_internal.md",
-      "10_design_tokens_internal.md",
-      "21_validation_gates.md",
-      "22_pattern_snapshot.md",
-      "...and 15 more",
-    ],
-  },
-  {
-    name: "templates/",
-    color: "text-yellow",
-    description: "Project doc templates — app idea, feature spec, user flows, edge cases, tech stack",
-    files: [
-      "00_app_idea_template.md",
-      "01_project_brief_template.md",
-      "02_feature_spec_template.md",
-      "03_user_flows_template.md",
-      "05_tech_stack_template.md",
-      "07_acceptance_criteria_template.md",
-      "08_qa_checklist_template.md",
-    ],
-  },
-  {
-    name: "phases/",
-    color: "text-white/60",
-    description: "Phase index files — what to read, what to build, exit conditions for each phase",
-    files: [
-      "phase_00_welcome.md → phase_14_polish.md",
+    id: "docs",
+    name: "docs/framework/",
+    type: "folder",
+    children: [
+      {
+        id: "website",
+        name: "website/",
+        type: "folder",
+        children: [
+          { id: "w1", name: "saas_home_page_system.md", type: "file" },
+          { id: "w2", name: "design_system_tokens.md", type: "file" },
+          { id: "w3", name: "public_component_specs.md", type: "file" },
+          { id: "w4", name: "public_copy_conversion_rules.md", type: "file" },
+          { id: "w5", name: "public_screen_archetypes.md", type: "file" },
+          { id: "w6", name: "component_library_spec.md", type: "file" },
+          { id: "w7", name: "nextjs_folder_structure.md", type: "file" },
+          { id: "w8", name: "sitemap_diagram.md", type: "file" },
+        ],
+      },
+      {
+        id: "internal",
+        name: "internal/",
+        type: "folder",
+        children: [
+          { id: "i1", name: "01_app_shell.md", type: "file" },
+          { id: "i2", name: "02_auth_and_onboarding.md", type: "file" },
+          { id: "i3", name: "07_data_models.md", type: "file" },
+          { id: "i4", name: "09_build_rules_internal.md", type: "file" },
+          { id: "i5", name: "10_design_tokens_internal.md", type: "file" },
+          { id: "i6", name: "21_validation_gates.md", type: "file" },
+          { id: "i7", name: "22_pattern_snapshot.md", type: "file" },
+          { id: "i8", name: "...and 15 more", type: "file" },
+        ],
+      },
+      {
+        id: "templates",
+        name: "templates/",
+        type: "folder",
+        children: [
+          { id: "t1", name: "00_app_idea_template.md", type: "file" },
+          { id: "t2", name: "01_project_brief_template.md", type: "file" },
+          { id: "t3", name: "02_feature_spec_template.md", type: "file" },
+          { id: "t4", name: "03_user_flows_template.md", type: "file" },
+          { id: "t5", name: "05_tech_stack_template.md", type: "file" },
+          { id: "t6", name: "07_acceptance_criteria_template.md", type: "file" },
+          { id: "t7", name: "08_qa_checklist_template.md", type: "file" },
+        ],
+      },
+      {
+        id: "phases",
+        name: "phases/",
+        type: "folder",
+        children: [
+          { id: "p1", name: "phase_00_welcome.md", type: "file" },
+          { id: "p2", name: "phase_01_discovery.md", type: "file" },
+          { id: "p3", name: "phase_02_scaffold.md", type: "file" },
+          { id: "p4", name: "...", type: "file" },
+          { id: "p5", name: "phase_14_polish.md", type: "file" },
+        ],
+      },
     ],
   },
 ];
@@ -79,35 +89,16 @@ export function StructureSection() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
-          {structure.map((dir, i) => (
-            <ScrollReveal key={dir.name} delay={i * 0.08}>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 h-full">
-                <div className="flex items-center gap-3 mb-3">
-                  <HugeiconsIcon
-                    icon={i < 2 ? FolderCodeIcon : Folder01Icon}
-                    size={20}
-                    className={dir.color}
-                  />
-                  <h3 className={`text-lg font-semibold font-mono ${dir.color}`}>
-                    {dir.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-white/50 mb-4">{dir.description}</p>
-                <div className="space-y-1 overflow-hidden">
-                  {dir.files.map((file) => (
-                    <div
-                      key={file}
-                      className="text-xs font-mono text-white/30 pl-4 border-l border-white/10 truncate"
-                    >
-                      {file}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+        <ScrollReveal delay={0.1}>
+          <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
+            <Tree
+              elements={treeElements}
+              initialExpandedItems={["docs", "website", "internal", "templates", "phases"]}
+              className="text-white/70 [&_button]:text-white/70 [&_svg]:text-white/40 [&_button:hover]:text-white [&_.bg-muted]:bg-white/10"
+              sort="none"
+            />
+          </div>
+        </ScrollReveal>
 
         {/* Tech stack marquee */}
         <ScrollReveal delay={0.2}>

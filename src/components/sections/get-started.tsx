@@ -1,8 +1,8 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { CopyCommand } from "@/components/ui/copy-command";
 import { ShineBorder } from "@/components/ui/shine-border";
+import { TypingCycle } from "@/components/ui/typing-cycle";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Idea01Icon,
@@ -28,7 +28,6 @@ const steps = [
     title: "Clone the framework",
     description:
       "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo — no runtime dependencies, no lock-in.",
-    hasCommand: true,
   },
   {
     number: "03",
@@ -39,6 +38,13 @@ const steps = [
     description:
       "Your AI agent reads the framework docs and begins building — phase by phase. From database schema to auth flows, dashboard to marketing site, MODAF guides every decision with battle-tested patterns and validation gates.",
   },
+];
+
+const cycleWords = [
+  "web application",
+  "web3 app",
+  "social network",
+  "b2b marketplace",
 ];
 
 export function GetStartedSection() {
@@ -52,7 +58,9 @@ export function GetStartedSection() {
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
             Three steps to your
             <br />
-            <span className="text-gradient-modaf">next web application</span>
+            <span className="text-gradient-modaf">
+              next <TypingCycle words={cycleWords} />
+            </span>
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
             MODAF turns your AI coding agent into a senior architect. No
@@ -91,11 +99,6 @@ export function GetStartedSection() {
                         {step.description}
                       </p>
 
-                      {step.hasCommand && (
-                        <div className="mt-3 sm:mt-4">
-                          <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>

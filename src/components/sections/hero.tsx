@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { CopyCommand } from "@/components/ui/copy-command";
 
 export function HeroSection() {
   return (
@@ -50,22 +52,33 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
-        className="relative z-10 mt-10 flex flex-row gap-3"
+        transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
+        className="relative z-10 mt-8"
+      >
+        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.55, ease: "easeOut" }}
+        className="relative z-10 mt-5 flex flex-row gap-3"
       >
         <a
           href="#get-started"
-          className="glow-button inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
+          className="relative overflow-hidden inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full bg-magenta text-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20"
         >
-          <span className="relative z-10">Get Started</span>
+          Get Started
+          <BorderBeam size={60} duration={3} colorFrom="#FFE500" colorTo="#00B4FF" borderWidth={2} />
         </a>
         <a
           href="https://github.com/mosnin/LoxSammy"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
+          className="relative overflow-hidden inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
         >
           View on GitHub
+          <BorderBeam size={60} duration={3} delay={1.5} colorFrom="#E91E8C" colorTo="#00B4FF" borderWidth={2} />
         </a>
       </motion.div>
 
