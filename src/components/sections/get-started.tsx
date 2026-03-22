@@ -51,12 +51,12 @@ export function GetStartedSection() {
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-magenta mb-2">
             Get Started
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight">
             Three steps to your
             <br />
             <span className="text-gradient-modaf">next SaaS product</span>
           </h2>
-          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/50 max-w-xl">
+          <p className="mt-4 text-lg text-white/50 max-w-xl">
             MODAF turns your AI coding agent into a senior architect. No
             boilerplate. No guesswork. Just structured, phased execution.
           </p>
