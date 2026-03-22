@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+      <header className="fixed top-3 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-5xl">
         <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-black/80 backdrop-blur-xl px-4 py-2 shadow-lg">
           <a href="#" className="flex items-center gap-2">
             <Image
