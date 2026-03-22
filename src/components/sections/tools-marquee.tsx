@@ -30,6 +30,34 @@ const tools = [
     name: "Jules",
     src: "https://static.wikia.nocookie.net/logopedia/images/4/4a/Google_Antigravity_icon.svg/revision/latest/scale-to-width-down/1200?cb=20251119202403",
   },
+  {
+    name: "Replit",
+    src: "https://images.seeklogo.com/logo-png/45/2/replit-icon-logo-png_seeklogo-453824.png",
+  },
+  {
+    name: "NanoClaw",
+    src: "https://nanoclaws.io/images/nanoclaw.png",
+  },
+  {
+    name: "Tonkotsu",
+    src: "https://www.tonkotsu.ai/logo_ring.png",
+  },
+  {
+    name: "Augment",
+    src: "https://s3.amazonaws.com/beamstart/2025/Sep/13/0f45a619cfcff4773d9ed334131644f2.jpeg",
+  },
+  {
+    name: "Gemini",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysfvFgHMVChk-7glLKWvdIJLLoA2aau0m1g&s",
+  },
+  {
+    name: "Cline",
+    src: "https://pbs.twimg.com/profile_images/2023711713888215040/rX3tGO1T.png",
+  },
+  {
+    name: "Qwen",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/3840px-Qwen_logo.svg.png",
+  },
 ];
 
 function ToolLogo({ name, src }: { name: string; src: string }) {
