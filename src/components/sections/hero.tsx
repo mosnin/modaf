@@ -5,15 +5,28 @@ import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { CopyCommand } from "@/components/ui/copy-command";
-import { AnimatedGridBackground } from "@/components/ui/animated-grid";
+import ShapeGrid from "@/components/ShapeGrid";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-12 sm:pb-16 overflow-hidden">
-      {/* Animated grid background */}
-      <AnimatedGridBackground />
+      {/* ShapeGrid background */}
+      <div className="absolute inset-0">
+        <ShapeGrid
+          speed={0}
+          squareSize={80}
+          direction="diagonal"
+          borderColor="#0d0d0d"
+          hoverFillColor="#131f49"
+          shape="square"
+          hoverTrailAmount={16}
+        />
+      </div>
 
-      {/* Subtle gradient background */}
+      {/* Radial fade to black at edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_black_70%)]" />
+
+      {/* Subtle magenta tint */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />
 
       <motion.div
