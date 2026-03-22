@@ -189,31 +189,33 @@ html, body {
   }
 }
 
-/* Marquee animation — 4 copies, translate by 25% for seamless loop */
+/* Marquee animation — 4 copies, translate 25% for seamless loop */
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-25%, 0, 0);
   }
 }
 
 @keyframes marquee-reverse {
   from {
-    transform: translateX(-50%);
+    transform: translate3d(-25%, 0, 0);
   }
   to {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-marquee {
-  animation: marquee 35s linear infinite;
+  will-change: transform;
+  animation: marquee 40s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 45s linear infinite;
+  will-change: transform;
+  animation: marquee-reverse 40s linear infinite;
 }
 
 /* Retro 3D text shadow effect matching MODAF logo */

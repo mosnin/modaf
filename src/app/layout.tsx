@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FloatingPlayer } from "@/components/ui/floating-player";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body className="min-h-full flex flex-col bg-black text-white font-sans">
+        <SmoothScroll />
         {children}
         <FloatingPlayer />
       </body>
