@@ -51,19 +51,19 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
-        className="relative z-10 mt-10 flex flex-col sm:flex-row gap-3"
+        className="relative z-10 mt-10 flex flex-row gap-3"
       >
         <a
           href="#get-started"
-          className="inline-flex items-center justify-center gap-2 h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
+          className="glow-button inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
         >
-          Get Started
+          <span className="relative z-10">Get Started</span>
         </a>
         <a
           href="https://github.com/mosnin/LoxSammy"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
+          className="inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
         >
           View on GitHub
         </a>

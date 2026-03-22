@@ -29,9 +29,9 @@ export function CTASection() {
               href="https://github.com/mosnin/LoxSammy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-xl bg-magenta text-white hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20 transition-all duration-150"
+              className="glow-button inline-flex items-center justify-center h-[48px] sm:h-[52px] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
             >
-              View on GitHub
+              <span className="relative z-10">View on GitHub</span>
             </a>
           </div>
           <p className="mt-4 text-sm text-white/30">

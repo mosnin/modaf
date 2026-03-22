@@ -48,6 +48,51 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* MODAF glow button */
+@keyframes glow-shift {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+.glow-button {
+  position: relative;
+  background: linear-gradient(90deg, #E91E8C, #FFE500, #00B4FF, #E91E8C);
+  background-size: 200%;
+  animation: glow-shift 3s linear infinite;
+  border: none;
+}
+
+.glow-button::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #121213;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glow-button::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40%;
+  background: linear-gradient(90deg, #E91E8C, #FFE500, #00B4FF, #E91E8C);
+  background-size: 200%;
+  animation: glow-shift 3s linear infinite;
+  filter: blur(12px);
+  opacity: 0.6;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.glow-button > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* MODAF: Dark mode is the primary experience */
 :root {
   --background: #000000;
