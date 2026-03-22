@@ -4,12 +4,30 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
-import { BorderBeam } from "@/components/ui/border-beam";
 import { CopyCommand } from "@/components/ui/copy-command";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-12 sm:pb-16 overflow-hidden">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(233,30,140,0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(233,30,140,0.04) 1px, transparent 1px),
+              linear-gradient(rgba(0,180,255,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,180,255,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px, 60px 60px, 20px 20px, 20px 20px',
+            maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)',
+            animation: 'grid-fade 8s ease-in-out infinite',
+          }}
+        />
+      </div>
+
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#E91E8C08_0%,_transparent_60%)]" />
 
@@ -53,9 +71,9 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
-        className="relative z-10 mt-8"
+        className="relative z-10 mt-8 w-full max-w-md"
       >
-        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
+        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy" />
       </motion.div>
 
       <motion.div
@@ -66,19 +84,17 @@ export function HeroSection() {
       >
         <a
           href="#get-started"
-          className="relative overflow-hidden inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full bg-magenta text-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg hover:shadow-magenta/20"
+          className="glow-button inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full text-white transition-all duration-150 hover:scale-[1.02]"
         >
-          Get Started
-          <BorderBeam size={60} duration={3} colorFrom="#FFE500" colorTo="#00B4FF" borderWidth={2} />
+          <span className="relative z-10">Get Started</span>
         </a>
         <a
           href="https://github.com/mosnin/LoxSammy"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative overflow-hidden inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
+          className="inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
         >
           View on GitHub
-          <BorderBeam size={60} duration={3} delay={1.5} colorFrom="#E91E8C" colorTo="#00B4FF" borderWidth={2} />
         </a>
       </motion.div>
 

@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ShineBorder } from "@/components/ui/shine-border";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { TypingCycle } from "@/components/ui/typing-cycle";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -16,6 +17,8 @@ const steps = [
     icon: Idea01Icon,
     color: "text-yellow",
     shineColor: "#FFE500",
+    beamFrom: "#FFE500",
+    beamTo: "#E91E8C",
     title: "Describe your idea",
     description:
       "Tell your AI coding agent what you want to build. MODAF's phased discovery process will ask targeted questions to understand your users, core features, and v1 scope — then generate complete project documentation automatically.",
@@ -25,6 +28,8 @@ const steps = [
     icon: CommandLineIcon,
     color: "text-cyan",
     shineColor: "#00B4FF",
+    beamFrom: "#00B4FF",
+    beamTo: "#FFE500",
     title: "Clone the framework",
     description:
       "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo — no runtime dependencies, no lock-in.",
@@ -34,6 +39,8 @@ const steps = [
     icon: AiBrain01Icon,
     color: "text-magenta",
     shineColor: "#E91E8C",
+    beamFrom: "#E91E8C",
+    beamTo: "#00B4FF",
     title: "MODAF goes to work",
     description:
       "Your AI agent reads the framework docs and begins building — phase by phase. From database schema to auth flows, dashboard to marketing site, MODAF guides every decision with battle-tested patterns and validation gates.",
@@ -71,7 +78,7 @@ export function GetStartedSection() {
         <div className="mt-10 sm:mt-16 grid gap-4 sm:gap-8 md:gap-6">
           {steps.map((step, i) => (
             <ScrollReveal key={step.number} delay={i * 0.1}>
-              <ShineBorder color={step.shineColor} duration={4} borderWidth={1.5}>
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
                 <div className="p-4 sm:p-6 md:p-8">
                   <div className="flex flex-col md:flex-row md:items-start gap-3 sm:gap-4 md:gap-6">
                     <div
@@ -98,11 +105,18 @@ export function GetStartedSection() {
                       <p className="text-sm sm:text-base text-white/50 leading-relaxed">
                         {step.description}
                       </p>
-
                     </div>
                   </div>
                 </div>
-              </ShineBorder>
+                <BorderBeam
+                  size={120}
+                  duration={5}
+                  delay={i * 1.5}
+                  colorFrom={step.beamFrom}
+                  colorTo={step.beamTo}
+                  borderWidth={1.5}
+                />
+              </div>
             </ScrollReveal>
           ))}
         </div>
