@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "MODAF | Build web applications faster with AI agents",
   description:
     "A reusable framework that helps coding agents like Claude Code architect and build web applications with precision. Clone, describe your idea, and let MODAF handle the rest.",
+  icons: {
+    icon: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQwRLdDxRa8qGoFYZAW73YXGsgIBSdRQcZafLXTlN-CkGCZcl7jDWT07GxHWy-5beikIBLLTbXGlgtrcuy-sY2O4vajcLhTkrkgxuQ_G0HDpp8PcFHxpyPQIaHbWsjms-65ugIiAZMm_lNKjgENx18IRlDgtbP4_PG2968oZqPPlovxHxCE6Usd8yJDpg2/s320/ChatGPT%20Image%20Mar%2023,%202026,%2012_21_31%20PM.png",
+  },
   openGraph: {
     title: "MODAF | Build web applications faster with AI agents",
     description:
