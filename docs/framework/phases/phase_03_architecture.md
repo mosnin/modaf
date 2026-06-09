@@ -1,10 +1,10 @@
 # Phase 3 — Architecture Plan
 
 ## Trigger
-All 9 project docs exist. No source code written yet.
+All 10 project docs exist. No source code written yet.
 
 ## Files to Read
-- `docs/project/*` — all 9 project files
+- `docs/project/*` — all 10 project files
 - `docs/framework/internal/07_data_models.md` — entity patterns
 - `docs/framework/internal/06_routes_and_permissions.md` — route structure
 - `docs/framework/internal/04_feature_modules.md` — available module types

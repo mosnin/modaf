@@ -429,6 +429,18 @@ grep -r "from.*components/app\|from.*components/dashboard\|from.*components/admi
 **Pass:** No internal component imports found in public pages.
 **Common failure:** Marketing pages reuse internal app components with wrong visual density.
 
+### gate:marketing-design-direction
+**What:** The project's design direction exists and the public pages don't use banned-default styling (see `docs/framework/website/design_directions.md`).
+```bash
+ls docs/project/09_design_direction.md
+# Banned-pattern heuristics: glassmorphism cards, gradient text
+grep -rn "backdrop-blur\|bg-clip-text" src/app/*public*/ src/app/*marketing*/ src/app/page.tsx src/components/*public*/ 2>/dev/null | head -5
+# The direction's display font should be wired up (not Inter-only)
+grep -rn "next/font" src/app/layout.tsx src/app/*public*/layout.tsx 2>/dev/null | head -3
+```
+**Pass:** `09_design_direction.md` exists; no banned utilities in public pages; at least one non-default font is loaded. Then run the 6 manual distinctiveness checks from `design_directions.md`.
+**Common failure:** Direction doc generated but pages built from the base token fallback anyway — the default-shadcn look shipped unmodified.
+
 ---
 
 ## Phase 14 — Polish Gates

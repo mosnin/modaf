@@ -4,6 +4,8 @@
 Email templates (Phase 12) are complete.
 
 ## Files to Read
+- `docs/project/09_design_direction.md` — MANDATORY FIRST — the project's resolved visual identity
+- `docs/framework/website/design_directions.md` — banned defaults and distinctiveness checks
 - `docs/framework/website/saas_home_page_system.md` — home page structure
 - `docs/framework/website/saas_website_page_system.md` — multi-page site structure
 - `docs/framework/website/design_system_tokens.md` — public site visual tokens
@@ -28,6 +30,8 @@ Email templates (Phase 12) are complete.
 
 ### Design System
 - Use PUBLIC design tokens (different from internal product tokens)
+- Apply the chosen direction from `docs/project/09_design_direction.md` — it overrides personality values (type, color, radius, shadow, backgrounds, motion character); base tokens keep structure (spacing, breakpoints, accessibility)
+- Never ship the base token defaults unmodified, and never use the banned defaults from `design_directions.md`
 - Marketing-grade typography, spacing, and color
 - Conversion-focused CTAs and copy patterns
 
@@ -38,6 +42,7 @@ Email templates (Phase 12) are complete.
 - Mobile responsive from the start
 
 ### Verify
+- All 6 distinctiveness checks from `design_directions.md` pass (squint test, banned-defaults sweep, type contrast, signature moments, layout variety, accessibility intact)
 - Home page renders all sections correctly
 - Pricing page displays plans and links to signup/checkout
 - All pages responsive at all breakpoints

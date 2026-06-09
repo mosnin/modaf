@@ -9,6 +9,15 @@ Define the shared visual primitives for the public website. Every public page mu
 
 For responsive breakpoints, see `docs/framework/internal/15_canonical_breakpoints.md` (shared across internal + website + email).
 
+## Structure vs Personality
+
+This file defines two kinds of values, and they have different authority:
+
+- **Structural values** — spacing scale, typography scale (sizes/line-heights), breakpoints, layout grid, z-index, motion timing, accessibility rules. These are stable across all projects and always apply.
+- **Personality values** — the specific colors, font families, radii, shadows, and button styling shown below. These are a **fallback skeleton, not a shippable look**. Every project must override them with its chosen direction from `design_directions.md`, resolved in `docs/project/09_design_direction.md`.
+
+Shipping a public site with the default Inter + blue-600 + gray-neutral look below is a Phase 13 failure — see the banned-defaults list in `design_directions.md`.
+
 ---
 
 ## Color Tokens

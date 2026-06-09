@@ -17,6 +17,7 @@ const treeElements: TreeViewElement[] = [
         name: "website/",
         type: "folder",
         children: [
+          { id: "w0", name: "design_directions.md", type: "file" },
           { id: "w1", name: "saas_home_page_system.md", type: "file" },
           { id: "w9", name: "saas_website_page_system.md", type: "file" },
           { id: "w2", name: "design_system_tokens.md", type: "file" },
@@ -71,6 +72,7 @@ const treeElements: TreeViewElement[] = [
           { id: "t7", name: "06_permissions_matrix_template.md", type: "file" },
           { id: "t8", name: "07_acceptance_criteria_template.md", type: "file" },
           { id: "t9", name: "08_qa_checklist_template.md", type: "file" },
+          { id: "t10", name: "09_design_direction_template.md", type: "file" },
         ],
       },
       {

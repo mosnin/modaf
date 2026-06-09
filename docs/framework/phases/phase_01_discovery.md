@@ -21,13 +21,14 @@ Analyze the app idea for gaps. Ask targeted follow-up questions, 2-4 at a time. 
 | **Dashboard shape** | What do users see on login? Queue? Analytics? Feed? |
 | **Monetization** | Free? Freemium? Paid tiers? Per-seat? |
 | **Integrations** | External connections? (Slack, email, APIs) |
+| **Brand personality** | 3 adjectives for how it should feel? 1-2 admired sites/brands, and one look to avoid? (feeds `docs/framework/website/design_directions.md`) |
 | **Non-goals for v1** | What's explicitly out of scope? |
 
 ### Interview Style
 - Conversational, not interrogative
 - 2-4 questions per message, not a wall
 - Acknowledge answers before asking more
-- Stop when you have enough to fill all 9 project docs confidently
+- Stop when you have enough to fill all 10 project docs confidently
 
 ## Exit Condition
 Enough information gathered. Tell the user: "I have enough to generate the project docs. Ready to proceed?" → **Phase 2**.

@@ -49,11 +49,11 @@ If project docs conflict with framework docs, project docs win.
 **Action:**
 - Analyze the app idea for gaps
 - Ask targeted follow-up questions (2-4 at a time, not a wall)
-- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals
+- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals, brand personality (3 feel adjectives + admired/avoided looks — see `docs/framework/website/design_directions.md`)
 - Skip anything the user already addressed
 - Adapt questions based on answers
 
-**Exit:** Enough information to populate all 9 project docs confidently. Tell the user: "I have enough to generate the project docs. Ready to proceed?" → Phase 2.
+**Exit:** Enough information to populate all 10 project docs confidently. Tell the user: "I have enough to generate the project docs. Ready to proceed?" → Phase 2.
 
 ---
 
@@ -65,7 +65,7 @@ If project docs conflict with framework docs, project docs win.
 
 **Action:**
 1. Create `docs/project/` directory
-2. Generate all 9 project files with concrete, app-specific content:
+2. Generate all 10 project files with concrete, app-specific content:
    - `00_app_idea.md`
    - `01_project_brief.md`
    - `02_feature_spec.md`
@@ -75,7 +75,8 @@ If project docs conflict with framework docs, project docs win.
    - `06_permissions_matrix.md`
    - `07_acceptance_criteria.md`
    - `08_qa_checklist.md`
-3. Present a summary: app name, core features, roles, entities, v1 scope
+   - `09_design_direction.md` (propose a primary + alternate direction from `docs/framework/website/design_directions.md`, let the user pick, then resolve to concrete fonts/hexes)
+3. Present a summary: app name, core features, roles, entities, v1 scope, chosen design direction
 4. Ask user to review and confirm or request adjustments
 
 **Rules:**
@@ -89,10 +90,10 @@ If project docs conflict with framework docs, project docs win.
 
 ## Phase 3 — Architecture Plan
 
-**Trigger:** All 9 project docs exist but no source code has been written.
+**Trigger:** All 10 project docs exist but no source code has been written.
 
 **Files to read:**
-- `docs/project/*` (all 9 files)
+- `docs/project/*` (all 10 files)
 - `docs/framework/internal/07_data_models.md`
 - `docs/framework/internal/06_routes_and_permissions.md`
 - `docs/framework/internal/04_feature_modules.md`

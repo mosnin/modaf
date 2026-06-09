@@ -22,8 +22,8 @@ When a session starts, detect the current phase and resume from there.
 **Check this in order:**
 
 1. If `docs/project/` does not exist → start at **Phase 0**
-2. If `docs/project/` exists but has fewer than 9 files → resume at **Phase 2**
-3. If `docs/project/` has all 9 files but no source code exists → resume at **Phase 3**
+2. If `docs/project/` exists but has fewer than 10 files → resume at **Phase 2**
+3. If `docs/project/` has all 10 files but no source code exists → resume at **Phase 3**
 4. If source code exists → resume at the appropriate **Build Phase (4+)** using these checks:
    - If no Prisma schema or only boilerplate → **Phase 4**
    - If schema exists but no auth routes → **Phase 5**
@@ -68,7 +68,7 @@ Wait for the user's response before continuing.
 
 ## Phase 1 — Discovery Interview
 
-**Read now:** `docs/framework/templates/` (all 9 template files — scan for structure, not content)
+**Read now:** `docs/framework/templates/` (all 10 template files — scan for structure, not content)
 
 Purpose: Understand the product well enough to generate project docs. Ask targeted questions based on gaps in the user's description. Do not ask questions the user has already answered.
 
@@ -81,6 +81,7 @@ Cover these areas (skip any the user already addressed):
 - **Dashboard shape**: When a user logs in, what do they see? A queue? Analytics? A feed?
 - **Monetization**: Free? Freemium? Paid tiers? Per-seat pricing?
 - **Integrations**: Does it connect to anything external? (Slack, email, APIs)
+- **Brand personality**: 3 adjectives for how the product should feel? 1-2 admired sites/brands, and one look to avoid? (feeds the design direction choice — see `docs/framework/website/design_directions.md`)
 - **Non-goals for v1**: Anything explicitly out of scope?
 
 Keep the interview conversational and concise — 2-4 questions at a time, not a wall of questions. Adapt based on answers. When you have enough to fill the project docs confidently, tell the user you're ready to move to Phase 2 and ask for confirmation.
@@ -89,9 +90,9 @@ Keep the interview conversational and concise — 2-4 questions at a time, not a
 
 ## Phase 2 — Generate Project Docs
 
-**Read now (if not already read):** `docs/framework/templates/` (all 9 template files for structure and example tone)
+**Read now (if not already read):** `docs/framework/templates/` (all 10 template files for structure and example tone)
 
-Create `docs/project/` and generate these 9 files populated with concrete, app-specific content:
+Create `docs/project/` and generate these 10 files populated with concrete, app-specific content:
 
 - `00_app_idea.md`
 - `01_project_brief.md`
@@ -102,11 +103,13 @@ Create `docs/project/` and generate these 9 files populated with concrete, app-s
 - `06_permissions_matrix.md`
 - `07_acceptance_criteria.md`
 - `08_qa_checklist.md`
+- `09_design_direction.md`
 
 **Rules:**
 - Do not leave any file generic — every entry must be specific to this app
 - Use template examples as reference for tone and depth
-- After generating, present a brief summary of what was created (app name, core features, roles, entities, v1 scope)
+- For `09_design_direction.md`: read `docs/framework/website/design_directions.md`, propose one primary + one alternate direction with rationale, let the user pick, then resolve every value to concrete fonts and hexes
+- After generating, present a brief summary of what was created (app name, core features, roles, entities, v1 scope, chosen design direction)
 - Ask the user to review and confirm, or flag anything to adjust
 
 Wait for user confirmation before proceeding to Phase 3.
@@ -217,6 +220,8 @@ Each build phase is a discrete step. At the start of each phase:
 
 ### Phase 13 — Marketing Site
 **Read now:**
+- `docs/project/09_design_direction.md` (MANDATORY FIRST — the project's resolved visual identity; overrides personality values in the public tokens)
+- `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
 - `docs/framework/website/saas_home_page_system.md`
 - `docs/framework/website/saas_website_page_system.md`
 - `docs/framework/website/design_system_tokens.md`
@@ -306,6 +311,7 @@ docs/
       saas_home_page_system.md        # Home page conversion funnel
       saas_website_page_system.md      # Multi-page site structure
       design_system_tokens.md          # Public site visual tokens (light + dark mode)
+      design_directions.md             # 8 visual identity directions, banned defaults, distinctiveness checks
       component_library_spec.md        # Component inventory and rules
       public_screen_archetypes.md      # Canonical page patterns for public pages
       public_component_specs.md        # Visual specs for website components
@@ -333,7 +339,7 @@ docs/
       18_testing_strategy.md           # Testing expectations
       19_i18n_posture.md               # Internationalization stance
       20_subagent_dispatch.md          # Sub-agent recipes for parallel phases
-      21_validation_gates.md           # 46 machine-checkable structural assertions per phase
+      21_validation_gates.md           # 50 machine-checkable structural assertions per phase
       22_pattern_snapshot.md           # Pattern capture system — prevents drift across phases
     templates/                         # Blank templates with examples for project docs
     prompts/                           # Kickoff sequence and master execution prompt

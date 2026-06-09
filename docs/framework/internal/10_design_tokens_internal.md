@@ -386,13 +386,14 @@ These tokens should be implemented as Tailwind theme extensions in `tailwind.con
 
 ### Project-Level Overrides
 
-The project layer (`docs/project/05_tech_stack.md` or a dedicated `docs/project/09_design_config.md`) can override:
+Every project has a design direction resolved in `docs/project/09_design_direction.md` (chosen from `docs/framework/website/design_directions.md` during Phase 2). The internal product inherits it at reduced intensity. Its "Internal Inheritance" section overrides:
 
-- The primary color hue (swap blue for indigo, emerald, violet, etc.)
-- The font family (if the product has a brand font)
-- The border radius preference (more rounded or more sharp)
+- The primary/accent color hue
+- The font family (body font; plus mono if the direction uses one)
+- The border radius posture (more rounded or more sharp)
+- The border weight philosophy
 
-Everything else — spacing scale, shadow scale, motion, layout dimensions, z-index, status colors — should remain stable across projects.
+The internal app does NOT inherit decorative backgrounds, display typography at scale, texture, or expressive motion — it stays operational. Everything else — spacing scale, shadow scale, motion, layout dimensions, z-index, status colors — remains stable across projects and comes from this file.
 
 ## Final Principle
 

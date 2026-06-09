@@ -113,7 +113,7 @@ Output: Write all 3 files. No summary needed.
 ### Coordination
 - Main thread creates `docs/project/` directory before dispatching
 - All 3 agents get the same discovery summary (paste the interview results)
-- After all complete, main thread reads all 9 files and presents the summary to the user
+- After all complete, main thread reads all 10 files and presents the summary to the user
 - Agent type: `general-purpose` (needs Write access)
 
 **Conflict resolution for parallel agents:** If two agents make contradictory decisions (e.g., different data model assumptions), the main thread resolves by:
@@ -201,12 +201,14 @@ Prompt: Build the marketing home page for [APP_NAME].
 
 Read these framework files:
 - docs/framework/website/saas_home_page_system.md (14-section structure)
-- docs/framework/website/design_system_tokens.md (public visual tokens)
+- docs/framework/website/design_system_tokens.md (public visual tokens — structural values)
+- docs/framework/website/design_directions.md (banned defaults + distinctiveness checks)
 - docs/framework/website/public_component_specs.md (component specs)
 - docs/framework/website/public_copy_conversion_rules.md (copy rules)
 - docs/framework/website/component_library_spec.md (component inventory)
 
 Read these project files:
+- docs/project/09_design_direction.md (MANDATORY FIRST — resolved visual identity, overrides token personality values)
 - docs/project/01_project_brief.md (app name, tagline, value prop)
 - docs/project/02_feature_spec.md (features to highlight)
 
@@ -227,12 +229,14 @@ Prompt: Build the pricing page for [APP_NAME].
 
 Read these framework files:
 - docs/framework/website/saas_website_page_system.md (page structure)
-- docs/framework/website/design_system_tokens.md (public visual tokens)
+- docs/framework/website/design_system_tokens.md (public visual tokens — structural values)
+- docs/framework/website/design_directions.md (banned defaults + distinctiveness checks)
 - docs/framework/website/public_screen_archetypes.md (page archetypes)
 - docs/framework/website/public_component_specs.md (component specs)
 - docs/framework/website/public_copy_conversion_rules.md (copy rules)
 
 Read these project files:
+- docs/project/09_design_direction.md (MANDATORY FIRST — resolved visual identity, overrides token personality values)
 - docs/project/01_project_brief.md (pricing model)
 - docs/project/02_feature_spec.md (feature tiers if applicable)
 
