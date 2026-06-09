@@ -4,7 +4,7 @@ const footerLinks = [
   {
     heading: "Project",
     links: [
-      { label: "GitHub", href: "https://github.com/mosnin/LoxSammy", external: true },
+      { label: "GitHub", href: "https://github.com/mosnin/modaf", external: true },
       { label: "Get Started", href: "#get-started" },
       { label: "How It Works", href: "#how-it-works" },
     ],

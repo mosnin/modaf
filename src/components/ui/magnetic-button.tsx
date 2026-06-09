@@ -20,7 +20,7 @@ export function MagneticButton({
   as = "a",
   ...props
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 200, damping: 15 });
@@ -45,12 +45,12 @@ export function MagneticButton({
 
   return (
     <Tag
-      ref={ref as any}
+      ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: springX, y: springY }}
       className={cn("will-change-transform", className)}
-      {...(props as any)}
+      {...props}
     >
       {children}
     </Tag>

@@ -10,8 +10,7 @@ const treeElements: TreeViewElement[] = [
     name: "docs/framework/",
     type: "folder",
     children: [
-      { id: "qs", name: "QUICK_START.md", type: "file" },
-      { id: "gl", name: "GLOSSARY.md", type: "file" },
+      { id: "cl", name: "CLAUDE.md", type: "file" },
       { id: "mf", name: "MANIFEST.md", type: "file" },
       {
         id: "website",
@@ -56,12 +55,6 @@ const treeElements: TreeViewElement[] = [
           { id: "i20", name: "20_subagent_dispatch.md", type: "file" },
           { id: "i21", name: "21_validation_gates.md", type: "file" },
           { id: "i22", name: "22_pattern_snapshot.md", type: "file" },
-          { id: "i23", name: "23_escape_hatches.md", type: "file" },
-          { id: "i24", name: "24_error_recovery.md", type: "file" },
-          { id: "i25", name: "25_doctor_mode.md", type: "file" },
-          { id: "i26", name: "26_observability.md", type: "file" },
-          { id: "i27", name: "27_performance.md", type: "file" },
-          { id: "i28", name: "28_accessibility.md", type: "file" },
         ],
       },
       {
@@ -78,6 +71,15 @@ const treeElements: TreeViewElement[] = [
           { id: "t7", name: "06_permissions_matrix_template.md", type: "file" },
           { id: "t8", name: "07_acceptance_criteria_template.md", type: "file" },
           { id: "t9", name: "08_qa_checklist_template.md", type: "file" },
+        ],
+      },
+      {
+        id: "prompts",
+        name: "prompts/",
+        type: "folder",
+        children: [
+          { id: "pr1", name: "00_kickoff_system.md", type: "file" },
+          { id: "pr2", name: "00_master_execution_prompt_template.md", type: "file" },
         ],
       },
       {
@@ -126,7 +128,7 @@ export function StructureSection() {
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
             MODAF contains no code, only structured documentation that guides
-            your AI agent through every decision. Four directories, each with a
+            your AI agent through every decision. Five directories, each with a
             clear purpose.
           </p>
         </ScrollReveal>
@@ -135,7 +137,7 @@ export function StructureSection() {
           <div className="mt-12 relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
             <Tree
               elements={treeElements}
-              initialExpandedItems={["docs", "website", "internal", "templates", "phases"]}
+              initialExpandedItems={["docs", "website", "internal", "templates", "prompts", "phases"]}
               className="text-white/70 [&_button]:text-white/70 [&_svg]:text-white/40 [&_button:hover]:text-white [&_.bg-muted]:bg-white/10"
               sort="none"
             />

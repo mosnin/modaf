@@ -11,8 +11,9 @@ This framework uses a **phased, interactive process**. Claude does not read all 
 ### For New Projects
 
 1. Create your new project repository
-2. Clone this repo into `docs/framework/` of that project
-3. Start a Claude Code session — the framework activates automatically
+2. Import the framework pack from the project root: `npx degit mosnin/modaf/docs/framework docs/framework`
+3. Reference it from the project's root `CLAUDE.md`: `echo "@docs/framework/CLAUDE.md" >> CLAUDE.md`
+4. Start a Claude Code session — the framework activates automatically
 
 ## Session Startup — Phase Detection
 

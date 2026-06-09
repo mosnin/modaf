@@ -34,10 +34,10 @@ export function SmoothScroll() {
       touchMultiplier: 2,
     });
 
-    lenis.on("scroll", (e: any) => {
+    lenis.on("scroll", (e: { progress: number }) => {
       const el = barRef.current;
       if (!el) return;
-      const p = Math.max(0, Math.min(1, e.progress as number));
+      const p = Math.max(0, Math.min(1, e.progress));
       const idx = Math.round(p * 100);
       const color = COLORS[idx];
       // Use scaleY instead of height to avoid layout thrashing
