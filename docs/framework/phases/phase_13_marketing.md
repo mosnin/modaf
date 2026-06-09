@@ -6,7 +6,8 @@ Email templates (Phase 12) are complete.
 ## Files to Read
 - `docs/project/09_design_direction.md` — MANDATORY FIRST — the project's resolved visual identity
 - `docs/framework/website/design_directions.md` — banned defaults and distinctiveness checks
-- `docs/framework/website/saas_home_page_system.md` — home page structure
+- `docs/framework/website/site_composition.md` — MANDATORY — section library, page selection, blueprint process
+- `docs/framework/website/saas_home_page_system.md` — section anatomy reference (menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md` — multi-page site structure
 - `docs/framework/website/design_system_tokens.md` — public site visual tokens
 - `docs/framework/website/public_screen_archetypes.md` — page archetypes
@@ -18,15 +19,15 @@ Email templates (Phase 12) are complete.
 
 ## What to Build
 
-### Core Pages (minimum v1)
-- **Home**: 14-section conversion funnel (hero, social proof, features, pricing, CTA)
-- **Pricing**: plan comparison, FAQ, CTA
-- **Login/Signup**: public auth pages (styled with marketing design system)
+### Step 1 — Site Blueprint (before any page code)
+Generate `docs/project/site_blueprint.md` per `site_composition.md`: derive the composition inputs from project docs, select pages by condition, compose each page's section sequence with a one-line job per section, plan CTA cadence and nav. **Present the blueprint summary and get user confirmation before building.** The blueprint is a working artifact (like the pattern snapshot) — it does not count toward the 10 project docs.
 
-### Additional Pages (if in v1 scope)
-- Features, About, Contact, Legal (privacy, terms)
-- Blog index and post template
-- Case studies, integrations, security
+### Step 2 — Build the Blueprint's Pages
+- **Home**: always — the blueprint's bespoke section sequence (typically 5-9 sections, not the full 14)
+- **Legal**: always (privacy, terms; cookie/security policy when relevant)
+- **Login/Signup**: public auth pages (styled with marketing design system)
+- All other pages (pricing, product/features, solutions, case studies, integrations, security, docs landing, blog, about, contact/demo) **only if the blueprint selected them**
+- Honest proof rule applies everywhere: never fabricate testimonials, logos, stats, or case studies
 
 ### Design System
 - Use PUBLIC design tokens (different from internal product tokens)
@@ -42,9 +43,11 @@ Email templates (Phase 12) are complete.
 - Mobile responsive from the start
 
 ### Verify
+- Built pages match `docs/project/site_blueprint.md` — no unselected pages, no skipped selected sections, nav links only to existing pages
+- No fabricated proof anywhere (testimonials, logos, stats, case studies)
 - All 6 distinctiveness checks from `design_directions.md` pass (squint test, banned-defaults sweep, type contrast, signature moments, layout variety, accessibility intact)
-- Home page renders all sections correctly
-- Pricing page displays plans and links to signup/checkout
+- Home page renders all blueprint sections correctly
+- If pricing page selected: displays plans and links to signup/checkout
 - All pages responsive at all breakpoints
 - CTAs link to correct destinations
 - Page load performance is acceptable

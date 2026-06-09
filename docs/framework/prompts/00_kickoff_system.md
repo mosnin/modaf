@@ -195,7 +195,10 @@ Each phase follows the same protocol:
 
 ### Phase 13 — Marketing Site
 **Read:**
-- `docs/framework/website/saas_home_page_system.md`
+- `docs/project/09_design_direction.md` (MANDATORY FIRST — resolved visual identity)
+- `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
+- `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection, blueprint process)
+- `docs/framework/website/saas_home_page_system.md` (section anatomy — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`
 - `docs/framework/website/design_system_tokens.md`
 - `docs/framework/website/public_screen_archetypes.md`
@@ -204,7 +207,7 @@ Each phase follows the same protocol:
 - `docs/framework/website/component_library_spec.md`
 - `docs/framework/website/sitemap_diagram.md`
 - `docs/framework/website/nextjs_folder_structure.md`
-- Home, pricing, features, about, contact, legal pages
+- First generate `docs/project/site_blueprint.md` (bespoke pages + section sequences), confirm with user, then build only the blueprint's pages
 
 ### Phase 14 — Edge Cases & Polish
 **Read:**

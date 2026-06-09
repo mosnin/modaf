@@ -7,9 +7,11 @@
 
 Define the recommended public website information architecture for a modern SaaS company.
 
-## Canonical Sitemap
+## Maximum Sitemap
 
-Home
+This is the *maximum* sitemap — the full set of routes the framework supports. The actual sitemap for a project is the subset selected in `docs/project/site_blueprint.md` (see page selection conditions in `site_composition.md`). Navigation must only link to pages that exist in the blueprint.
+
+Home (always)
 
 Product
 Pricing
@@ -23,7 +25,7 @@ Blog
 About
 Contact
 
-Legal
+Legal (always)
 - Privacy Policy
 - Terms of Service
 - Security Policy

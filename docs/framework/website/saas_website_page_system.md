@@ -1,6 +1,6 @@
 # SaaS Website Page System
 
-> **TL;DR:** Defines the multi-page public website system extending the home page into 13 canonical page types with shared layout rules and navigation consistency.
+> **TL;DR:** Catalog of 13 public page types with shared layout rules and navigation consistency. Which pages a given product builds is decided per-project via the page selection conditions in `site_composition.md` — never build all 13 by default.
 > **Covers:** product, pricing, solutions, case studies, features, integrations, security, docs, blog, about, contact, legal pages | **Depends on:** saas_home_page_system.md, design_system_tokens.md | **Used by:** public_screen_archetypes.md, sitemap_diagram.md, nextjs_folder_structure.md | **Phase:** 13
 
 ## Purpose
@@ -21,9 +21,11 @@ The home page establishes the visual language and component rules. All other pub
 - footer
 - theme behavior
 
-## Canonical Public Site Pages
+## Public Site Page Catalog
 
-1. Home
+This is the full catalog of page types this framework supports. **Select pages per-product** using the page selection conditions in `site_composition.md`, and record the selection in `docs/project/site_blueprint.md`. Only Home and Legal are unconditional; a pre-launch product may ship 3 pages, an established sales-led platform 10+. Never ship an empty or padded page (a blog with no posts, case studies with no cases) to fill out the catalog.
+
+1. Home (always)
 2. Product
 3. Pricing
 4. Solutions or Use Cases
@@ -35,7 +37,9 @@ The home page establishes the visual language and component rules. All other pub
 10. Blog or Resources
 11. About
 12. Contact or Demo
-13. Legal pages
+13. Legal pages (always)
+
+The page specs below document how each page should be built *when the blueprint includes it*.
 
 ## Global Public Page Wrapper
 

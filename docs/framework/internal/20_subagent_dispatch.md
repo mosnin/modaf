@@ -200,20 +200,22 @@ Before dispatching, verify features are truly independent:
 Prompt: Build the marketing home page for [APP_NAME].
 
 Read these framework files:
-- docs/framework/website/saas_home_page_system.md (14-section structure)
+- docs/framework/website/saas_home_page_system.md (section anatomy reference)
 - docs/framework/website/design_system_tokens.md (public visual tokens — structural values)
 - docs/framework/website/design_directions.md (banned defaults + distinctiveness checks)
+- docs/framework/website/site_composition.md (composition rules, honest proof rule)
 - docs/framework/website/public_component_specs.md (component specs)
 - docs/framework/website/public_copy_conversion_rules.md (copy rules)
 - docs/framework/website/component_library_spec.md (component inventory)
 
 Read these project files:
-- docs/project/09_design_direction.md (MANDATORY FIRST — resolved visual identity, overrides token personality values)
+- docs/project/site_blueprint.md (MANDATORY FIRST — the exact section sequence to build)
+- docs/project/09_design_direction.md (MANDATORY — resolved visual identity, overrides token personality values)
 - docs/project/01_project_brief.md (app name, tagline, value prop)
 - docs/project/02_feature_spec.md (features to highlight)
 
 Build the home page at src/app/(public)/page.tsx with:
-- All 14 sections from saas_home_page_system.md
+- Exactly the sections the site blueprint specifies, in its order — no additions, no fabricated proof
 - Conversion-optimized copy following public_copy_conversion_rules.md
 - Public design tokens (NOT internal product tokens)
 - Mobile responsive
@@ -236,7 +238,8 @@ Read these framework files:
 - docs/framework/website/public_copy_conversion_rules.md (copy rules)
 
 Read these project files:
-- docs/project/09_design_direction.md (MANDATORY FIRST — resolved visual identity, overrides token personality values)
+- docs/project/site_blueprint.md (MANDATORY FIRST — confirms this page is selected and its section sequence)
+- docs/project/09_design_direction.md (MANDATORY — resolved visual identity, overrides token personality values)
 - docs/project/01_project_brief.md (pricing model)
 - docs/project/02_feature_spec.md (feature tiers if applicable)
 

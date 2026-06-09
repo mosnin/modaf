@@ -222,7 +222,8 @@ Each build phase is a discrete step. At the start of each phase:
 **Read now:**
 - `docs/project/09_design_direction.md` (MANDATORY FIRST — the project's resolved visual identity; overrides personality values in the public tokens)
 - `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
-- `docs/framework/website/saas_home_page_system.md`
+- `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection conditions, blueprint process)
+- `docs/framework/website/saas_home_page_system.md` (section anatomy reference — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`
 - `docs/framework/website/design_system_tokens.md`
 - `docs/framework/website/public_screen_archetypes.md`
@@ -231,7 +232,8 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/website/component_library_spec.md`
 - `docs/framework/website/sitemap_diagram.md`
 - `docs/framework/website/nextjs_folder_structure.md`
-- Public pages: home, pricing, features, about, contact, legal
+- **First**: generate `docs/project/site_blueprint.md` (bespoke page list + per-page section sequences per `site_composition.md`) and confirm it with the user before writing page code
+- Then build only the blueprint's pages — home and legal always; everything else by the blueprint's selection. Never fabricate proof (testimonials, logos, stats)
 
 ### Phase 14 — Edge Cases & Polish
 **Read now:**
@@ -312,6 +314,7 @@ docs/
       saas_website_page_system.md      # Multi-page site structure
       design_system_tokens.md          # Public site visual tokens (light + dark mode)
       design_directions.md             # 8 visual identity directions, banned defaults, distinctiveness checks
+      site_composition.md              # Bespoke page assembly — section library, page selection, site blueprint
       component_library_spec.md        # Component inventory and rules
       public_screen_archetypes.md      # Canonical page patterns for public pages
       public_component_specs.md        # Visual specs for website components
@@ -339,7 +342,7 @@ docs/
       18_testing_strategy.md           # Testing expectations
       19_i18n_posture.md               # Internationalization stance
       20_subagent_dispatch.md          # Sub-agent recipes for parallel phases
-      21_validation_gates.md           # 50 machine-checkable structural assertions per phase
+      21_validation_gates.md           # 51 machine-checkable structural assertions per phase
       22_pattern_snapshot.md           # Pattern capture system — prevents drift across phases
     templates/                         # Blank templates with examples for project docs
     prompts/                           # Kickoff sequence and master execution prompt

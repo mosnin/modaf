@@ -18,6 +18,7 @@ const treeElements: TreeViewElement[] = [
         type: "folder",
         children: [
           { id: "w0", name: "design_directions.md", type: "file" },
+          { id: "w10", name: "site_composition.md", type: "file" },
           { id: "w1", name: "saas_home_page_system.md", type: "file" },
           { id: "w9", name: "saas_website_page_system.md", type: "file" },
           { id: "w2", name: "design_system_tokens.md", type: "file" },

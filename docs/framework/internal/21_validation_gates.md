@@ -429,6 +429,16 @@ grep -r "from.*components/app\|from.*components/dashboard\|from.*components/admi
 **Pass:** No internal component imports found in public pages.
 **Common failure:** Marketing pages reuse internal app components with wrong visual density.
 
+### gate:marketing-blueprint
+**What:** The site blueprint exists and the built pages match its selection (see `docs/framework/website/site_composition.md`).
+```bash
+ls docs/project/site_blueprint.md
+# Every top-level public route should appear in the blueprint
+find src/app -path "*(public)*" -maxdepth 3 -type d 2>/dev/null
+```
+**Pass:** Blueprint exists; every built public route is selected in it; no blueprint-selected page is missing; nav links only to existing pages.
+**Common failure:** All 13 catalog pages built by default, or proof sections (testimonials, logo wall, stats) present without real proof in the blueprint's inventory.
+
 ### gate:marketing-design-direction
 **What:** The project's design direction exists and the public pages don't use banned-default styling (see `docs/framework/website/design_directions.md`).
 ```bash

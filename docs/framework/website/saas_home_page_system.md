@@ -1,7 +1,7 @@
 # SaaS Home Page System
 
-> **TL;DR:** Defines the canonical 14-section home page structure with conversion sequencing, section-by-section design rules, and mobile responsiveness guidance.
-> **Covers:** hero, logo marquee, case studies, stats band, feature splits, pricing, testimonials, FAQ, CTA blocks, footer | **Depends on:** design_system_tokens.md, 15_canonical_breakpoints.md | **Used by:** saas_website_page_system.md, public_screen_archetypes.md, public_component_specs.md | **Phase:** 13
+> **TL;DR:** Reference anatomy for home page sections — conversion sequencing, section-by-section design rules, and mobile responsiveness guidance. Which sections a given product uses, and in what order, is decided per-project via `site_composition.md`.
+> **Covers:** hero, logo marquee, case studies, stats band, feature splits, pricing, testimonials, FAQ, CTA blocks, footer | **Depends on:** design_system_tokens.md, site_composition.md, 15_canonical_breakpoints.md | **Used by:** saas_website_page_system.md, public_screen_archetypes.md, public_component_specs.md | **Phase:** 13
 
 ## Purpose
 
@@ -32,22 +32,26 @@ The home page should feel:
 - not template spam
 - not AI looking
 
-## Global Layout Sequence
+## Reference Layout Sequence
 
-1. Announcement bar
-2. Pill style sticky header
+**This is the full menu, not a required checklist.** It shows the maximum sensible sequence for a mature product with deep proof. Most products need 5-9 of these sections — select and order them per-product using `site_composition.md`, and record the choice in `docs/project/site_blueprint.md`. Building all 14 for a product that can't fill them honestly produces the generic template feel this framework exists to prevent.
+
+1. Announcement bar (only with a real announcement)
+2. Sticky header
 3. Hero section
-4. Logo marquee
-5. Case studies or proof cards
-6. Stats band
+4. Logo marquee (only with ≥5 real, recognizable logos)
+5. Case studies or proof cards (only if real)
+6. Stats band (only with defensible metrics)
 7. Split feature sections
 8. Secondary proof layer
-9. Pricing section
-10. Mid page CTA
-11. Testimonial rail
-12. FAQ
-13. Final CTA
-14. Footer
+9. Pricing section (self-serve with public pricing)
+10. Mid page CTA (pages with ≥6 sections)
+11. Testimonial rail (only with real quotes)
+12. FAQ (only with real objections)
+13. Final CTA (always)
+14. Footer (always)
+
+The section anatomy below documents how each section should be built *when the blueprint includes it*.
 
 ## Announcement Bar
 
@@ -72,11 +76,11 @@ Surface immediate context without cluttering the hero.
 - persist dismissal state if implemented
 - do not overload with multiple messages
 
-## Pill Style Header
+## Header
 
 ### Purpose
 
-Provide navigation clarity and make the site feel polished immediately.
+Provide navigation clarity and make the site feel polished immediately. The floating-pill treatment below is the default shape — the chosen design direction (`docs/project/09_design_direction.md`) may restyle it (e.g., a Swiss direction uses a flat full-width bar, a brutalist direction uses a bordered block).
 
 ### Required Elements
 
@@ -437,7 +441,7 @@ The public site allows more expressive hover states than the internal product:
 - Parallax on every section (dated, performance cost)
 - Scroll-jacking (never)
 - Elements that animate every time they enter/leave viewport (once only)
-- Decorative SVG line draws (feels 2019)
+- Decorative SVG line draws — unless they are a signature move of the chosen design direction (e.g., Blueprint's draw-in borders), in which case the direction wins
 - Anything that delays content being readable by more than 800ms total
 
 ### Reduced Motion
