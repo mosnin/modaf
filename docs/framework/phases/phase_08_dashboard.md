@@ -21,11 +21,17 @@ Choose the appropriate archetype from `16_dashboard_archetypes.md`:
 - **Monitoring**: real-time system health
 - **Admin Overview**: platform-wide admin view
 
-### Dashboard Components
-- **Summary row**: 3-5 key metrics with trend indicators
-- **Main work area**: primary content for the chosen archetype
-- **Secondary insights**: supporting charts, lists, or activity
-- **Activity feed**: recent actions (if applicable)
+### Bento Grid Layout (default)
+Compose the dashboard as a bento grid per `03_dashboard_system.md`: 12-column grid, mixed cell sizes (1×1 stats, 2×1 wide, 1×2 tall, 2×2 feature), consistent radius/gap, 6-9 cells, the archetype's main work surface in the dominant cell. Mobile collapses to a single column in priority order.
+
+### Dashboard Components (as bento cells)
+- **Summary stats**: 3-5 key metric cells with trend indicators
+- **Main work surface**: primary content for the chosen archetype — the dominant cell
+- **Secondary insights**: supporting chart/list cells
+- **Activity feed**: tall cell with recent actions (if applicable)
+
+### Animation Choreography
+Per `03_dashboard_system.md` § Dashboard Animation Choreography: staggered cell entrance continuing from the post-login preloader crossfade, stat count-ups (≤800ms, once), chart draw-ins, uniform hover lift on interactive cells, live items sliding into feed cells, full `prefers-reduced-motion` fallback.
 
 ### Four States
 - **Loading**: skeleton placeholders matching layout
@@ -34,9 +40,11 @@ Choose the appropriate archetype from `16_dashboard_archetypes.md`:
 - **Error**: graceful error with retry option
 
 ### Verify
-- Dashboard renders with mock/seed data
+- Dashboard renders with mock/seed data as a composed bento grid (no grid holes, main work surface dominant)
+- Entrance stagger plays once per mount; skeletons match the bento geometry exactly
+- A single failed cell shows an inline error while the rest of the grid renders
 - All four states display correctly
-- Responsive at all breakpoints
+- Responsive at all breakpoints; mobile stacks in priority order
 - Metrics update correctly
 
 ### Run Validation Gates

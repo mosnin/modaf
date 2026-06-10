@@ -8,7 +8,7 @@
 |---|------|---------------------|-------|
 | 01 | `01_app_shell.md` | Authenticated app frame — top bar, floating sidebar ↔ animated dock, mobile bottom tabs + nav sheet, page header, post-login preloader | 7 |
 | 02 | `02_auth_and_onboarding.md` | Auth routes, login/signup flows, invite flow, designed onboarding sequence with quality bar. Split into Section A (Auth, Phase 5) and Section B (Onboarding, Phase 6) | 5, 6 |
-| 03 | `03_dashboard_system.md` | Dashboard purpose, anatomy, required states, mobile rules | 8 |
+| 03 | `03_dashboard_system.md` | Dashboard framework — bento grid layout (default), anatomy, animation choreography, required states, mobile rules | 8 |
 | 04 | `04_feature_modules.md` | 8 optional modules: analytics, integrations, API, MCP, webhooks, notifications, usage, activity logs | 3, 9 |
 | 05 | `05_settings_billing_admin.md` | Settings areas, Stripe billing, security, admin panel, user management | 10, 11 |
 | 06 | `06_routes_and_permissions.md` | Route categories, canonical roles, permission enforcement layers | 3 |

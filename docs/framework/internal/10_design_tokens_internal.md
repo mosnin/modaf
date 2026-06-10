@@ -301,7 +301,7 @@ These are the canonical durations and easings for every animated interaction in 
 - Skeleton loaders use a horizontal shimmer via CSS @keyframes at 1.5s duration, not Motion.
 - Do not animate color changes on hover — use CSS transition at duration-fast.
 - Page content entrance: opacity 0→1, y: 8→0, 300ms ease-out. Subtle — users should feel it, not notice it.
-- Never exceed 300ms for any internal product animation, with these sanctioned exceptions only: skeleton shimmer, the post-login preloader sequence (≤1.5s total, see `01_app_shell.md`), and the onboarding celebratory finish (`02_auth_and_onboarding.md`).
+- Never exceed 300ms for any internal product animation, with these sanctioned exceptions only: skeleton shimmer, the post-login preloader sequence (≤1.5s total, see `01_app_shell.md`), the onboarding celebratory finish (`02_auth_and_onboarding.md`), and the dashboard stat count-up (≤800ms, once per mount, see `03_dashboard_system.md`).
 - Do not use spring physics or bounce easing in the internal product. Exception: the dock hover magnification (`01_app_shell.md`) may use a soft spring for the scale response — it is the shell's one tactile flourish; nothing else gets one.
 - Always respect `prefers-reduced-motion` — skip animation or reduce to simple opacity fade.
 - Define all Motion variants in a shared `lib/animations.ts` file for consistency.

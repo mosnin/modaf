@@ -7,6 +7,8 @@
 
 Define concrete, buildable dashboard patterns for SaaS products. The general dashboard anatomy is in `03_dashboard_system.md`. This file specifies 7 specific dashboard types with enough detail to build each one without guessing layout or content.
 
+All archetypes render in the **bento grid layout** defined in `03_dashboard_system.md` — each archetype's summary cards, main work surface, secondary insights, and activity pattern map to bento cells, with the main work surface always taking the dominant cell. The layout descriptions below define cell contents and relative importance, not stacked full-width rows.
+
 Use `10_design_tokens_internal.md` for visual tokens, `12_internal_component_specs.md` for component specs, and `15_canonical_breakpoints.md` for responsive behavior.
 
 ---

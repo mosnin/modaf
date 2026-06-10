@@ -161,8 +161,9 @@ Each phase follows the same protocol:
 - `docs/framework/internal/03_dashboard_system.md`
 - `docs/framework/internal/16_dashboard_archetypes.md`
 - `docs/framework/internal/13_internal_data_display_rules.md`
-- Summary metrics, main work area, activity feed
-- Apply the appropriate dashboard archetype
+- Bento grid layout (default) — archetype content in mixed-size cells, main work surface dominant
+- Summary metric cells, main work surface, activity feed cell
+- Apply the appropriate dashboard archetype; animation choreography per `03_dashboard_system.md`
 - Update pattern snapshot with dashboard conventions
 
 ### Phase 9 — Core Features

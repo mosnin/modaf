@@ -189,8 +189,10 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/internal/03_dashboard_system.md`
 - `docs/framework/internal/16_dashboard_archetypes.md`
 - `docs/framework/internal/13_internal_data_display_rules.md`
-- Summary metrics, main work area, activity feed
-- Select and implement the appropriate dashboard archetype
+- Bento grid layout (default): mixed-size cells, archetype's main work surface in the dominant cell, 6-9 cells
+- Summary metric cells, main work surface, activity feed cell
+- Select and implement the appropriate dashboard archetype (rendered as bento cells)
+- Animation choreography: staggered cell entrance from the preloader crossfade, stat count-ups, chart draw-ins, hover lift
 - **Update pattern snapshot** with dashboard conventions after building
 
 ### Phase 9 — Core Features
