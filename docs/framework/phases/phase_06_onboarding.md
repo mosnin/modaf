@@ -10,9 +10,15 @@ Auth (Phase 5) is complete.
 
 ### Onboarding Flow
 - Multi-step onboarding sequence (from project docs)
-- Progress indicator
+- Progress indicator (animated fill)
 - Skip/back navigation where appropriate
 - Workspace or organization creation (if applicable)
+
+### Design Quality Bar (see `02_auth_and_onboarding.md` § Onboarding Design Quality Bar)
+- Full-screen focused flow with animated step transitions — no app shell, no hard cuts
+- Welcome beat greeting the user by name; visual card answers over dropdowns
+- Live preview where a step configures something visible
+- Celebratory finish that hands off to the post-login preloader → dashboard (`01_app_shell.md`)
 
 ### First Value Event
 - The specific action that makes new users say "this is useful"

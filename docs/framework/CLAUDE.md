@@ -162,9 +162,10 @@ Each build phase is a discrete step. At the start of each phase:
 
 ### Phase 6 — Onboarding
 **Read now:** `docs/framework/internal/02_auth_and_onboarding.md` (Section B: Onboarding)
-- Multi-step onboarding flow
+- Multi-step onboarding flow — full-screen, animated step transitions, welcome beat, visual card answers (see Section B's Design Quality Bar)
 - First value event
 - Workspace/org setup if applicable
+- Celebratory finish handing off to the post-login preloader → dashboard
 
 ### Phase 7 — App Shell
 **Read now:**
@@ -174,7 +175,10 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/internal/12_internal_component_specs.md` (component visual specs)
 - `docs/framework/internal/15_canonical_breakpoints.md`
 - `docs/framework/internal/22_pattern_snapshot.md` (for snapshot generation)
-- Top bar, sidebar, drawer, page header, user menu
+- Top bar, page header, user menu
+- Floating sidebar that collapses into an animated icon dock (Apple-Dock hover magnification, expand button, persisted state)
+- Mobile: bottom tab bar with 3-5 product-tailored tabs + full-screen nav sheet
+- Post-login preloader: logo-mark animation, once per login, crossfades into the dashboard
 - Responsive layout, dark mode tokens
 - Navigation structure from route plan
 - **Generate pattern snapshot** at `docs/project/pattern_snapshot.md` before proceeding

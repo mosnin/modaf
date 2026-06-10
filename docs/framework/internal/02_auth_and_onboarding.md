@@ -159,6 +159,18 @@ Every product must define a first value event in `docs/project/03_user_flows.md`
 6. Route users to the most relevant first destination after completion.
 7. Maximum 5 steps for v1. If more setup is needed, defer to a post-onboarding checklist.
 
+## Onboarding Design Quality Bar
+
+Onboarding is the product's first impression after the signup form — it must feel designed, not like a settings wizard. Requirements:
+
+1. **Full-screen focused flow** — no app shell, no sidebar, no distractions; a centered card or split layout on `surface-base` with generous whitespace
+2. **Animated step transitions** — steps slide/fade between each other (250-300ms, transform+opacity); the progress indicator animates its fill; never a hard cut between steps
+3. **A designed welcome beat** — step 0 greets the user by name with the product's value promise in one line, styled with the design direction's inheritance (accent, type posture); 2 seconds of warmth before asking for anything
+4. **Visual answers over text inputs** — selectable illustrated/icon cards for role and use-case questions instead of dropdowns; selections respond with the direction's hover/active language
+5. **Live preview where possible** — when a step configures something visible (workspace name, defaults), show it taking shape beside the form
+6. **A celebratory finish** — the final step acknowledges completion (one tasteful animated moment — check-draw, subtle confetti only if the direction is Playful), then transitions directly into the post-login preloader → dashboard sequence (`01_app_shell.md`)
+7. All of it mobile-first: single column, large tap targets, keyboard-aware
+
 ## Incomplete Setup Handling
 
 If a user leaves onboarding early:

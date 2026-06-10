@@ -104,6 +104,7 @@ If project docs conflict with framework docs, project docs win.
    - **Entities** with key fields and relationships
    - **Routes** — full route table (public, auth, app, admin)
    - **Modules** — which optional modules apply
+   - **AI assistant tool surface** — read/action tools mapped to service functions (`docs/framework/internal/23_ai_module.md`), or the recorded opt-out
    - **Build order** — the 11 build phases (4–14) with app-specific notes
    - **Custom validation gates** — read `docs/framework/internal/21_validation_gates.md`, define app-specific gates, write to `docs/project/custom_gates.md`
 2. Present to user for review
@@ -137,9 +138,10 @@ Each phase follows the same protocol:
 
 ### Phase 6 — Onboarding
 **Read:** `docs/framework/internal/02_auth_and_onboarding.md` (Section B: Onboarding)
-- Multi-step onboarding flow
+- Multi-step onboarding flow — full-screen, animated step transitions, welcome beat, visual card answers (Section B Design Quality Bar)
 - First value event
 - Workspace/org creation if applicable
+- Celebratory finish → post-login preloader → dashboard
 
 ### Phase 7 — App Shell
 **Read:**
@@ -149,7 +151,7 @@ Each phase follows the same protocol:
 - `docs/framework/internal/12_internal_component_specs.md`
 - `docs/framework/internal/15_canonical_breakpoints.md`
 - `docs/framework/internal/22_pattern_snapshot.md`
-- Top bar, sidebar, drawer, page header, user menu
+- Top bar, floating sidebar ↔ animated dock (hover magnification, persisted state), mobile bottom tabs + full-screen nav sheet, post-login preloader, page header, user menu
 - Responsive layout, navigation, dark mode setup
 - **Generate pattern snapshot** at `docs/project/pattern_snapshot.md` before proceeding
 

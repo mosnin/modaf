@@ -15,10 +15,11 @@ Onboarding (Phase 6) is complete.
 
 ### Shell Components
 - **Top bar**: logo, search, notifications, user menu
-- **Sidebar**: navigation links, workspace switcher (if applicable), collapse behavior
+- **Floating sidebar ↔ dock**: detached floating sidebar (default) that morphs into an icon dock with Apple-Dock hover magnification; collapse button on the sidebar, expand button on the dock, `[` shortcut, state persisted per user
+- **Mobile navigation**: bottom tab bar with 3-5 product-tailored tabs (last tab = Menu) + full-screen nav sheet
+- **Post-login preloader**: logo-mark animation (≤1.5s, once per login) that prefetches the dashboard and crossfades into it
 - **Page header**: title, breadcrumbs, action buttons
 - **User menu**: profile, settings, logout
-- **Mobile drawer**: responsive sidebar replacement
 
 ### Design System Setup
 - Configure design tokens (colors, spacing, typography, shadows, radii)
@@ -26,7 +27,7 @@ Onboarding (Phase 6) is complete.
 - Tailwind theme extension with token values
 
 ### Responsive Layout
-- Sidebar visible at lg+ (1024px), drawer below
+- Floating sidebar / dock at lg+ (1024px); bottom tabs + nav sheet below
 - Content area adapts across all 6 breakpoints
 - Mobile-first implementation
 
@@ -37,7 +38,10 @@ Onboarding (Phase 6) is complete.
 
 ### Verify
 - Shell renders correctly at all breakpoints (375px → 1536px+)
-- Sidebar collapses to drawer on mobile
+- Sidebar ↔ dock morph is smooth (transform/opacity only), magnification works, state persists across reloads
+- Bottom tabs show the product's top destinations; Menu opens the full-screen sheet; primary actions never obscured
+- Post-login preloader plays exactly once per login and crossfades into the dashboard (no white flash)
+- `prefers-reduced-motion` disables magnification and reduces morphs/preloader to fades
 - Dark mode toggles correctly
 - Navigation highlights active route
 
