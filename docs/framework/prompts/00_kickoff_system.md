@@ -49,7 +49,7 @@ If project docs conflict with framework docs, project docs win.
 **Action:**
 - Analyze the app idea for gaps
 - Ask targeted follow-up questions (2-4 at a time, not a wall)
-- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals, brand personality (3 feel adjectives + admired/avoided looks — see `docs/framework/website/design_directions.md`)
+- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals, brand personality (3 feel adjectives + admired/avoided looks — see `docs/framework/website/design_directions.md`), AI assistant scope (default-on — see `docs/framework/internal/23_ai_module.md`)
 - Skip anything the user already addressed
 - Adapt questions based on answers
 
@@ -170,8 +170,10 @@ Each phase follows the same protocol:
 - `docs/framework/internal/11_internal_screen_archetypes.md`
 - `docs/framework/internal/12_internal_component_specs.md`
 - `docs/framework/internal/17_error_state_taxonomy.md`
+- `docs/framework/internal/23_ai_module.md` (default-on AI assistant — build after core features)
 - Product-specific modules, CRUD views, detail pages, forms
 - All four states on every view: loading, empty, success, error
+- AI assistant module last: streaming route, permission-enforced tools, confirmation-gated actions (unless opted out)
 - Update pattern snapshot with feature module template after first feature
 
 ### Phase 10 — Settings & Billing
@@ -197,6 +199,7 @@ Each phase follows the same protocol:
 **Read:**
 - `docs/project/09_design_direction.md` (MANDATORY FIRST — resolved visual identity)
 - `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
+- `docs/framework/website/signature_interactions.md` (motion identity, hero moment, craft details)
 - `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection, blueprint process)
 - `docs/framework/website/saas_home_page_system.md` (section anatomy — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`

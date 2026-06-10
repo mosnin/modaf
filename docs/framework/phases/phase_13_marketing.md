@@ -6,6 +6,7 @@ Email templates (Phase 12) are complete.
 ## Files to Read
 - `docs/project/09_design_direction.md` — MANDATORY FIRST — the project's resolved visual identity
 - `docs/framework/website/design_directions.md` — banned defaults and distinctiveness checks
+- `docs/framework/website/signature_interactions.md` — motion identity, hero moment, craft details
 - `docs/framework/website/site_composition.md` — MANDATORY — section library, page selection, blueprint process
 - `docs/framework/website/saas_home_page_system.md` — section anatomy reference (menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md` — multi-page site structure
@@ -46,6 +47,7 @@ Generate `docs/project/site_blueprint.md` per `site_composition.md`: derive the 
 - Built pages match `docs/project/site_blueprint.md` — no unselected pages, no skipped selected sections, nav links only to existing pages
 - No fabricated proof anywhere (testimonials, logos, stats, case studies)
 - All 6 distinctiveness checks from `design_directions.md` pass (squint test, banned-defaults sweep, type contrast, signature moments, layout variety, accessibility intact)
+- All 4 quality-bar checks from `signature_interactions.md` pass (motion identity, one hero moment at 60fps, craft sweep, default-state sweep)
 - Home page renders all blueprint sections correctly
 - If pricing page selected: displays plans and links to signup/checkout
 - All pages responsive at all breakpoints

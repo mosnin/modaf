@@ -1,11 +1,13 @@
 # 04 Feature Modules
 
-> **TL;DR:** Specifies optional plug-in modules (analytics, integrations, API, MCP, webhooks, notifications, usage, activity logs) with routes, layouts, states, and permission rules for each.
+> **TL;DR:** Specifies optional plug-in modules (analytics, integrations, API, MCP, webhooks, notifications, usage, activity logs) with routes, layouts, states, and permission rules for each. A ninth module — the AI assistant — is default-on and specified in `23_ai_module.md`.
 > **Covers:** analytics, integrations, API keys, MCP servers, webhooks, notifications, usage metering, activity logs | **Depends on:** 07, 08, 11, 12, 13, 14, 15, 16 | **Used by:** 05, 09 | **Phase:** 3, 9
 
 ## Purpose
 
 Define the reusable module types that may be attached to different SaaS applications. Each module is optional — only include what the product requires. This file provides enough detail that each module can be built without guessing layout, routes, or behavior.
+
+**Exception:** the **AI Assistant module** (`23_ai_module.md`) is **default-on** — every product includes it unless the user explicitly opts out. Its tool surface is derived per-product from the entity plan in Phase 3, and it is built in Phase 9 after the core feature service layer exists.
 
 ## Core Principle
 

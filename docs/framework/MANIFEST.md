@@ -26,8 +26,9 @@
 | 18 | `18_testing_strategy.md` | Testing philosophy, 3 layers (unit/integration/E2E), CI integration, test data strategy | 14 |
 | 19 | `19_i18n_posture.md` | English-first for v1, Intl API for formatting, what to prepare for future multilingual | 14 |
 | 20 | `20_subagent_dispatch.md` | Pre-built agent recipes for parallelizing Phases 2, 9, 13, 14 — prompts, file lists, coordination | 2, 9, 13, 14 |
-| 21 | `21_validation_gates.md` | 51 machine-checkable structural assertions — per-phase gates, regression testing, custom gate system | 4–14 |
+| 21 | `21_validation_gates.md` | 53 machine-checkable structural assertions — per-phase gates, regression testing, custom gate system | 4–14 |
 | 22 | `22_pattern_snapshot.md` | Generated reference file capturing exact code conventions — prevents pattern drift across phases and agents | 7 (generate), 9+ (consume) |
+| 23 | `23_ai_module.md` | Default-on AI assistant module — Claude API stack, permission-enforced tool layer, approval-gated actions, guardrails | 3, 9 |
 
 ## Public Website (`docs/framework/website/`)
 
@@ -38,6 +39,7 @@
 | `site_composition.md` | Bespoke page assembly — section library with use/skip conditions, page selection, honest proof rule, site blueprint process | 13 |
 | `design_system_tokens.md` | Public site visual tokens — colors, spacing, typography, radius, shadow, motion, buttons | 13 |
 | `design_directions.md` | 8 visual identity directions, banned-defaults list, selection process, distinctiveness checks | 1, 2, 13 |
+| `signature_interactions.md` | Motion identity per direction, hero moment, scroll choreography, micro-interactions, craft details | 13 |
 | `component_library_spec.md` | Component inventory (17 core) and shared rules — delegates visual specs to public_component_specs | 13 |
 | `public_screen_archetypes.md` | 13 page archetypes with hierarchy, layout, CTA strategy, mobile behavior, common mistakes | 13 |
 | `public_component_specs.md` | Visual specs for 19+ components — padding, colors, typography, states, mobile behavior | 13 |

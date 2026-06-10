@@ -8,6 +8,7 @@ Dashboard (Phase 8) is complete.
 - `docs/framework/internal/11_internal_screen_archetypes.md` — page patterns
 - `docs/framework/internal/12_internal_component_specs.md` — component visual specs
 - `docs/framework/internal/17_error_state_taxonomy.md` — error handling
+- `docs/framework/internal/23_ai_module.md` — default-on AI assistant module (build last in this phase)
 
 ## Required Reading (Before Building)
 - `docs/project/pattern_snapshot.md` — canonical code conventions (all agents must read this)
@@ -39,6 +40,13 @@ Build the product-specific feature modules defined in `docs/project/02_feature_s
 - Success (data populated)
 - Error (message + retry)
 
+### AI Assistant Module (default-on)
+After core feature modules are built (the assistant's tools wrap their service layer), build the AI assistant per `23_ai_module.md` unless the user opted out:
+- Streaming assistant route (`/api/assistant`) with `claude-opus-4-8`, adaptive thinking, server-only key
+- 3-6 read tools + 2-4 action tools derived from the Phase 3 tool surface plan, wrapping existing service functions
+- Drawer UI with streaming render, tool status chips, and confirmation cards for all mutations
+- Rate limiting, per-org usage tracking, activity-log audit entries for agent actions
+
 ### Verify
 - All CRUD operations work end-to-end
 - Permissions enforced (users can't access others' data)
@@ -53,6 +61,8 @@ Run all Phase 9 gates from `docs/framework/internal/21_validation_gates.md`:
 - `gate:features-permissions` — Permission checks in API routes
 - `gate:features-org-isolation` — Queries filter by organization
 - `gate:features-validation` — Forms have client-side validation
+- `gate:ai-assistant` — Assistant module exists; API key never reaches the client bundle
+- `gate:ai-permissions` — Assistant tools wrap the service layer, no direct DB access
 
 Plus regression: re-run all Phase 4–8 gates.
 

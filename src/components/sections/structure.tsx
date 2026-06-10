@@ -19,6 +19,7 @@ const treeElements: TreeViewElement[] = [
         children: [
           { id: "w0", name: "design_directions.md", type: "file" },
           { id: "w10", name: "site_composition.md", type: "file" },
+          { id: "w11", name: "signature_interactions.md", type: "file" },
           { id: "w1", name: "saas_home_page_system.md", type: "file" },
           { id: "w9", name: "saas_website_page_system.md", type: "file" },
           { id: "w2", name: "design_system_tokens.md", type: "file" },
@@ -57,6 +58,7 @@ const treeElements: TreeViewElement[] = [
           { id: "i20", name: "20_subagent_dispatch.md", type: "file" },
           { id: "i21", name: "21_validation_gates.md", type: "file" },
           { id: "i22", name: "22_pattern_snapshot.md", type: "file" },
+          { id: "i23", name: "23_ai_module.md", type: "file" },
         ],
       },
       {

@@ -31,12 +31,18 @@ Produce an architecture summary covering:
   - Analytics, Integrations, API, MCP, Webhooks, Notifications, Usage, Activity Logs
 - Note which are v1 vs future
 
-### 4. Build Order
+### 4. AI Assistant Tool Surface (default-on)
+- Read `docs/framework/internal/23_ai_module.md`
+- Derive 3-6 read tools and 2-4 action tools from the entity plan, each mapped to a service-layer function
+- Note which actions require the confirmation card (all mutations)
+- If the user opted out during discovery, record the opt-out here instead
+
+### 5. Build Order
 - The 11 build phases with app-specific notes:
   - What each phase includes for THIS app
   - Key decisions or dependencies between phases
 
-### 5. Custom Validation Gates
+### 6. Custom Validation Gates
 - Read `docs/framework/internal/21_validation_gates.md` for the gate system
 - Define app-specific gates based on entities and features identified
 - Write custom gates to `docs/project/custom_gates.md`

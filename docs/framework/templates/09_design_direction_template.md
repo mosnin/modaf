@@ -42,9 +42,13 @@ Generate this during Phase 2 after the user confirms a direction from `docs/fram
 
 > Example: All sections carry a 20px-pitch dotted grid (ink at 6%). Hero adds crosshair registration marks in two corners. No gradients anywhere.
 
-## Motion Character
+## Motion Identity
+
+Resolve from the direction's row in `docs/framework/website/signature_interactions.md` — easing/speed, entrance style, hover language, and the chosen **hero moment** (exactly one) plus the micro-interaction treatments.
 
 > Example: Borders and connector lines draw in via SVG stroke-dashoffset (400ms ease-out, once per element). Everything else: 200ms opacity/transform only. No springs, no parallax. `prefers-reduced-motion` replaces draw-ins with instant render.
+> Hero moment: scroll-told story — the architecture diagram assembles itself in one pinned how-it-works section.
+> Craft details: ink-on-blueprint-blue `::selection`; square accent focus rings; crosshair 404 ("COORDINATES NOT FOUND"); skeletons as dashed-outline drawings.
 
 ## Signature Moves (implement at least 2 on the home page)
 

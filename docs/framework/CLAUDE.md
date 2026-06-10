@@ -82,6 +82,7 @@ Cover these areas (skip any the user already addressed):
 - **Monetization**: Free? Freemium? Paid tiers? Per-seat pricing?
 - **Integrations**: Does it connect to anything external? (Slack, email, APIs)
 - **Brand personality**: 3 adjectives for how the product should feel? 1-2 admired sites/brands, and one look to avoid? (feeds the design direction choice — see `docs/framework/website/design_directions.md`)
+- **AI assistant scope**: What should the built-in AI assistant answer and do in this product? (default-on — see `docs/framework/internal/23_ai_module.md`; skip only if the user opts out)
 - **Non-goals for v1**: Anything explicitly out of scope?
 
 Keep the interview conversational and concise — 2-4 questions at a time, not a wall of questions. Adapt based on answers. When you have enough to fill the project docs confidently, tell the user you're ready to move to Phase 2 and ask for confirmation.
@@ -129,6 +130,7 @@ Produce an architecture summary:
 - **Entities**: List with key fields and relationships
 - **Routes**: Full route table (public, authenticated, admin)
 - **Modules**: Which optional modules apply (analytics, integrations, API, webhooks, etc.)
+- **AI assistant tool surface**: read tools and action tools derived from the entities, each mapped to a service-layer function (see `docs/framework/internal/23_ai_module.md`) — or record the explicit opt-out
 - **Build order**: The 11 build phases (4–14) with app-specific notes on what each phase includes
 - **Custom validation gates**: Read `docs/framework/internal/21_validation_gates.md`, then define app-specific gates based on entities and features. Write custom gates to `docs/project/custom_gates.md`.
 
@@ -194,9 +196,11 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/internal/11_internal_screen_archetypes.md`
 - `docs/framework/internal/12_internal_component_specs.md`
 - `docs/framework/internal/17_error_state_taxonomy.md`
+- `docs/framework/internal/23_ai_module.md` (default-on AI assistant — build after core features)
 - Product-specific feature modules from project docs
 - CRUD views, detail pages, forms, filters
 - All four states: loading, empty, success, error
+- AI assistant module: streaming route + permission-enforced tools over the product's entities + confirmation-gated actions (unless user opted out)
 - **Update pattern snapshot** with feature module template after first feature is built
 
 ### Phase 10 — Settings & Billing
@@ -222,6 +226,7 @@ Each build phase is a discrete step. At the start of each phase:
 **Read now:**
 - `docs/project/09_design_direction.md` (MANDATORY FIRST — the project's resolved visual identity; overrides personality values in the public tokens)
 - `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
+- `docs/framework/website/signature_interactions.md` (motion identity, hero moment, craft details)
 - `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection conditions, blueprint process)
 - `docs/framework/website/saas_home_page_system.md` (section anatomy reference — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`
@@ -272,6 +277,7 @@ Unless the user specifies otherwise, assume:
 - **Database**: PostgreSQL with Prisma ORM
 - **Billing**: Stripe (Checkout + Customer Portal), stripe-event-types for typed webhooks
 - **Email**: Resend for delivery, React Email for JSX templates
+- **AI**: Anthropic Claude API via `@anthropic-ai/sdk` (server-side only) — `claude-opus-4-8` for the default-on assistant module, `claude-haiku-4-5` for lightweight tasks; adaptive thinking + streaming (see `internal/23_ai_module.md`)
 - **Hosting**: Vercel
 - **Dark Mode**: next-themes for toggle and system preference detection
 - **Env Validation**: T3 Env for type-safe environment variables with runtime checks
@@ -315,6 +321,7 @@ docs/
       design_system_tokens.md          # Public site visual tokens (light + dark mode)
       design_directions.md             # 8 visual identity directions, banned defaults, distinctiveness checks
       site_composition.md              # Bespoke page assembly — section library, page selection, site blueprint
+      signature_interactions.md        # Motion identity per direction, hero moment, craft details
       component_library_spec.md        # Component inventory and rules
       public_screen_archetypes.md      # Canonical page patterns for public pages
       public_component_specs.md        # Visual specs for website components
@@ -342,8 +349,9 @@ docs/
       18_testing_strategy.md           # Testing expectations
       19_i18n_posture.md               # Internationalization stance
       20_subagent_dispatch.md          # Sub-agent recipes for parallel phases
-      21_validation_gates.md           # 51 machine-checkable structural assertions per phase
+      21_validation_gates.md           # 53 machine-checkable structural assertions per phase
       22_pattern_snapshot.md           # Pattern capture system — prevents drift across phases
+      23_ai_module.md                  # Default-on AI assistant — tools, permissions, approval UX, guardrails
     templates/                         # Blank templates with examples for project docs
     prompts/                           # Kickoff sequence and master execution prompt
     phases/                            # Phase-specific index files (what to read, build, verify per phase)

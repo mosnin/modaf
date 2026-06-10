@@ -297,6 +297,23 @@ grep -r "required\|validate\|zodSchema\|z\.object\|z\.string\|useForm\|formState
 **Pass:** Validation library usage or required attributes found in form components.
 **Common failure:** Forms submit without validation, relying entirely on server-side checks.
 
+### gate:ai-assistant
+**What:** The default-on AI assistant module exists and the API key never reaches the client (see `23_ai_module.md`). Skip only if the user explicitly opted out in project docs.
+```bash
+ls src/app/api/assistant/route.ts 2>/dev/null && ls src/lib/assistant 2>/dev/null
+grep -rn "NEXT_PUBLIC_ANTHROPIC\|ANTHROPIC_API_KEY" src/components src/app --include='*.tsx' 2>/dev/null | grep -v "api/" | head -5
+```
+**Pass:** Assistant route and lib exist; zero references to the API key in client components.
+**Common failure:** Module skipped without an opt-out, or the Anthropic client initialized in a client component.
+
+### gate:ai-permissions
+**What:** Assistant tools wrap the service layer — the model is never the permission boundary.
+```bash
+grep -rln "prisma\.\|from \"@prisma\|drizzle" src/lib/assistant/tools 2>/dev/null | head -5
+```
+**Pass:** No direct database access inside tool files — tools import existing service functions, and action tools require user confirmation before executing.
+**Common failure:** Tools query the database directly, bypassing org isolation and the permissions matrix.
+
 ---
 
 ## Phase 10 — Settings & Billing Gates
