@@ -1,6 +1,6 @@
 # 09 Build Rules Internal
 
-> **TL;DR:** Defines the authoritative build order (11 build phases, numbered 4–14 to match CLAUDE.md), source-of-truth hierarchy, reuse rules, responsive requirements, state handling rules, coding standards, and quality gates.
+> **TL;DR:** Defines the authoritative build order (12 build phases, numbered 4–15 to match CLAUDE.md), source-of-truth hierarchy, reuse rules, responsive requirements, state handling rules, coding standards, and quality gates.
 > **Covers:** build phases, source hierarchy, reuse rules, responsive rules, state handling, coding standards, quality gates | **Depends on:** 01, 02, 03, 05, 07, 08, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22 | **Used by:** None | **Phase:** 3, 4
 
 ## Purpose
@@ -18,7 +18,7 @@ Read the framework first. Generate the project docs next. Build only after both 
 3. docs/framework/website/* (marketing site rules)
 4. docs/framework/templates/* (document shape reference)
 
-## Build Phases (4–14)
+## Build Phases (4–15)
 
 Build in this exact order. Do not skip ahead. Phase numbers match CLAUDE.md.
 

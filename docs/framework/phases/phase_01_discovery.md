@@ -23,6 +23,7 @@ Analyze the app idea for gaps. Ask targeted follow-up questions, 2-4 at a time. 
 | **Integrations** | External connections? (Slack, email, APIs) |
 | **Brand personality** | 3 adjectives for how it should feel? 1-2 admired sites/brands, and one look to avoid? (feeds `docs/framework/website/design_directions.md`) |
 | **AI assistant scope** | What should the built-in assistant answer and do? (default-on — see `docs/framework/internal/23_ai_module.md`; note an explicit opt-out) |
+| **V1 scope level** | Lean v1 (fastest path to live: phases 4-9 + ship; billing/admin/marketing deferred) or Full v1 (all 12 build phases)? |
 | **Non-goals for v1** | What's explicitly out of scope? |
 
 ### Interview Style

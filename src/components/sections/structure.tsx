@@ -97,7 +97,7 @@ const treeElements: TreeViewElement[] = [
           { id: "p2", name: "phase_01_discovery.md", type: "file" },
           { id: "p3", name: "phase_02_project_docs.md", type: "file" },
           { id: "p4", name: "...", type: "file" },
-          { id: "p5", name: "phase_14_polish.md", type: "file" },
+          { id: "p5", name: "phase_15_ship.md", type: "file" },
         ],
       },
     ],

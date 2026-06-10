@@ -48,6 +48,11 @@ Produce an architecture summary covering:
 - Pick the real-time tier (1 = live polling default, 2 = SSE push, 3 = managed websockets/presence) with one-line justification
 - List each external API as a connector: purpose, endpoints, auth style, cache TTL, webhooks yes/no
 
+### 5c. Scope Level
+- Apply the discovery choice: **Lean v1** (Phases 4-9 → 15: auth, light onboarding, shell, dashboard, 1-2 core features, then ship; billing/admin/full emails/multi-page marketing deferred post-launch) or **Full v1** (all phases in order)
+- Mark deferred phases explicitly in the build order so resumption logic skips them intentionally
+- Both scope levels end at Phase 15 with a live URL
+
 ### 6. Custom Validation Gates
 - Read `docs/framework/internal/21_validation_gates.md` for the gate system
 - Define app-specific gates based on entities and features identified

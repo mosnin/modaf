@@ -14,7 +14,7 @@
 | 06 | `06_routes_and_permissions.md` | Route categories, canonical roles, permission enforcement layers | 3 |
 | 07 | `07_data_models.md` | 9 core entities with fields, types, relationships, Prisma reference schema, state machines, and extension pattern | 3, 4 |
 | 08 | `08_ui_system_internal.md` | 20 canonical component behaviors — delegates visual specs to 10, 12. Read in Phase 7 (foundational) and Phase 9 (feature builds) | 7, 9 |
-| 09 | `09_build_rules_internal.md` | 11 build phases, reuse rules, responsive rules, coding standards, quality gates | 3, 4 |
+| 09 | `09_build_rules_internal.md` | 12 build phases, reuse rules, responsive rules, coding standards, quality gates | 3, 4 |
 | 10 | `10_design_tokens_internal.md` | Complete visual system — colors, spacing, typography, borders, shadows, motion, z-index | 7 |
 | 11 | `11_internal_screen_archetypes.md` | 11 canonical page patterns for authenticated views with layout and density rules | 9 |
 | 12 | `12_internal_component_specs.md` | Visual specs for 27 components — padding, colors, typography, states, mobile behavior | 9 |
@@ -89,3 +89,4 @@
 | `phase_12_email.md` | Email templates |
 | `phase_13_marketing.md` | Public marketing site |
 | `phase_14_polish.md` | Edge cases, testing, polish |
+| `phase_15_ship.md` | Deploy to production — env, domain, launch surface, live smoke test, deliver the URL |

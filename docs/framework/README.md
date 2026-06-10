@@ -47,6 +47,17 @@ docs/
     phases/
 ```
 
+## Versioning & Updating
+
+The framework version lives in `docs/framework/VERSION` (currently **2.0.0**). Because `docs/framework/*` must never be modified inside a project (it holds reusable defaults; app-specific docs live in `docs/project/`), updating an existing project to a newer framework is a clean replace:
+
+```bash
+rm -rf docs/framework
+npx degit mosnin/modaf/docs/framework docs/framework
+```
+
+Your `docs/project/*` files are untouched — they are the app's source of truth and always win over framework defaults. After updating, check `VERSION` and skim `MANIFEST.md` for new files; an in-flight build simply picks up the new defaults from its current phase onward.
+
 ## Framework Philosophy
 
 - Website docs govern the external acquisition layer

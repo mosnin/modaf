@@ -1,7 +1,7 @@
 # 00 Kickoff System
 
 > **TL;DR:** Defines the phased initialization sequence from welcome through discovery, doc generation, architecture planning, and build execution.
-> **Covers:** phase detection, discovery interview, project doc generation, architecture plan, build phases 4-14, session resumption | **Phase:** 0
+> **Covers:** phase detection, discovery interview, project doc generation, architecture plan, build phases 4-15, session resumption | **Phase:** 0
 
 ## Purpose
 
@@ -49,7 +49,7 @@ If project docs conflict with framework docs, project docs win.
 **Action:**
 - Analyze the app idea for gaps
 - Ask targeted follow-up questions (2-4 at a time, not a wall)
-- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals, brand personality (3 feel adjectives + admired/avoided looks — see `docs/framework/website/design_directions.md`), AI assistant scope (default-on — see `docs/framework/internal/23_ai_module.md`)
+- Cover: users/roles, core action, first value event, key entities, dashboard shape, monetization, integrations, non-goals, brand personality (3 feel adjectives + admired/avoided looks — see `docs/framework/website/design_directions.md`), AI assistant scope (default-on — see `docs/framework/internal/23_ai_module.md`), v1 scope level (Lean: phases 4-9 + 15 / Full: all phases)
 - Skip anything the user already addressed
 - Adapt questions based on answers
 
@@ -107,7 +107,7 @@ If project docs conflict with framework docs, project docs win.
    - **Account model** — workspace / personal+invites / personal-only (`05_settings_billing_admin.md` § Team & Members)
    - **AI assistant tool surface** — read/action tools mapped to service functions (`docs/framework/internal/23_ai_module.md`), or the recorded opt-out
    - **Real-time tier & connectors** — tier 1/2/3 + external API connector list (`docs/framework/internal/24_realtime_and_data.md`)
-   - **Build order** — the 11 build phases (4–14) with app-specific notes
+   - **Build order** — the 12 build phases (4–15) with app-specific notes
    - **Custom validation gates** — read `docs/framework/internal/21_validation_gates.md`, define app-specific gates, write to `docs/project/custom_gates.md`
 2. Present to user for review
 
@@ -115,7 +115,7 @@ If project docs conflict with framework docs, project docs win.
 
 ---
 
-## Build Phases (4–14)
+## Build Phases (4–15)
 
 Each phase follows the same protocol:
 
@@ -131,6 +131,7 @@ Each phase follows the same protocol:
 - Database schema from entity plan (use Prisma reference schema from `07_data_models.md`)
 - Shared utilities, types, constants, project structure
 - Sentry error tracking (default-on, `@sentry/nextjs`, env-gated DSN)
+- Seed script with realistic demo data for every entity (dev/preview run seeded by default)
 - Run Phase 4 validation gates before proceeding
 
 ### Phase 5 — Auth
@@ -230,11 +231,18 @@ Each phase follows the same protocol:
 - Error states, edge cases, QA pass
 - Accessibility, responsive testing, dark mode polish
 
+### Phase 15 — Ship
+**Read:** `docs/framework/phases/phase_15_ship.md`
+- Deploy to Vercel: production env vars, migrations, domain
+- Production wiring: Stripe live keys + webhook, auth URLs, Sentry, email domain
+- Launch surface: OG/meta, sitemap, robots, Lighthouse ≥ 90
+- Live smoke test end to end, then **deliver the live URL** — the build is complete only when it's live
+
 ---
 
 ## Global Build Rules
 
-Apply to every build phase (4–14):
+Apply to every build phase (4–15):
 
 - Build only v1 scope unless the user explicitly requests otherwise
 - Reuse shared patterns from `08_ui_system_internal.md` before creating new components

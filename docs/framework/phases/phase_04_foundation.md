@@ -32,9 +32,16 @@ Architecture plan confirmed. No source code exists yet.
 - `SENTRY_DSN` in env validation as optional — boots cleanly without it in dev, reports in production
 - Wire the error taxonomy (`17_error_state_taxonomy.md`): error boundaries and API error helpers report to Sentry with structured context (org, route, error type) — never PII or secrets
 
+### Seed Data (default)
+- Build `prisma/seed.ts` with **realistic demo data for every entity** — believable names, dates spread over the last 90 days, varied statuses, enough volume that lists paginate and charts have shape (not 2 rows)
+- Seed at least: 1 org, 3-5 members across roles, 20-50 of the primary entity, activity history, and whatever the dashboard's metrics need to show non-zero trends
+- Wire `prisma db seed`; dev and preview environments run seeded by default — the bento dashboard's entrance animation must land on real-looking data, never an empty grid
+- Production never seeds unless the user explicitly asks (Phase 15)
+
 ### Verify
 - Project builds without errors
 - Database migrates successfully
+- Seed runs and the data reads as believable
 - Dev server starts cleanly
 
 ### Run Validation Gates

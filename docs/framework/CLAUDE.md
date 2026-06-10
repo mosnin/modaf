@@ -35,7 +35,8 @@ When a session starts, detect the current phase and resume from there.
    - If settings exist but no admin panel → **Phase 11**
    - If admin exists but no email templates → **Phase 12**
    - If emails exist but no marketing site → **Phase 13**
-   - If marketing site exists → **Phase 14** (polish)
+   - If marketing site exists but polish incomplete → **Phase 14** (polish)
+   - If polish is complete but the product is not live → **Phase 15** (ship)
 
 When resuming, read `docs/project/*` to restore app context, then read `docs/project/pattern_snapshot.md` if it exists (Phase 8+). Briefly tell the user where you're picking up and what comes next.
 
@@ -83,6 +84,7 @@ Cover these areas (skip any the user already addressed):
 - **Integrations**: Does it connect to anything external? (Slack, email, APIs)
 - **Brand personality**: 3 adjectives for how the product should feel? 1-2 admired sites/brands, and one look to avoid? (feeds the design direction choice — see `docs/framework/website/design_directions.md`)
 - **AI assistant scope**: What should the built-in AI assistant answer and do in this product? (default-on — see `docs/framework/internal/23_ai_module.md`; skip only if the user opts out)
+- **V1 scope level**: **Lean v1** (fastest path to live — Phases 4-9 + 15: auth, light onboarding, shell, dashboard, 1-2 core features; billing/admin/emails/full marketing deferred, landing page only) or **Full v1** (all 12 build phases)?
 - **Non-goals for v1**: Anything explicitly out of scope?
 
 Keep the interview conversational and concise — 2-4 questions at a time, not a wall of questions. Adapt based on answers. When you have enough to fill the project docs confidently, tell the user you're ready to move to Phase 2 and ask for confirmation.
@@ -132,14 +134,14 @@ Produce an architecture summary:
 - **Modules**: Which optional modules apply (analytics, integrations, API, webhooks, etc.)
 - **AI assistant tool surface**: read tools and action tools derived from the entities, each mapped to a service-layer function (see `docs/framework/internal/23_ai_module.md`) — or record the explicit opt-out
 - **Real-time tier & connectors**: pick tier 1/2/3 with justification and list each external API connector (purpose, auth, cache TTL, webhooks) per `docs/framework/internal/24_realtime_and_data.md`
-- **Build order**: The 11 build phases (4–14) with app-specific notes on what each phase includes
+- **Build order**: The 12 build phases (4–15) with app-specific notes on what each phase includes. Apply the chosen scope level: **Lean v1** runs 4-9 then jumps to 15 (ship) — billing, admin, full email set, and the multi-page marketing site are deferred to post-launch (auth emails and a single landing page still ship); **Full v1** runs all phases in order. Either way the build ends at Phase 15 with a live URL.
 - **Custom validation gates**: Read `docs/framework/internal/21_validation_gates.md`, then define app-specific gates based on entities and features. Write custom gates to `docs/project/custom_gates.md`.
 
 Present this to the user. Ask for confirmation before starting to build.
 
 ---
 
-## Build Phases (4–14)
+## Build Phases (4–15)
 
 Each build phase is a discrete step. At the start of each phase:
 1. Announce what you're about to build
@@ -154,6 +156,7 @@ Each build phase is a discrete step. At the start of each phase:
 - Database schema from entity plan
 - Shared utilities, types, constants
 - Sentry error tracking (default-on, env-gated DSN)
+- Seed script with realistic demo data for every entity (dev/preview run seeded — views must never demo empty)
 - **Run Phase 4 validation gates before proceeding**
 
 ### Phase 5 — Auth
@@ -259,6 +262,14 @@ Each build phase is a discrete step. At the start of each phase:
 - Error states, edge case handling, QA checklist pass
 - Accessibility review, responsive testing
 - Dark mode polish, loading states audit
+
+### Phase 15 — Ship
+**Read now:** `docs/framework/phases/phase_15_ship.md`
+- Deploy to Vercel: production env vars, migrations, domain
+- Production wiring: Stripe live keys + webhook, auth URLs, Sentry DSN, email domain
+- Launch surface: OG/meta, sitemap, robots, favicon, Lighthouse ≥ 90
+- Live smoke test: signup → onboarding → first value → dashboard, one CRUD round-trip, assistant answers
+- **The phase ends by delivering the live URL** — the build is not done until it is
 
 ---
 
