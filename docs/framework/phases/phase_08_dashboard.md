@@ -8,6 +8,7 @@ App shell (Phase 7) is complete.
 - `docs/framework/internal/03_dashboard_system.md` — dashboard anatomy
 - `docs/framework/internal/16_dashboard_archetypes.md` — concrete dashboard types
 - `docs/framework/internal/13_internal_data_display_rules.md` — data display rules
+- `docs/framework/internal/24_realtime_and_data.md` — live data tiers (dashboard is a live surface: tier 1 minimum)
 
 ## What to Build
 

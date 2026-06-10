@@ -127,10 +127,11 @@ Wait for user confirmation before proceeding to Phase 3.
 - `docs/project/*` — the project docs you just generated
 
 Produce an architecture summary:
-- **Entities**: List with key fields and relationships
+- **Entities & account model**: List with key fields and relationships; decide workspace / personal+invites / personal-only (`05_settings_billing_admin.md` § Team & Members)
 - **Routes**: Full route table (public, authenticated, admin)
 - **Modules**: Which optional modules apply (analytics, integrations, API, webhooks, etc.)
 - **AI assistant tool surface**: read tools and action tools derived from the entities, each mapped to a service-layer function (see `docs/framework/internal/23_ai_module.md`) — or record the explicit opt-out
+- **Real-time tier & connectors**: pick tier 1/2/3 with justification and list each external API connector (purpose, auth, cache TTL, webhooks) per `docs/framework/internal/24_realtime_and_data.md`
 - **Build order**: The 11 build phases (4–14) with app-specific notes on what each phase includes
 - **Custom validation gates**: Read `docs/framework/internal/21_validation_gates.md`, then define app-specific gates based on entities and features. Write custom gates to `docs/project/custom_gates.md`.
 
@@ -152,6 +153,7 @@ Each build phase is a discrete step. At the start of each phase:
 - Project setup (Next.js, TypeScript, Tailwind, Prisma)
 - Database schema from entity plan
 - Shared utilities, types, constants
+- Sentry error tracking (default-on, env-gated DSN)
 - **Run Phase 4 validation gates before proceeding**
 
 ### Phase 5 — Auth
@@ -293,7 +295,8 @@ Unless the user specifies otherwise, assume:
 - **Testing**: Vitest (unit/integration), Playwright (E2E), MSW (API mocking), Faker (test data)
 - **Background Jobs**: Trigger.dev or Inngest — when webhook processing, email sequences, or async work is needed
 - **Rate Limiting**: Upstash Ratelimit — when auth rate limiting or API throttling is needed
-- **Error Tracking**: Sentry — for production error capture
+- **Error Tracking**: Sentry (`@sentry/nextjs`) — default-on, wired in Phase 4 with env-gated DSN
+- **Real-Time**: TanStack Query live polling (tier 1 default); SSE route handlers for server push (tier 2); Pusher or Ably for presence/collaboration (tier 3) — see `internal/24_realtime_and_data.md`
 - **File Uploads**: uploadthing + react-dropzone — when file upload features are needed
 - **Server Actions**: next-safe-action for type-safe server actions with built-in validation
 - **Serialization**: superjson for Date/BigInt across server→client boundary
@@ -355,9 +358,10 @@ docs/
       18_testing_strategy.md           # Testing expectations
       19_i18n_posture.md               # Internationalization stance
       20_subagent_dispatch.md          # Sub-agent recipes for parallel phases
-      21_validation_gates.md           # 53 machine-checkable structural assertions per phase
+      21_validation_gates.md           # 54 machine-checkable structural assertions per phase
       22_pattern_snapshot.md           # Pattern capture system — prevents drift across phases
       23_ai_module.md                  # Default-on AI assistant — tools, permissions, approval UX, guardrails
+      24_realtime_and_data.md          # Real-time tiers (polling/SSE/websockets) + external API connector pattern
     templates/                         # Blank templates with examples for project docs
     prompts/                           # Kickoff sequence and master execution prompt
     phases/                            # Phase-specific index files (what to read, build, verify per phase)

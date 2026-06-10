@@ -11,7 +11,7 @@ Core features (Phase 9) are complete.
 ### Settings Pages
 - **Profile**: name, email, avatar, password change
 - **Workspace/Org**: name, slug, branding (if applicable)
-- **Team**: invite members, manage roles, remove members
+- **Team / Members** (per the Phase 3 account model — see `05_settings_billing_admin.md` § Team & Members): member list with inline role management, pending invites with resend/revoke, multi-email invite modal, transfer ownership, leave workspace, seat awareness on per-seat plans; live surface (tier 1 minimum). Hybrid model builds share/invite surfaces instead; personal-only builds no team UI
 - **Notifications**: email preferences, in-app preferences
 - **Security**: two-factor setup, session management (if in v1 scope)
 

@@ -10,7 +10,7 @@
 | 02 | `02_auth_and_onboarding.md` | Auth routes, login/signup flows, invite flow, designed onboarding sequence with quality bar. Split into Section A (Auth, Phase 5) and Section B (Onboarding, Phase 6) | 5, 6 |
 | 03 | `03_dashboard_system.md` | Dashboard framework — bento grid layout (default), anatomy, animation choreography, required states, mobile rules | 8 |
 | 04 | `04_feature_modules.md` | 8 optional modules: analytics, integrations, API, MCP, webhooks, notifications, usage, activity logs | 3, 9 |
-| 05 | `05_settings_billing_admin.md` | Settings areas, Stripe billing, security, admin panel, user management | 10, 11 |
+| 05 | `05_settings_billing_admin.md` | Settings areas, default multi-user team system (account models, members page, invites), Stripe billing, security, admin panel | 10, 11 |
 | 06 | `06_routes_and_permissions.md` | Route categories, canonical roles, permission enforcement layers | 3 |
 | 07 | `07_data_models.md` | 9 core entities with fields, types, relationships, Prisma reference schema, state machines, and extension pattern | 3, 4 |
 | 08 | `08_ui_system_internal.md` | 20 canonical component behaviors — delegates visual specs to 10, 12. Read in Phase 7 (foundational) and Phase 9 (feature builds) | 7, 9 |
@@ -26,9 +26,10 @@
 | 18 | `18_testing_strategy.md` | Testing philosophy, 3 layers (unit/integration/E2E), CI integration, test data strategy | 14 |
 | 19 | `19_i18n_posture.md` | English-first for v1, Intl API for formatting, what to prepare for future multilingual | 14 |
 | 20 | `20_subagent_dispatch.md` | Pre-built agent recipes for parallelizing Phases 2, 9, 13, 14 — prompts, file lists, coordination | 2, 9, 13, 14 |
-| 21 | `21_validation_gates.md` | 53 machine-checkable structural assertions — per-phase gates, regression testing, custom gate system | 4–14 |
+| 21 | `21_validation_gates.md` | 54 machine-checkable structural assertions — per-phase gates, regression testing, custom gate system | 4–14 |
 | 22 | `22_pattern_snapshot.md` | Generated reference file capturing exact code conventions — prevents pattern drift across phases and agents | 7 (generate), 9+ (consume) |
 | 23 | `23_ai_module.md` | Default-on AI assistant module — Claude API stack, permission-enforced tool layer, approval-gated actions, guardrails | 3, 9 |
+| 24 | `24_realtime_and_data.md` | Real-time tiers (live polling, SSE, managed websockets) behind one hook + external API connector pattern with webhooks | 3, 8, 9 |
 
 ## Public Website (`docs/framework/website/`)
 

@@ -96,6 +96,16 @@ ls -d src/app src/lib src/components prisma 2>&1
 **Pass:** All four directories exist.
 **Common failure:** Flat structure without separation.
 
+### gate:foundation-sentry
+**What:** Sentry error tracking is wired in by default (`@sentry/nextjs`).
+```bash
+grep -l "@sentry/nextjs" package.json
+ls sentry.server.config.ts sentry.edge.config.ts src/instrumentation.ts 2>/dev/null || ls sentry.*.config.* instrumentation* 2>/dev/null
+grep -rn "SENTRY_DSN" .env.example src/env* 2>/dev/null | head -3
+```
+**Pass:** Package installed, instrumentation/config files exist, `SENTRY_DSN` in the env template (app must boot cleanly when the DSN is unset in dev).
+**Common failure:** Sentry deferred to "later" and never added — error taxonomy (`17`) renders errors but nothing reports them.
+
 ---
 
 ## Phase 5 — Auth Gates

@@ -59,6 +59,7 @@ const treeElements: TreeViewElement[] = [
           { id: "i21", name: "21_validation_gates.md", type: "file" },
           { id: "i22", name: "22_pattern_snapshot.md", type: "file" },
           { id: "i23", name: "23_ai_module.md", type: "file" },
+          { id: "i24", name: "24_realtime_and_data.md", type: "file" },
         ],
       },
       {

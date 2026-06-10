@@ -27,6 +27,11 @@ Architecture plan confirmed. No source code exists yet.
 - API route helpers
 - Error handling utilities
 
+### Error Tracking (Sentry, default-on)
+- Install and configure `@sentry/nextjs` (instrumentation files, client/server/edge configs, source maps upload in CI when available)
+- `SENTRY_DSN` in env validation as optional — boots cleanly without it in dev, reports in production
+- Wire the error taxonomy (`17_error_state_taxonomy.md`): error boundaries and API error helpers report to Sentry with structured context (org, route, error type) — never PII or secrets
+
 ### Verify
 - Project builds without errors
 - Database migrates successfully
@@ -39,6 +44,7 @@ Run all Phase 4 gates from `docs/framework/internal/21_validation_gates.md`:
 - `gate:foundation-entities` — All architecture entities in schema
 - `gate:foundation-env` — Env template exists
 - `gate:foundation-structure` — Expected directories exist
+- `gate:foundation-sentry` — Sentry wired in with env-gated DSN
 
 All gates must pass before proceeding.
 

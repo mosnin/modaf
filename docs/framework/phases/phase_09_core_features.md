@@ -9,6 +9,7 @@ Dashboard (Phase 8) is complete.
 - `docs/framework/internal/12_internal_component_specs.md` — component visual specs
 - `docs/framework/internal/17_error_state_taxonomy.md` — error handling
 - `docs/framework/internal/23_ai_module.md` — default-on AI assistant module (build last in this phase)
+- `docs/framework/internal/24_realtime_and_data.md` — live queries via useLiveQuery; external APIs via the connector pattern
 
 ## Required Reading (Before Building)
 - `docs/project/pattern_snapshot.md` — canonical code conventions (all agents must read this)

@@ -38,6 +38,28 @@ Settings uses a left sidebar + right content panel layout. Sidebar contains sect
 - **Default role for new members**: dropdown (member, manager)
 - **Danger zone**: Delete organization (requires typing org name to confirm, owner only)
 
+## Team & Members (Default Multi-User System)
+
+Every product is multi-user-capable by default — the schema already carries `Organization` + `Membership` (`07_data_models.md`) and the invite flow (`02_auth_and_onboarding.md`). What varies per product is the **account model**, decided in Phase 3:
+
+| Account model | Choose when | What it means |
+|---|---|---|
+| **Workspace (default for B2B)** | Teams collaborate on shared data — projects, pipelines, clients | Users join organizations; all data org-scoped; full members UI below |
+| **Personal + invites (hybrid)** | Primarily solo use, but sharing/collaborators add value | Auto-created personal org (hidden as a concept); "Share"/"Invite collaborator" surfaces instead of a members page |
+| **Personal only** | Collaboration genuinely doesn't apply | Single-membership org under the hood (keeps the schema uniform); no team UI built — record the decision, don't ship dead surfaces |
+
+Even "personal only" keeps the org-scoped schema — upgrading to teams later is a UI change, not a migration.
+
+### Members Page (`/settings/members`, workspace model)
+
+- **Member list**: table of members — avatar, name, email, role (inline dropdown for authorized roles), joined date, last active, row overflow menu (change role, remove)
+- **Pending invites** section: email, role, invited-by, expiry, resend / revoke actions
+- **Invite flow**: primary "Invite members" button → modal with multi-email input + role select + optional note; sends invite emails (`14_email_system.md`); invitees land in the invite-acceptance auth flow
+- **Role rules**: only owner/admin manage members; owners can't be removed or demoted except by themselves; **transfer ownership** is an explicit confirm-typed action; the last owner can never be removed; users can leave a workspace themselves (unless sole owner)
+- **Seat awareness**: if the plan is per-seat, show seat usage ("7 of 10 seats") beside the invite button and gate invites at the limit with an upgrade path
+- All membership mutations write to the activity log; the member list is a live surface (Tier 1 polling minimum — see `24_realtime_and_data.md`)
+- Permission enforcement at all three layers per `06_routes_and_permissions.md` — the UI hides what the API must also reject
+
 ## Billing
 
 ### Stripe Integration Pattern

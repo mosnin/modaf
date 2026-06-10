@@ -14,10 +14,11 @@ All 10 project docs exist. No source code written yet.
 
 Produce an architecture summary covering:
 
-### 1. Entities
+### 1. Entities & Account Model
 - List each entity with key fields and relationships
 - Map to canonical entities from `07_data_models.md`
 - Identify app-specific entities that extend the base set
+- **Account model decision**: workspace / personal + invites / personal only (see `05_settings_billing_admin.md` § Team & Members) — schema stays org-scoped in all three
 
 ### 2. Routes
 - Full route table organized by category:
@@ -41,6 +42,11 @@ Produce an architecture summary covering:
 - The 11 build phases with app-specific notes:
   - What each phase includes for THIS app
   - Key decisions or dependencies between phases
+
+### 5b. Data Layer: Real-Time Tier & Connectors
+- Read `docs/framework/internal/24_realtime_and_data.md`
+- Pick the real-time tier (1 = live polling default, 2 = SSE push, 3 = managed websockets/presence) with one-line justification
+- List each external API as a connector: purpose, endpoints, auth style, cache TTL, webhooks yes/no
 
 ### 6. Custom Validation Gates
 - Read `docs/framework/internal/21_validation_gates.md` for the gate system

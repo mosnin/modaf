@@ -104,7 +104,9 @@ If project docs conflict with framework docs, project docs win.
    - **Entities** with key fields and relationships
    - **Routes** — full route table (public, auth, app, admin)
    - **Modules** — which optional modules apply
+   - **Account model** — workspace / personal+invites / personal-only (`05_settings_billing_admin.md` § Team & Members)
    - **AI assistant tool surface** — read/action tools mapped to service functions (`docs/framework/internal/23_ai_module.md`), or the recorded opt-out
+   - **Real-time tier & connectors** — tier 1/2/3 + external API connector list (`docs/framework/internal/24_realtime_and_data.md`)
    - **Build order** — the 11 build phases (4–14) with app-specific notes
    - **Custom validation gates** — read `docs/framework/internal/21_validation_gates.md`, define app-specific gates, write to `docs/project/custom_gates.md`
 2. Present to user for review
@@ -128,6 +130,7 @@ Each phase follows the same protocol:
 - Next.js project setup, TypeScript, Tailwind, Prisma
 - Database schema from entity plan (use Prisma reference schema from `07_data_models.md`)
 - Shared utilities, types, constants, project structure
+- Sentry error tracking (default-on, `@sentry/nextjs`, env-gated DSN)
 - Run Phase 4 validation gates before proceeding
 
 ### Phase 5 — Auth
@@ -161,6 +164,7 @@ Each phase follows the same protocol:
 - `docs/framework/internal/03_dashboard_system.md`
 - `docs/framework/internal/16_dashboard_archetypes.md`
 - `docs/framework/internal/13_internal_data_display_rules.md`
+- `docs/framework/internal/24_realtime_and_data.md` (dashboard is a live surface — tier 1 minimum)
 - Bento grid layout (default) — archetype content in mixed-size cells, main work surface dominant
 - Summary metric cells, main work surface, activity feed cell
 - Apply the appropriate dashboard archetype; animation choreography per `03_dashboard_system.md`
