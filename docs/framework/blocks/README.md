@@ -51,6 +51,8 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | AI voice input | `ai/ai-voice-input.tsx` | Mic button with timer + visualizer bars (UI only) |
 | AI image generation reveal | `ai/ai-image-generation.tsx` | Shimmer status + progressive blur-unveil over generated images |
 | Glowing prompt input | `ai/prompt-input-glow.tsx` | Sticky expanding pill input with glow/ripple effects + mode tags (see header caveats) |
+| Pulse voice recorder | `ai/pulse-voice-recorder.tsx` | Record button with ping rings + duration timer (UI only; wire to MediaRecorder) |
+| Floating dock nav | `navigation/floating-dock-nav.tsx` | macOS-style dock with distance-falloff magnification — reference implementation of the shell's collapsed dock (01_app_shell.md) |
 
 ### Backgrounds & utility (decorative backgrounds: direction-sanctioned hero moments ONLY)
 
