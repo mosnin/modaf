@@ -122,6 +122,7 @@ pnpm dlx shadcn@latest add @magicui/<component>
 | Animated list | `pnpm dlx shadcn@latest add @magicui/animated-list` | Auto-animating notification/activity list — feature illustrations and live dashboard feed cells (pairs with the live UI rules in `24_realtime_and_data.md`) |
 | Avatar circles | `pnpm dlx shadcn@latest add @magicui/avatar-circles` | Overlapping avatar stack with +N count — social proof microcopy under hero CTAs (real users only) and presence stacks (tier 3 realtime) |
 | Text reveal | `pnpm dlx shadcn@latest add @magicui/text-reveal` | Scroll-driven word-by-word text reveal — statement sections between content; counts as the page's one scroll-choreography moment (`signature_interactions.md`), best for Editorial/Luxury directions |
+| Dia text reveal | `pnpm dlx shadcn@latest add @magicui/dia-text-reveal` | Alternate text-reveal treatment — same usage rules as text-reveal above: one scroll-choreography moment per page, pick ONE reveal style per site (never mix both) |
 
 Add to this table as more registry components are vetted — same adaptation rules below apply to registry installs.
 
