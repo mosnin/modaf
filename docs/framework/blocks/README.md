@@ -128,17 +128,50 @@ Add to this table as more registry components are vetted — same adaptation rul
 
 ### Vetted external library components
 
-For complex primitives the block library and shadcn don't cover well, these packaged libraries are vetted — **scoped to the listed use only**, never adopted as a second design system:
+For complex primitives the block library and shadcn don't cover well, these packaged libraries are vetted — **scoped to the listed use only**, never adopted as a second design system.
 
-| Component(s) | Library / Install | Use for |
-|---|---|---|
-| `DatePicker`, `DateField`, `Calendar` (+ `Label`) | HeroUI — `pnpm add @heroui/react framer-motion` (or the slimmer individual packages, e.g. `@heroui/date-picker @heroui/calendar`) | Date and time inputs — booking forms, scheduling, date-range filters. The strongest accessible date stack available off the shelf. |
+#### HeroUI (vetted suite)
+
+Install: `pnpm add @heroui/react framer-motion` (or slimmer individual packages, e.g. `@heroui/date-picker @heroui/calendar`). All imports below come from `@heroui/react`.
+
+**What earns HeroUI a place in a project** — components shadcn has no real answer to:
+
+| Component(s) | Use for |
+|---|---|
+| `DatePicker`, `DateField`, `Calendar` (+ `Label`) | Date inputs — booking forms, scheduling, date-range filters. The strongest accessible date stack available off the shelf. |
+| `TimeField` | Time-of-day input with segment-based keyboard editing — pairs with `DateField` for appointment/scheduling forms |
+| `TagGroup` | Selectable/removable tag collections — filter chips, label pickers, recipient lists |
+| `ListBox` | Accessible single/multi-select option lists with full keyboard navigation — assignment pickers, visible-option settings where a collapsed Select hides too much |
+| `Toolbar` | Accessible grouped-action toolbars with arrow-key navigation — editor headers, bulk-action bars |
+
+**Once HeroUI is already in the project**, these are also vetted — prefer them over mixing in shadcn equivalents on the same surface, so each form or panel reads as one system. In projects *without* HeroUI, use the shadcn/block-library version and don't pull the dependency for these alone:
+
+| Component(s) | Use for |
+|---|---|
+| `Breadcrumbs` | Page-header breadcrumbs with overflow collapsing |
+| `Switch`, `SwitchGroup` (+ `Label`) | Boolean toggles and grouped toggle lists — settings panels, notification preferences |
+| `RadioGroup`, `Radio` | Mutually exclusive choice sets — plan selection, visibility options |
+| `Tabs` | In-page tabbed sections |
+| `Table` | Sortable, selectable data tables — for heavy data grids the framework's TanStack-based table blocks remain the default |
+| `TextField` | Single-line text inputs with built-in label/description/error wiring |
+| `TextArea` | Multiline input with the same field wiring |
+| `ErrorMessage` | Validation error text wired to HeroUI fields — use alongside `TextField`/`DateField` etc. so errors announce correctly |
+| `Dropdown` | Action menus on a trigger — row actions, account menus; overlaps shadcn `DropdownMenu` |
+| `Popover` | Anchored floating panels — filter popovers, inline pickers |
+| `Tooltip` | Hover/focus tooltips |
+| `Toast` + `toast()` | Transient notifications — an app gets exactly ONE toast system; if sonner is already wired, keep sonner |
+| `ToggleButtonGroup`, `ToggleButton` | Segmented controls — view switchers, density toggles, single/multi-select option rows |
+| `Surface` | Elevated container surfaces — overlaps shadcn `Card`; pick one container language per app |
+| `Drawer` | Edge-anchored slide-over panels — detail views, mobile filters; overlaps shadcn `Sheet`/vaul (trigger buttons stay shadcn) |
+| `Meter` (+ `Label`) | Value-within-range gauges with proper meter semantics — storage quota, usage limits, capacity; not for task progress |
+| `Kbd` | Keyboard-shortcut hints in menus, tooltips, and command palettes |
 
 HeroUI integration requirements:
 - Wrap the app (or just the subtree that uses it) in `HeroUIProvider`, and add HeroUI's `heroui()` plugin to the Tailwind config per its docs
-- **Scope discipline:** use HeroUI only for the components listed above — buttons, cards, dialogs etc. stay shadcn/block-library so the product has ONE design language
-- Retheme via HeroUI's theme tokens to match `docs/project/09_design_direction.md` (radius posture, accent, focus rings) — an unthemed HeroUI date picker visibly belongs to a different system
-- Weigh the bundle cost: prefer individual packages over the full `@heroui/react` when only dates are needed
+- **Scope discipline:** HeroUI earns its place via the first table; the second table only prevents system-mixing once it's there. Buttons, cards, dialogs etc. stay shadcn/block-library so the product has ONE design language
+- **One source per primitive, app-wide:** never two toast systems, two tooltip styles, or a shadcn switch next to a HeroUI switch — pick a source per primitive and hold the line
+- Retheme via HeroUI's theme tokens to match `docs/project/09_design_direction.md` (radius posture, accent, focus rings) — an unthemed HeroUI component visibly belongs to a different system
+- Weigh the bundle cost: prefer individual packages over the full `@heroui/react` when only a few components are needed
 
 ### Rules for MCP-fetched components
 
