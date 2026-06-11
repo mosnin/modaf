@@ -26,6 +26,9 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | Content split with quote | `features/content-split-quote.tsx` | Image + prose + inset customer blockquote |
 | Feature rotating gradient | `features/feature-rotating-gradient.tsx` | Conic-glow spinning behind a floating status card (check banned defaults; retheme) |
 | Feature accordion with images | `features/feature-accordion-images.tsx` | Compact accordion expanding to large product screenshots |
+| Expandable card stack | `features/card-stack-expand.tsx` | Fanned card deck that spreads open on click — interactive product/plan showcase (glass surface: retheme, see header) |
+| Marketing bento grid | `features/bento-grid-marketing.tsx` | Mixed-size feature cells with 3D tilt + per-cell renderers (checklist, typing code, logos, timeline, metrics) — marketing pages only; dashboard bento is 03_dashboard_system.md |
+| Carousel cards | `features/carousel-cards.tsx` | Snap-scrolling media-card rows with arrows — marketplace/browse listings, template galleries |
 
 ### Marketing sections — heroes, stats, testimonials, FAQ, pricing, integrations
 
@@ -35,6 +38,7 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | Hero animated screenshot | `heroes/hero-animated-screenshot.tsx` | Blur-in entrance, scroll-aware header, framed screenshot, hover-reveal logo grid (AnimatedGroup inlined) |
 | Stats sections (2 variants) | `stats/stats-sections.tsx` | `StatsTrio` centered band / `StatsSplitQuote` gradient numerals + quote (real numbers only) |
 | Testimonials (2 variants) | `testimonials/testimonials-sections.tsx` | `TestimonialsGrid` 4-card bento / `TestimonialSpotlight` single statement (real quotes only) |
+| Tweet card | `testimonials/tweet-card.tsx` | X/Twitter-style embed card with optional reply — REAL posts only, linked to the original (honest-proof rule) |
 | FAQ accordion | `faq/faq-accordion.tsx` | Carded accordion FAQ with support link |
 | FAQ two-column | `faq/faq-two-column.tsx` | Editorial dashed-divided FAQ (good for accordion-averse directions) |
 | Pricing cards | `pricing/pricing-cards.tsx` | Glassy plan-card primitives + 3-plan composition (wire CTAs to Stripe) |
@@ -52,7 +56,12 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | AI image generation reveal | `ai/ai-image-generation.tsx` | Shimmer status + progressive blur-unveil over generated images |
 | Glowing prompt input | `ai/prompt-input-glow.tsx` | Sticky expanding pill input with glow/ripple effects + mode tags (see header caveats) |
 | Pulse voice recorder | `ai/pulse-voice-recorder.tsx` | Record button with ping rings + duration timer (UI only; wire to MediaRecorder) |
+| AI input search | `ai/ai-input-search.tsx` | Auto-resizing composer with attach + animated web-search toggle (useAutoResizeTextarea inlined) |
+| AI loading state | `ai/ai-loading-state.tsx` | Agent "working" indicator: progress ring + auto-scrolling task log (drive from REAL streamed status) |
+| Avatar picker | `auth/avatar-picker.tsx` | Onboarding profile setup: animated avatar stage + validated username field (reduced-motion built in) |
 | Floating dock nav | `navigation/floating-dock-nav.tsx` | macOS-style dock with distance-falloff magnification — reference implementation of the shell's collapsed dock (01_app_shell.md) |
+| Morphic navbar | `navigation/morphic-navbar.tsx` | Pill nav where the active item detaches into its own capsule — compact marketing nav (wire to usePathname) |
+| Profile dropdown | `navigation/profile-dropdown.tsx` | User-card trigger + rounded menu with value badges and danger sign-out — shell top-bar user menu (needs shadcn dropdown-menu) |
 
 ### Backgrounds & utility (decorative backgrounds: direction-sanctioned hero moments ONLY)
 
@@ -68,6 +77,23 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | Lazy image | `ui/lazy-image.tsx` | Skeletoned aspect-ratio image with in-view loading (needs shadcn aspect-ratio) |
 | Menu toggle | `ui/menu-toggle.tsx` | Hamburger ↔ arrow stroke morph for the mobile nav sheet |
 | Dynamic toolbar | `ui/toolbar-dynamic.tsx` | Icon toolbar that springs open into an inline search input — contextual search over a work surface |
+| Animated toolbar | `ui/toolbar-animated.tsx` | Tool rail where the selected tool expands to show its label (spring morph) — editor headers, canvas tools |
+| Smooth tab | `ui/smooth-tab.tsx` | Spring-sliding tab pill + direction-aware sliding card content (see header: dynamic fill-class caveat) |
+| Action search bar | `ui/action-search-bar.tsx` | Inline command-palette search with debounced filtering + keyboard nav (useDebounce inlined) |
+| Smooth drawer | `ui/smooth-drawer.tsx` | Bottom drawer with spring-staggered content — upgrade prompts, mobile confirmations (needs shadcn drawer) |
+| File upload | `ui/file-upload.tsx` | Drag-and-drop zone with validation + animated progress (simulated — wire to uploadthing) |
+| Team selector | `ui/team-selector.tsx` | Avatar-stack stepper with rolling counter and limit shake — onboarding team size, seat selection |
+| Liquid glass | `ui/liquid-glass.tsx` | `LiquidButton` + `LiquidGlassCard` SVG-refraction primitives — DIRECTION-GATED full glassmorphism, one surface max (see header) |
+
+### Text effects (one text-effect moment per page; subject to the one-reveal-style rule)
+
+| Block | File | Use for |
+|---|---|---|
+| Scroll text | `text/scroll-text.tsx` | Scrollable word list highlighting the centered item — tech-stack/capability showcases |
+| Typewriter title | `text/typewriter-title.tsx` | Multi-sequence typewriter with natural variance — Terminal/Industrial directions ONLY (banned default #10 otherwise) |
+| Matrix text | `text/matrix-text.tsx` | Binary-scramble letter resolve — Terminal/Industrial directions only |
+| Dynamic text | `text/dynamic-text.tsx` | Rapid word swap settling on a final word — onboarding welcome / preloader greeting beat |
+| Shimmer text | `text/shimmer-text.tsx` | Gradient-sweep status text — in-progress states; pick this OR ai/shining-text, never both |
 
 ## Usage Rules
 
@@ -158,6 +184,35 @@ export function cn(...inputs: ClassValue[]) {
 | Text effect | `npx motion-primitives@latest add text-effect` | Per-character/word/line text entrance (fade, blur, slide presets) — hero headline entrance and onboarding welcome beats. Subject to the one-reveal-style rule (`signature_interactions.md`): pick this OR a Magic UI text reveal for the site, never both; headings only, never body copy; respect `prefers-reduced-motion`. |
 
 Same adaptation rules as Magic UI registry installs: retheme to the design direction, replace placeholder content, run the banned-defaults check.
+
+### Curated React Bits registry components
+
+[React Bits](https://reactbits.dev) is a third registry, served through the shadcn CLI. Its components are multi-file (component + CSS, often WebGL deps), so they install from the registry on demand — they are NOT vendored into this library. Setup in the project:
+
+1. Add the registry to `components.json`:
+
+```json
+{
+  "registries": {
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
+  }
+}
+```
+
+2. (Optional, recommended) Register the shadcn MCP so components can be searched/fetched conversationally: `npx shadcn@latest mcp init --client claude`
+
+3. Install items as `npx shadcn@latest add @react-bits/<Component>-<JS|TS>-<CSS|TW>` (e.g. `@react-bits/GlassSurface-JS-CSS`). Prefer the TS/Tailwind variant when offered; JS+CSS variants land untyped — add minimal prop types on import since project `src/` is type-checked.
+
+| Component | Extra deps | Use for |
+|---|---|---|
+| GlassSurface | — | Apple-style liquid-glass container (SVG displacement with Safari/Firefox frost fallback built in) — same DIRECTION-GATED glassmorphism rules as `ui/liquid-glass.tsx`; pick ONE glass implementation per project |
+| GradientBlinds | `ogl` (WebGL) | Animated gradient-blinds hero backdrop with cursor spotlight — decorative background class: direction-sanctioned hero moment ONLY, colors pinned to the direction palette, lazy-load, static fallback for reduced-motion/no-WebGL |
+| GlassIcons | — | 3D-tilting glass icon buttons with hover labels — playful launcher/category grids (Playful Geometric); not a substitute for the product's standard icon system |
+| ModelViewer | `three`, `@react-three/fiber`, `@react-three/drei` | Interactive 3D product/model viewer (drag, zoom, parallax) — ONLY when the product genuinely has 3D assets (hardware, spatial, CAD); heaviest dep in the registry, always lazy-load below the fold; disable screenshot button in production |
+| PixelBlast | `three`, `postprocessing` | Pixel-dither animated background with click ripples — decorative background class, same rules as GradientBlinds; suits Playful Geometric/Terminal |
+| PixelCard | — | Canvas pixel-shimmer reveal on card hover (reduced-motion built in) — ONE highlighted card (e.g. featured plan), never a whole grid |
+
+WebGL items (GradientBlinds, ModelViewer, PixelBlast) share rules with `backgrounds/dotted-surface.tsx`: a page gets at most ONE WebGL surface, dynamically imported with SSR off (`next/dynamic`), with a non-WebGL fallback.
 
 ### Vetted external library components
 
