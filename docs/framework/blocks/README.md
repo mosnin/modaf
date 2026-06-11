@@ -67,6 +67,7 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 | Spinner | `ui/spinner.tsx` | Five-bar token-aware loader |
 | Lazy image | `ui/lazy-image.tsx` | Skeletoned aspect-ratio image with in-view loading (needs shadcn aspect-ratio) |
 | Menu toggle | `ui/menu-toggle.tsx` | Hamburger ↔ arrow stroke morph for the mobile nav sheet |
+| Dynamic toolbar | `ui/toolbar-dynamic.tsx` | Icon toolbar that springs open into an inline search input — contextual search over a work surface |
 
 ## Usage Rules
 
@@ -125,6 +126,20 @@ pnpm dlx shadcn@latest add @magicui/<component>
 | Dia text reveal | `pnpm dlx shadcn@latest add @magicui/dia-text-reveal` | Alternate text-reveal treatment — same usage rules as text-reveal above: one scroll-choreography moment per page, pick ONE reveal style per site (never mix both) |
 
 Add to this table as more registry components are vetted — same adaptation rules below apply to registry installs.
+
+### Curated Motion Primitives registry components
+
+[Motion Primitives](https://motion-primitives.com) is a second copy-in registry (Motion/framer-motion based, code lands in the project like shadcn). Install on demand with:
+
+```bash
+npx motion-primitives@latest add <component>
+```
+
+| Component | Install | Use for |
+|---|---|---|
+| Border trail | `npx motion-primitives@latest add border-trail` | Animated light tracing a container's border — signals "live/working" on exactly ONE element (active AI-assistant card, processing state, or the highlighted pricing tier). Counts against the restraint budget (`signature_interactions.md`); on every card it reads as the vibecoded glow the banned-defaults list exists to kill. Retheme the trail to the direction's accent. |
+
+Same adaptation rules as Magic UI registry installs: retheme to the design direction, replace placeholder content, run the banned-defaults check.
 
 ### Vetted external library components
 
