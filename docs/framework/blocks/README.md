@@ -156,6 +156,8 @@ Install: `pnpm add @heroui/react framer-motion` (or slimmer individual packages,
 | `TextField` | Single-line text inputs with built-in label/description/error wiring |
 | `TextArea` | Multiline input with the same field wiring |
 | `ErrorMessage` | Validation error text wired to HeroUI fields — use alongside `TextField`/`DateField` etc. so errors announce correctly |
+| `ComboBox` | Autocomplete/typeahead selects with field wiring — overlaps shadcn's Command+Popover combobox pattern; prefer HeroUI's when its fields are already in the form |
+| `Accordion` | Expandable disclosure sections — FAQ panels, settings groups; overlaps shadcn `Accordion` |
 | `Dropdown` | Action menus on a trigger — row actions, account menus; overlaps shadcn `DropdownMenu` |
 | `Popover` | Anchored floating panels — filter popovers, inline pickers |
 | `Tooltip` | Hover/focus tooltips |
