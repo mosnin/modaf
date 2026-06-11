@@ -126,6 +126,20 @@ pnpm dlx shadcn@latest add @magicui/<component>
 
 Add to this table as more registry components are vetted — same adaptation rules below apply to registry installs.
 
+### Vetted external library components
+
+For complex primitives the block library and shadcn don't cover well, these packaged libraries are vetted — **scoped to the listed use only**, never adopted as a second design system:
+
+| Component(s) | Library / Install | Use for |
+|---|---|---|
+| `DatePicker`, `DateField`, `Calendar` (+ `Label`) | HeroUI — `pnpm add @heroui/react framer-motion` (or the slimmer individual packages, e.g. `@heroui/date-picker @heroui/calendar`) | Date and time inputs — booking forms, scheduling, date-range filters. The strongest accessible date stack available off the shelf. |
+
+HeroUI integration requirements:
+- Wrap the app (or just the subtree that uses it) in `HeroUIProvider`, and add HeroUI's `heroui()` plugin to the Tailwind config per its docs
+- **Scope discipline:** use HeroUI only for the components listed above — buttons, cards, dialogs etc. stay shadcn/block-library so the product has ONE design language
+- Retheme via HeroUI's theme tokens to match `docs/project/09_design_direction.md` (radius posture, accent, focus rings) — an unthemed HeroUI date picker visibly belongs to a different system
+- Weigh the bundle cost: prefer individual packages over the full `@heroui/react` when only dates are needed
+
 ### Rules for MCP-fetched components
 
 The same rules as library blocks apply, plus:
