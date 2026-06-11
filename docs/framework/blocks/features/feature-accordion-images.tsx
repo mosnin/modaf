@@ -1,0 +1,99 @@
+// Block: Feature accordion with images — compact accordion list where each feature expands
+// to a large product image + description. Source: 21st.dev community.
+// Adapt: real features/screenshots only, real counts or remove them; restyle per direction
+// (swap hardcoded grays for semantic tokens when adapting).
+"use client";
+
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from "next/image";
+
+export default function FeatureAccordionImages() {
+  // PLACEHOLDER features — replace with this product's real capabilities and screenshots
+  const features = [
+    {
+      id: "item-1",
+      title: "AI-Powered Automation",
+      count: 24,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-02.png",
+      description: "Replace with a concrete claim for this feature."
+    },
+    {
+      id: "item-2",
+      title: "Real-Time Analytics",
+      count: 12,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-gradient.png",
+      description: "Replace with a concrete claim for this feature."
+    },
+    {
+      id: "item-3",
+      title: "Seamless Integrations",
+      count: 18,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-01.png",
+      description: "Replace with a concrete claim for this feature."
+    },
+    {
+      id: "item-4",
+      title: "Scalable Infrastructure",
+      count: 30,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-06.png",
+      description: "Replace with a concrete claim for this feature."
+    },
+    {
+      id: "item-5",
+      title: "Advanced Security",
+      count: 15,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm-featured.png",
+      description: "Replace with a concrete claim for this feature."
+    },
+    {
+      id: "item-6",
+      title: "Collaboration Tools",
+      count: 22,
+      image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-02.png",
+      description: "Replace with a concrete claim for this feature."
+    }
+  ];
+
+  return (
+    <div className="flex flex-col w-full max-w-xl mx-auto border rounded-xl shadow-sm bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-700 p-4">
+      <Accordion type="single" collapsible className="w-full">
+        {features.map((feature) => (
+          <AccordionItem
+            key={feature.id}
+            value={feature.id}
+            className="border-b border-gray-200 dark:border-neutral-700"
+          >
+            <AccordionTrigger className="flex items-center gap-3 py-3 text-left">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                width={28}
+                height={28}
+                className="rounded-md"
+              />
+              <span className="flex-1 font-medium">{feature.title}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">
+                ({feature.count})
+              </span>
+            </AccordionTrigger>
+
+            <AccordionContent className="px-2 pb-4 pt-2 space-y-3">
+              <div className="w-full flex justify-center">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  width={500}
+                  height={300}
+                  className="rounded-lg shadow-md object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                {feature.description}
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  );
+}

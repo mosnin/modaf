@@ -8,6 +8,7 @@ Email templates (Phase 12) are complete.
 - `docs/framework/website/design_directions.md` — banned defaults and distinctiveness checks
 - `docs/framework/website/signature_interactions.md` — motion identity, hero moment, craft details
 - `docs/framework/website/site_composition.md` — MANDATORY — section library, page selection, blueprint process
+- `docs/framework/blocks/README.md` — block library registry — blocks-first when building selected sections
 - `docs/framework/website/saas_home_page_system.md` — section anatomy reference (menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md` — multi-page site structure
 - `docs/framework/website/design_system_tokens.md` — public site visual tokens

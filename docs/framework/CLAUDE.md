@@ -239,6 +239,7 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
 - `docs/framework/website/signature_interactions.md` (motion identity, hero moment, craft details)
 - `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection conditions, blueprint process)
+- `docs/framework/blocks/README.md` (block library — blocks-first when a block matches a selected section)
 - `docs/framework/website/saas_home_page_system.md` (section anatomy reference — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`
 - `docs/framework/website/design_system_tokens.md`
@@ -373,6 +374,7 @@ docs/
       22_pattern_snapshot.md           # Pattern capture system — prevents drift across phases
       23_ai_module.md                  # Default-on AI assistant — tools, permissions, approval UX, guardrails
       24_realtime_and_data.md          # Real-time tiers (polling/SSE/websockets) + external API connector pattern
+    blocks/                            # Block library — copy-paste React blocks (see blocks/README.md); blocks-first when building sections
     templates/                         # Blank templates with examples for project docs
     prompts/                           # Kickoff sequence and master execution prompt
     phases/                            # Phase-specific index files (what to read, build, verify per phase)

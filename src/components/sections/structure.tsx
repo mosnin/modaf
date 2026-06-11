@@ -80,6 +80,18 @@ const treeElements: TreeViewElement[] = [
         ],
       },
       {
+        id: "blocks",
+        name: "blocks/",
+        type: "folder",
+        children: [
+          { id: "b1", name: "README.md", type: "file" },
+          { id: "b2", name: "features/", type: "file" },
+          { id: "b3", name: "heroes/", type: "file" },
+          { id: "b4", name: "ai/", type: "file" },
+          { id: "b5", name: "...", type: "file" },
+        ],
+      },
+      {
         id: "prompts",
         name: "prompts/",
         type: "folder",

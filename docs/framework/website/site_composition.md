@@ -95,6 +95,7 @@ Each entry: the job it does, when to use it, when to skip it. Visual specs live 
 5. **Adjacency** — no two consecutive sections with the same layout skeleton (two card grids in a row, two split sections with the same direction). Alternate density and shape.
 6. **Proof placement** — at least one proof element within the first two viewports; never stack all proof in one block.
 7. **Design direction wins** — section *selection* comes from this file; section *styling* comes from `docs/project/09_design_direction.md`. A direction's signature moves may restyle any section and override generic taste rules in other website docs.
+8. **Blocks first** — when building a selected section, check the block library (`docs/framework/blocks/README.md`) before writing from scratch: if a block matches the section type, copy it into `src/components/blocks/`, replace its placeholder content, and restyle it to the direction. Scratch-building is the fallback.
 
 ---
 

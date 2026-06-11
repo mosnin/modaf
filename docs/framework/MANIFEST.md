@@ -48,6 +48,14 @@
 | `nextjs_folder_structure.md` | Recommended folder structure for the public website routes and components | 13 |
 | `sitemap_diagram.md` | Information architecture and canonical sitemap for public pages | 13 |
 
+## Block Library (`docs/framework/blocks/`)
+
+| File | One-line Description | Phase |
+|------|---------------------|-------|
+| `README.md` | Block registry + usage rules — pre-built copy-paste React blocks; always check before building sections from scratch | 8, 9, 13 |
+| `BLOCKS_QUEUE.md` | Components received but not yet imported into the library | — |
+| `features/`, `heroes/`, `stats/`, `testimonials/`, `faq/`, `pricing/`, `integrations/`, `auth/`, `ai/`, `backgrounds/`, `tables/`, `ui/` | One self-contained `.tsx` block per file, registry in README | 8, 9, 13 |
+
 ## Templates (`docs/framework/templates/`)
 
 | File | One-line Description | Phase |
