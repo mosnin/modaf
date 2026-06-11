@@ -27,6 +27,11 @@ Architecture plan confirmed. No source code exists yet.
 - API route helpers
 - Error handling utilities
 
+### Component Discovery (Magic UI MCP, default-on)
+- Write `.mcp.json` at the project root registering the Magic UI MCP (see `docs/framework/blocks/README.md` § Discovery Beyond the Library):
+  `{ "mcpServers": { "magicui": { "command": "npx", "args": ["-y", "@magicuidesign/mcp@latest"] } } }`
+- This enables the component lookup order for all later phases: block library → Magic UI MCP → scratch
+
 ### Error Tracking (Sentry, default-on)
 - Install and configure `@sentry/nextjs` (instrumentation files, client/server/edge configs, source maps upload in CI when available)
 - `SENTRY_DSN` in env validation as optional — boots cleanly without it in dev, reports in production

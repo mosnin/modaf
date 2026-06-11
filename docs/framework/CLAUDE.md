@@ -157,6 +157,7 @@ Each build phase is a discrete step. At the start of each phase:
 - Shared utilities, types, constants
 - Sentry error tracking (default-on, env-gated DSN)
 - Seed script with realistic demo data for every entity (dev/preview run seeded — views must never demo empty)
+- `.mcp.json` registering the Magic UI MCP for component discovery (lookup order: block library → Magic UI MCP → scratch; see `docs/framework/blocks/README.md`)
 - **Run Phase 4 validation gates before proceeding**
 
 ### Phase 5 — Auth
@@ -239,7 +240,7 @@ Each build phase is a discrete step. At the start of each phase:
 - `docs/framework/website/design_directions.md` (banned defaults + distinctiveness checks)
 - `docs/framework/website/signature_interactions.md` (motion identity, hero moment, craft details)
 - `docs/framework/website/site_composition.md` (MANDATORY — section library, page selection conditions, blueprint process)
-- `docs/framework/blocks/README.md` (block library — blocks-first when a block matches a selected section)
+- `docs/framework/blocks/README.md` (block library — blocks-first; if no block matches, search the Magic UI MCP before building from scratch)
 - `docs/framework/website/saas_home_page_system.md` (section anatomy reference — menu, not checklist)
 - `docs/framework/website/saas_website_page_system.md`
 - `docs/framework/website/design_system_tokens.md`

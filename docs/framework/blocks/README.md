@@ -78,6 +78,60 @@ Hand-built sections drift in quality; these blocks start from proven, polished c
 6. **Dependencies:** blocks assume the standard stack (shadcn/ui primitives in `src/components/ui/`, `cn` in `src/lib/utils`, `lucide-react`, `motion`, Radix). Extra deps are named in each block's header (e.g. `react-use-measure`, `three`). Install missing shadcn primitives via the shadcn CLI.
 7. **Section entrances** follow the site's scroll-reveal vocabulary (`signature_interactions.md`) — wrap blocks in the project's reveal component unless the block carries its own (noted in header); never double-wrap.
 
+## Discovery Beyond the Library — Magic UI MCP
+
+The static library can't hold everything. Every generated project also registers the **Magic UI MCP server**, which lets the agent search and fetch Magic UI components (animated effects, text effects, buttons, backgrounds, device mocks, and more) on demand.
+
+**Component lookup order (always):**
+1. **Block library** (this folder) — proven, pre-adapted compositions
+2. **Magic UI MCP** — search it when no block matches the needed component/effect
+3. **Build from scratch** — last resort
+
+### Setup (done in Phase 4)
+
+Register the MCP project-scoped so every session in the project gets it — write `.mcp.json` at the project root:
+
+```json
+{
+  "mcpServers": {
+    "magicui": {
+      "command": "npx",
+      "args": ["-y", "@magicuidesign/mcp@latest"]
+    }
+  }
+}
+```
+
+Equivalent one-liner (installs into Claude Code for the current user instead):
+
+```bash
+pnpm dlx @magicuidesign/cli@latest install claude
+```
+
+### Curated Magic UI registry components
+
+These are vetted Magic UI components installable directly from the shadcn registry — no source copying needed. Install on demand with:
+
+```bash
+pnpm dlx shadcn@latest add @magicui/<component>
+```
+
+| Component | Install | Use for |
+|---|---|---|
+| Hero video dialog | `pnpm dlx shadcn@latest add @magicui/hero-video-dialog` | Hero demo-video lightbox — a strong "live product theater" hero moment (`site_composition.md`); thumbnail must be a real product frame |
+| Animated list | `pnpm dlx shadcn@latest add @magicui/animated-list` | Auto-animating notification/activity list — feature illustrations and live dashboard feed cells (pairs with the live UI rules in `24_realtime_and_data.md`) |
+| Avatar circles | `pnpm dlx shadcn@latest add @magicui/avatar-circles` | Overlapping avatar stack with +N count — social proof microcopy under hero CTAs (real users only) and presence stacks (tier 3 realtime) |
+
+Add to this table as more registry components are vetted — same adaptation rules below apply to registry installs.
+
+### Rules for MCP-fetched components
+
+The same rules as library blocks apply, plus:
+- Fetched components land in `src/components/blocks/` (or `src/components/ui/` for primitives) — copy-owned, never referenced from a registry at runtime
+- Restyle to the design direction, replace placeholder content, run the banned-defaults check — an effect being fetchable doesn't make it direction-appropriate
+- Check the dependency cost before adopting (some components pull heavy libs); note extra deps in the file header like library blocks do
+- A fetched component that proves broadly useful should be **promoted into this library** (file + registry row) so future projects get it without the MCP round-trip
+
 ## Adding Blocks
 
 New blocks land as one self-contained file per block in the matching category folder, plus a registry row above. Header comment carries source attribution and adaptation notes. Only runtime-critical fixes are applied on import (SSR guards, broken imports, id types); fidelity to the source otherwise. Pending items are tracked in `BLOCKS_QUEUE.md`.
