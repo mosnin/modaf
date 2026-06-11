@@ -208,6 +208,18 @@ HeroUI integration requirements:
 - Retheme via HeroUI's theme tokens to match `docs/project/09_design_direction.md` (radius posture, accent, focus rings) — an unthemed HeroUI component visibly belongs to a different system
 - Weigh the bundle cost: prefer individual packages over the full `@heroui/react` when only a few components are needed
 
+#### Once UI
+
+Install: `npm install @once-ui-system/core`. Once UI is a **full design system** (its components expect Once UI's provider and token CSS), so it carries the strictest adoption rule here: bring it in only when a specific component justifies carrying its provider + styles, mounted around that subtree only — never as the app's base system, and never its layout primitives (`Flex`, `Column`, `Grid`) or theme in a shadcn/Tailwind MODAF project.
+
+| Component(s) | Use for |
+|---|---|
+| `CodeBlock` | Rich code presentation — syntax highlighting, copy button, line highlighting — for developer-tool marketing pages and docs surfaces |
+| `LetterFx`, `GlitchFx`, `TiltFx`, `HoloFx` | Direction-gated effects: terminal-style letter scramble suits Terminal/Industrial, tilt/holo suit Playful Geometric — one effect per site, counts against the restraint budget, and must pass the banned-defaults check |
+| `Carousel` | Touch-friendly media carousels for product screenshot galleries — only when the gallery genuinely needs swiping, not as a way to hide weak screenshots |
+
+If a Once UI component is wanted but the provider cost isn't justified, rebuild the visual as a one-file block instead (the usual promotion path) and skip the dependency.
+
 ### Rules for MCP-fetched components
 
 The same rules as library blocks apply, plus:
