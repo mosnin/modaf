@@ -135,6 +135,17 @@ Add to this table as more registry components are vetted — same adaptation rul
 npx motion-primitives@latest add <component>
 ```
 
+Prerequisites (already satisfied by the default MODAF stack): `motion`, `lucide-react`, and the standard `cn` utility in `src/lib/utils`:
+
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
 | Component | Install | Use for |
 |---|---|---|
 | Border trail | `npx motion-primitives@latest add border-trail` | Animated light tracing a container's border — signals "live/working" on exactly ONE element (active AI-assistant card, processing state, or the highlighted pricing tier). Counts against the restraint budget (`signature_interactions.md`); on every card it reads as the vibecoded glow the banned-defaults list exists to kill. Retheme the trail to the direction's accent. |
@@ -144,6 +155,7 @@ npx motion-primitives@latest add <component>
 | Scroll progress | `npx motion-primitives@latest add scroll-progress` | Thin scroll-position progress bar — long-form reading surfaces only (blog posts, docs, changelog entries). Skip on marketing pages and the app shell; style at 2-3px in the direction's accent. |
 | Spotlight | `npx motion-primitives@latest add spotlight` | Cursor-following spotlight inside a container — same restraint class as glow-effect: ONE surface per site (a single hero panel or the highlighted bento cell), subtle radius/opacity in the direction's accent, never repeated across a card grid (the spotlight-on-every-card pattern is vibecoded shorthand). Pointer-only — must degrade to nothing on touch and under `prefers-reduced-motion`. |
 | Progressive blur | `npx motion-primitives@latest add progressive-blur` | Gradient-strength blur overlay — functional uses: legibility scrim under text on imagery, fade-out edges on overflowing lists/sliders (pairs with the integrations slider), image-card hover reveals. Functional, not decorative — if it isn't earning legibility or signaling overflow, leave it out; mind GPU cost on long lists. |
+| Text effect | `npx motion-primitives@latest add text-effect` | Per-character/word/line text entrance (fade, blur, slide presets) — hero headline entrance and onboarding welcome beats. Subject to the one-reveal-style rule (`signature_interactions.md`): pick this OR a Magic UI text reveal for the site, never both; headings only, never body copy; respect `prefers-reduced-motion`. |
 
 Same adaptation rules as Magic UI registry installs: retheme to the design direction, replace placeholder content, run the banned-defaults check.
 
