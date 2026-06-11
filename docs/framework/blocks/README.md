@@ -121,6 +121,7 @@ pnpm dlx shadcn@latest add @magicui/<component>
 | Hero video dialog | `pnpm dlx shadcn@latest add @magicui/hero-video-dialog` | Hero demo-video lightbox — a strong "live product theater" hero moment (`site_composition.md`); thumbnail must be a real product frame |
 | Animated list | `pnpm dlx shadcn@latest add @magicui/animated-list` | Auto-animating notification/activity list — feature illustrations and live dashboard feed cells (pairs with the live UI rules in `24_realtime_and_data.md`) |
 | Avatar circles | `pnpm dlx shadcn@latest add @magicui/avatar-circles` | Overlapping avatar stack with +N count — social proof microcopy under hero CTAs (real users only) and presence stacks (tier 3 realtime) |
+| Text reveal | `pnpm dlx shadcn@latest add @magicui/text-reveal` | Scroll-driven word-by-word text reveal — statement sections between content; counts as the page's one scroll-choreography moment (`signature_interactions.md`), best for Editorial/Luxury directions |
 
 Add to this table as more registry components are vetted — same adaptation rules below apply to registry installs.
 
