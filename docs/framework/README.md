@@ -16,28 +16,47 @@ This repo provides a two layer system:
 
 Inside a new project repository:
 
-1. Clone this repository into `docs/framework`
-2. Read all files in:
-   - `docs/framework/website`
-   - `docs/framework/internal`
-   - `docs/framework/templates`
-   - `docs/framework/prompts`
-3. Generate `docs/project/*` from the template files based on the app idea
+1. Import the framework pack into `docs/framework`:
+
+   ```bash
+   npx degit mosnin/modaf/docs/framework docs/framework
+   ```
+
+2. Activate it by referencing it from your project's root `CLAUDE.md`:
+
+   ```bash
+   echo "@docs/framework/CLAUDE.md" >> CLAUDE.md
+   ```
+
+3. Start a Claude Code session and describe your app idea. The framework works in phases: it interviews you, generates `docs/project/*` from the template files, plans the architecture, and only then begins implementation.
 4. Treat:
    - `docs/framework/*` as reusable defaults
    - `docs/project/*` as app specific source of truth
-5. Only then begin implementation
 
 ## Repository Structure
 
 ```text
 docs/
   framework/
+    CLAUDE.md      # Phase-by-phase operating instructions for the agent
+    MANIFEST.md    # One-line description of every file
     website/
     internal/
     templates/
     prompts/
+    phases/
 ```
+
+## Versioning & Updating
+
+The framework version lives in `docs/framework/VERSION` (currently **2.0.0**). Because `docs/framework/*` must never be modified inside a project (it holds reusable defaults; app-specific docs live in `docs/project/`), updating an existing project to a newer framework is a clean replace:
+
+```bash
+rm -rf docs/framework
+npx degit mosnin/modaf/docs/framework docs/framework
+```
+
+Your `docs/project/*` files are untouched — they are the app's source of truth and always win over framework defaults. After updating, check `VERSION` and skim `MANIFEST.md` for new files; an in-flight build simply picks up the new defaults from its current phase onward.
 
 ## Framework Philosophy
 

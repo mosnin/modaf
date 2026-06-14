@@ -32,9 +32,11 @@ export function TypingCycle({
 
     if (isDeleting && displayText === "") {
       // Move to next word
-      setIsDeleting(false);
-      setCurrentWordIndex((prev) => (prev + 1) % words.length);
-      return;
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      }, deletingSpeed);
+      return () => clearTimeout(timeout);
     }
 
     const timeout = setTimeout(

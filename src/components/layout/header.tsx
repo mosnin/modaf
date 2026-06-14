@@ -45,7 +45,7 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/mosnin/LoxSammy"
+              href="https://github.com/mosnin/modaf"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2 h-9 px-4 text-sm font-semibold rounded-full bg-magenta text-white hover:bg-magenta/90 transition-colors duration-150"
@@ -107,7 +107,7 @@ export function Header() {
 
             <div className="px-6 pb-8">
               <a
-                href="https://github.com/mosnin/LoxSammy"
+                href="https://github.com/mosnin/modaf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glow-button flex items-center justify-center gap-2 w-full h-12 text-base font-semibold rounded-xl text-white"

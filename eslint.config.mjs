@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Framework block library — template files for generated projects, not part of this app
+    "docs/**",
   ]),
 ]);
 

@@ -30,9 +30,9 @@ const steps = [
     shineColor: "#00B4FF",
     beamFrom: "#00B4FF",
     beamTo: "#FFE500",
-    title: "Clone the framework",
+    title: "Import the framework",
     description:
-      "Add MODAF to your project with a single command. The framework installs as structured documentation inside your repo. No runtime dependencies, no lock-in.",
+      "Add MODAF to your project with a single command, then point your root CLAUDE.md at it. The framework installs as structured documentation inside your repo. No runtime dependencies, no lock-in.",
   },
   {
     number: "03",

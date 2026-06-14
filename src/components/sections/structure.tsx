@@ -10,14 +10,16 @@ const treeElements: TreeViewElement[] = [
     name: "docs/framework/",
     type: "folder",
     children: [
-      { id: "qs", name: "QUICK_START.md", type: "file" },
-      { id: "gl", name: "GLOSSARY.md", type: "file" },
+      { id: "cl", name: "CLAUDE.md", type: "file" },
       { id: "mf", name: "MANIFEST.md", type: "file" },
       {
         id: "website",
         name: "website/",
         type: "folder",
         children: [
+          { id: "w0", name: "design_directions.md", type: "file" },
+          { id: "w10", name: "site_composition.md", type: "file" },
+          { id: "w11", name: "signature_interactions.md", type: "file" },
           { id: "w1", name: "saas_home_page_system.md", type: "file" },
           { id: "w9", name: "saas_website_page_system.md", type: "file" },
           { id: "w2", name: "design_system_tokens.md", type: "file" },
@@ -56,12 +58,8 @@ const treeElements: TreeViewElement[] = [
           { id: "i20", name: "20_subagent_dispatch.md", type: "file" },
           { id: "i21", name: "21_validation_gates.md", type: "file" },
           { id: "i22", name: "22_pattern_snapshot.md", type: "file" },
-          { id: "i23", name: "23_escape_hatches.md", type: "file" },
-          { id: "i24", name: "24_error_recovery.md", type: "file" },
-          { id: "i25", name: "25_doctor_mode.md", type: "file" },
-          { id: "i26", name: "26_observability.md", type: "file" },
-          { id: "i27", name: "27_performance.md", type: "file" },
-          { id: "i28", name: "28_accessibility.md", type: "file" },
+          { id: "i23", name: "23_ai_module.md", type: "file" },
+          { id: "i24", name: "24_realtime_and_data.md", type: "file" },
         ],
       },
       {
@@ -78,6 +76,28 @@ const treeElements: TreeViewElement[] = [
           { id: "t7", name: "06_permissions_matrix_template.md", type: "file" },
           { id: "t8", name: "07_acceptance_criteria_template.md", type: "file" },
           { id: "t9", name: "08_qa_checklist_template.md", type: "file" },
+          { id: "t10", name: "09_design_direction_template.md", type: "file" },
+        ],
+      },
+      {
+        id: "blocks",
+        name: "blocks/",
+        type: "folder",
+        children: [
+          { id: "b1", name: "README.md", type: "file" },
+          { id: "b2", name: "features/", type: "file" },
+          { id: "b3", name: "heroes/", type: "file" },
+          { id: "b4", name: "ai/", type: "file" },
+          { id: "b5", name: "...", type: "file" },
+        ],
+      },
+      {
+        id: "prompts",
+        name: "prompts/",
+        type: "folder",
+        children: [
+          { id: "pr1", name: "00_kickoff_system.md", type: "file" },
+          { id: "pr2", name: "00_master_execution_prompt_template.md", type: "file" },
         ],
       },
       {
@@ -89,7 +109,7 @@ const treeElements: TreeViewElement[] = [
           { id: "p2", name: "phase_01_discovery.md", type: "file" },
           { id: "p3", name: "phase_02_project_docs.md", type: "file" },
           { id: "p4", name: "...", type: "file" },
-          { id: "p5", name: "phase_14_polish.md", type: "file" },
+          { id: "p5", name: "phase_15_ship.md", type: "file" },
         ],
       },
     ],
@@ -126,7 +146,7 @@ export function StructureSection() {
           </h2>
           <p className="mt-4 text-lg text-white/50 max-w-xl">
             MODAF contains no code, only structured documentation that guides
-            your AI agent through every decision. Four directories, each with a
+            your AI agent through every decision. Five directories, each with a
             clear purpose.
           </p>
         </ScrollReveal>
@@ -135,7 +155,7 @@ export function StructureSection() {
           <div className="mt-12 relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6 md:p-8">
             <Tree
               elements={treeElements}
-              initialExpandedItems={["docs", "website", "internal", "templates", "phases"]}
+              initialExpandedItems={["docs", "website", "internal", "templates", "prompts", "phases"]}
               className="text-white/70 [&_button]:text-white/70 [&_svg]:text-white/40 [&_button:hover]:text-white [&_.bg-muted]:bg-white/10"
               sort="none"
             />

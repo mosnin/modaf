@@ -88,7 +88,7 @@ export function HeroSection() {
         transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
         className="relative z-10 mt-8 w-full max-w-lg"
       >
-        <CopyCommand command="git clone https://github.com/mosnin/LoxSammy docs/framework" />
+        <CopyCommand command="npx degit mosnin/modaf/docs/framework docs/framework" />
       </motion.div>
 
       <motion.div
@@ -104,7 +104,7 @@ export function HeroSection() {
           <span className="relative z-10">Get Started</span>
         </MagneticButton>
         <MagneticButton
-          href="https://github.com/mosnin/LoxSammy"
+          href="https://github.com/mosnin/modaf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 h-[44px] sm:h-[52px] px-5 sm:px-8 text-sm sm:text-base font-semibold rounded-full border border-white/20 text-white hover:bg-white/5 transition-all duration-150"
